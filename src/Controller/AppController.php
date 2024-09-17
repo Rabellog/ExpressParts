@@ -44,23 +44,23 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', 
-        ['authError' => 'Você não tem permissão para acessar essa área!',
-        'authorize' => ['Controller'],
+        [ 'authenticate' => [
+            'Form' => [
+                'fields' => [
+                    'username' => 'username',
+                    'password' => 'password'
+                ]
+            ]
+        ],
         'loginRedirect' => [
             'controller' => 'Pages',
-            'action' => 'display',
-            'home'
+            'action' => 'homeAdm'
         ],
         'logoutRedirect' => [
             'controller' => 'Pages',
-            'action' => 'display',
-            'home'
+            'action' => 'index'
         ],
-        'unauthorizedRedirect' => [
-            'controller' => 'Pages',
-            'action' => 'display',
-            'home'
-        ]
+        'authorize' => ['Controller'],
         ]);
         $userSessao = $this->Auth->user();
         //$controller=$this->request->getParam('controller');
@@ -76,7 +76,6 @@ class AppController extends Controller
     public function beforeRender(EventInterface  $event) 
     {
         $this->viewBuilder()->setTheme('AdminLTE'); 
-        $this->Auth->allow(['display']);
     } 
 
     // Função que define quais ações podem ser feitas pelos usuários antes da autenticação
@@ -84,7 +83,18 @@ class AppController extends Controller
     {
         parent::beforeFilter($event);
 
-        // Permite acesso à página home
-        $this->Auth->allow(['display']);
+        // Permite acesso à páginas específicas sem login necessário
+        $this->Auth->allow(['display', 'login', 'logout']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin pode acessar todas as actions
+        //
+        if((isset($user['role'] )) && $user['active'] === 1) {
+            return true;
+        }
+        // Bloqueia acesso por padrão
+        return false;
     }
 }
