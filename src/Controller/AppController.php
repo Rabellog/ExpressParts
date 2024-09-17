@@ -43,16 +43,48 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent('Auth', 
+        ['authError' => 'Você não tem permissão para acessar essa área!',
+        'authorize' => ['Controller'],
+        'loginRedirect' => [
+            'controller' => 'Pages',
+            'action' => 'display',
+            'home'
+        ],
+        'logoutRedirect' => [
+            'controller' => 'Pages',
+            'action' => 'display',
+            'home'
+        ],
+        'unauthorizedRedirect' => [
+            'controller' => 'Pages',
+            'action' => 'display',
+            'home'
+        ]
+        ]);
+        $userSessao = $this->Auth->user();
+        //$controller=$this->request->getParam('controller');
+        //$action=$this->request->getParam('action');
+        $this->set(compact('userSessao'));
         /*
-         * Enable the following component for recommended CakePHP form protection settings.
-         * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
-         */
+        * Enable the following component for recommended CakePHP form protection settings.
+        * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
+        */
         //$this->loadComponent('FormProtection');
     }
 
     public function beforeRender(EventInterface  $event) 
     {
         $this->viewBuilder()->setTheme('AdminLTE'); 
+        $this->Auth->allow(['display']);
     } 
+
+    // Função que define quais ações podem ser feitas pelos usuários antes da autenticação
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        // Permite acesso à página home
+        $this->Auth->allow(['display']);
+    }
 }
