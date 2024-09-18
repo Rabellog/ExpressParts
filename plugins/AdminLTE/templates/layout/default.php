@@ -28,30 +28,26 @@
   <![endif]-->
 
   <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <?php echo $this->fetch('css'); ?>
 
 </head>
 <body class="hold-transition skin-<?php echo Configure::read('Theme.skin'); ?> sidebar-mini">
-<div class="wrapper">
+<div>
 
   <header class="main-header">
-    <!-- Logo -->
-    <a href="<?php echo $this->Url->build('/'); ?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><?php echo Configure::read('Theme.logo.mini'); ?></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><?php echo Configure::read('Theme.logo.large'); ?></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
     <?php echo $this->element('nav-top'); ?>
   </header>
 
   <?php echo $this->element('aside-main-sidebar'); ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div>
 
     <?php echo $this->Flash->render(); ?>
     <?php echo $this->Flash->render('auth'); ?>

@@ -1,75 +1,103 @@
-/* Home page styles */
-@font-face {
-    font-family: 'cakefont';
-    src: url('../font/cakedingbats-webfont.eot');
-    src: url('../font/cakedingbats-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../font/cakedingbats-webfont.woff2') format('woff2'),
-    url('../font/cakedingbats-webfont.woff') format('woff'),
-    url('../font/cakedingbats-webfont.ttf') format('truetype'),
-    url('../font/cakedingbats-webfont.svg#cake_dingbatsregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-body {
-    padding: 60px 0;
-}
-header {
-    margin-bottom: 60px;
-}
-img {
-    margin-bottom: 30px;
-}
-h1 {
-    font-weight: bold;
-}
-ul {
-    list-style-type: none;
-    margin: 0 0 30px 0;
-    padding-left: 25px;
-}
-a {
-    color: #0071BC;
-    text-decoration: underline;
-}
-hr {
-    border-bottom: 1px solid #e7e7e7;
-    border-top: 0;
-    margin-bottom: 35px;
+:root{
+    --color-orange:#FCA311;
+    --color-orange-hover:#d6890e;
+    --color-highlight:#4A4A4A;
+    --color-highlight-hover:#636363;
+    --color-secundary:#2C2C2C;
+    --color-background:#1E1E1E;
 }
 
-.text-center {
+body{
+    background-color: var(--color-background);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+h1{
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 24px;
+    color: var(--color-orange);
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    padding: 40px;
+    width: 100%;
+    background-color:var(--color-secundary);
+}
+
+i{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
+    color: var(--color-orange);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    padding: 20px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: var(--color-highlight);
 }
-.links a {
-    margin-right: 10px;
+
+.card p{
+    color: #fff;
+    width: 140px;
+    flex-grow: 1;
 }
-.release-name {
-    color: #D33C43;
-    font-weight: 400;
-    font-style: italic;
+
+.buttonCard{
+    margin-top: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-orange);
+    cursor: pointer;
+    align-self: center;
+    width: 100px;
 }
-.bullet:before {
-    font-family: 'cakefont', sans-serif;
-    font-size: 18px;
-    display: inline-block;
-    margin-left: -1.3em;
-    width: 1.2em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    vertical-align: -1px;
+
+h2{
+  margin: 40px auto;
+  font-family: "Mulish", system-ui;
+  font-size: 40px;
+  font-weight: 1000;
+  color: var(--color-orange);
 }
-.success:before {
-    color: #88c671;
-    content: "\0056";
+
+/* Início da Configuração dos Inputs */
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 50px 0;
 }
-.problem:before {
-    color: #d33d44;
-    content: "\0057";
+
+.input-search {
+    width: 250px;
+    height: 35px;
+    padding-left: 8px;
+    border: 0.5px solid #E1DFDF;
 }
-.cake-error {
-    padding: 10px;
-    margin: 10px 0;
-}
-#url-rewriting-warning {
-    display: none;
+
+.input-search:focus {
+    outline: none;
 }
