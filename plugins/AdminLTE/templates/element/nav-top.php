@@ -6,7 +6,7 @@
     <li><a href="#">Adicionar carro</a></li>
     <li><a href="#">Adicionar peça</a></li>
   </ul>
-  <button class="login">Acesso Administrativo</button>
+  <button class="login" onclick="location.href='login'">Acesso Administrativo</button>
 </nav>
 
 <?php echo $this->Html->css('nav.css'); ?>

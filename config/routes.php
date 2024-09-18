@@ -66,6 +66,7 @@ return function (RouteBuilder $routes): void {
         $builder->connect('/usuarios/adicionar',['controller' => 'Users','action' => 'add']);
         $builder->connect('/usuarios/visualizar/*',['controller' => 'Users','action' => 'view']);
         $builder->connect('/usuarios/editar/*',['controller' => 'Users','action' => 'edit']);
+        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login']);
 
         $builder->connect('/carros',['controller' => 'Cars','action' => 'index']);
         $builder->connect('/carros/adicionar',['controller' => 'Cars','action' => 'add']);
