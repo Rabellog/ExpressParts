@@ -4,13 +4,13 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # Node artifact files
-node_modules/
+#node_modules/
 #dist/
 
 vendor/
 tmp/
-webroot/.htaccess
-.htaccess
+#webroot/.htaccess
+#.htaccess
 
 # Compiled Java class files
 *.class
