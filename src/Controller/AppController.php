@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -14,7 +15,9 @@ declare(strict_types=1);
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
+
 use Cake\Event\EventInterface;
 use Cake\Controller\Controller;
 
@@ -43,25 +46,21 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Auth', 
-        [ 'authenticate' => [
-            'Form' => [
-                'fields' => [
-                    'username' => 'username',
-                    'password' => 'password'
+        $this->loadComponent(
+            'Auth',
+            [
+                'authError' => 'Você não tem permissão para acessar essa área!',
+                'authorize' => ['Controller'],
+                'loginRedirect' => [
+                    'controller' => 'Panels',
+                    'action' => 'index'
+                ],
+                'logoutRedirect' => [
+                    'controller' => 'Users',
+                    'action' => 'login'
                 ]
             ]
-        ],
-        'loginRedirect' => [
-            'controller' => 'Pages',
-            'action' => 'homeAdm'
-        ],
-        'logoutRedirect' => [
-            'controller' => 'Pages',
-            'action' => 'index'
-        ],
-        'authorize' => ['Controller'],
-        ]);
+        );
         $userSessao = $this->Auth->user();
         //$controller=$this->request->getParam('controller');
         //$action=$this->request->getParam('action');
