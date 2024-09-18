@@ -90,10 +90,10 @@ class AppController extends Controller
     {
         // Admin pode acessar todas as actions
         //
-        if((isset($user['role'] )) && $user['active'] === 1) {
+        if((isset($user['role'] )) && $user['ativo'] === 1) {
             return true;
         }
-        // Bloqueia acesso por padrão
+        // Bloqueia acesso por padrÃ£o
         return false;
     }
 }
