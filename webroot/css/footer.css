@@ -1,0 +1,16 @@
+:root{
+    --color-orange:#FCA311;
+    --color-white:#fff;
+}
+
+footer{
+    display: flex;
+    position:relative;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    height: 90px;
+    width: 100%;
+}
