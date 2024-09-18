@@ -53,6 +53,7 @@ class PartsController extends AppController
         $part = $this->Parts->newEmptyEntity();
         if ($this->request->is('post')) {
             $part = $this->Parts->patchEntity($part, $this->request->getData());
+            $part->users_id = $this->Auth->user('id');
             if ($this->Parts->save($part)) {
                 $this->Flash->success(__('The {0} has been saved.', 'Part'));
 
@@ -80,6 +81,7 @@ class PartsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $part = $this->Parts->patchEntity($part, $this->request->getData());
+            $part->modified_by = $this->Auth->user('id');
             if ($this->Parts->save($part)) {
                 $this->Flash->success(__('The {0} has been saved.', 'Part'));
 

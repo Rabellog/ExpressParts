@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -14,7 +15,9 @@ declare(strict_types=1);
  * @since     0.2.9
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
+
 namespace App\Controller;
+
 use Cake\Event\EventInterface;
 use Cake\Controller\Controller;
 
@@ -43,11 +46,29 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent(
+            'Auth',
+            [
+                'authError' => 'Você não tem permissão para acessar essa área!',
+                'authorize' => ['Controller'],
+                'loginRedirect' => [
+                    'controller' => 'Panels',
+                    'action' => 'index'
+                ],
+                'logoutRedirect' => [
+                    'controller' => 'Users',
+                    'action' => 'login'
+                ]
+            ]
+        );
+        $userSessao = $this->Auth->user();
+        //$controller=$this->request->getParam('controller');
+        //$action=$this->request->getParam('action');
+        $this->set(compact('userSessao'));
         /*
-         * Enable the following component for recommended CakePHP form protection settings.
-         * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
-         */
+        * Enable the following component for recommended CakePHP form protection settings.
+        * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
+        */
         //$this->loadComponent('FormProtection');
     }
 
@@ -55,4 +76,24 @@ class AppController extends Controller
     {
         $this->viewBuilder()->setTheme('AdminLTE'); 
     } 
+
+    // Função que define quais ações podem ser feitas pelos usuários antes da autenticação
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        // Permite acesso à páginas específicas sem login necessário
+        $this->Auth->allow(['display', 'login', 'logout']);
+    }
+
+    public function isAuthorized($user)
+    {
+        // Admin pode acessar todas as actions
+        //
+        if((isset($user['role'] )) && $user['active'] === 1) {
+            return true;
+        }
+        // Bloqueia acesso por padrão
+        return false;
+    }
 }
