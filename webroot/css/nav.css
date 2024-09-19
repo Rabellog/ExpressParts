@@ -59,3 +59,8 @@ a:hover{
     transition: 3s;
     background-color: var(--color-highlight-hover);
 }
+
+nav{
+    position: fixed;
+    top: 0;
+}
