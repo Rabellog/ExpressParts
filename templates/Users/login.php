@@ -7,14 +7,14 @@
   <label for="">
     <span>Nome de usuário:</span>
     <div class="box-user"><i></i></div>
-    <input name="" type="text">
+    <input name="username" type="text">
   </label>
 
   
   <label for="">
     <span>Senha do usuário:</span>
     <div class="box-user"><i></i></div>
-    <input type="password">
+    <input class="password" type="password">
   </label>
 
   <?= $this->Form->button(__('Acessar')); ?>
