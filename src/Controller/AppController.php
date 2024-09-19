@@ -43,24 +43,25 @@ class AppController extends Controller
     public function initialize(): void
     {
         parent::initialize();
-
-        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent(
-            'Auth',
-            [
-                'authError' => 'Você não tem permissão para acessar essa área!',
-                'authorize' => ['Controller'],
-                'loginRedirect' => [
-                    'controller' => 'Panels',
-                    'action' => 'index'
-                ],
-                'logoutRedirect' => [
-                    'controller' => 'Users',
-                    'action' => 'login'
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'username',
+                        'password' => 'password'
+                    ]
                 ]
+            ],
+            'loginRedirect' => [
+                'controller' => 'Users',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Users',
+                'action' => 'login'
             ]
-        );
+        ]);
         $userSessao = $this->Auth->user();
         //$controller=$this->request->getParam('controller');
         //$action=$this->request->getParam('action');
@@ -83,7 +84,7 @@ class AppController extends Controller
         parent::beforeFilter($event);
 
         // Permite acesso à páginas específicas sem login necessário
-        $this->Auth->allow(['display', 'login', 'logout']);
+        $this->Auth->allow(['display', 'login']);
     }
 
     public function isAuthorized($user)

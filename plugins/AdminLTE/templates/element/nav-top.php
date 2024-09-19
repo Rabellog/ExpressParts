@@ -1,5 +1,3 @@
-<?php echo $this->Html->css('nav.css'); ?>
-
 <nav>
     <ul>
         <li><a href="#">Ver Catálogo</a></li>
