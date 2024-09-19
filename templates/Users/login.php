@@ -2,7 +2,9 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Flash->render() ?>
 
+=======
 <?= $this->Form->create($user) ?>    
+
 <label for="">
     <span>Nome de usuário:</span>
     <div class="box-user"><i></i></div>

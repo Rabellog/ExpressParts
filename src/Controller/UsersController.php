@@ -109,12 +109,21 @@ class UsersController extends AppController
     }
     public function login(){
         if ($this->request->is('post')) {
+            $password = $this->request->getData('password');
+    
+            // Valida a senha antes de prosseguir
+            if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/", $password)) {
+                $this->Flash->error(__('A senha deve possuir, no mínimo: 8 caracteres, 1 letra minúscula, 1 letra maiúscula, 1 número e 1 caractere especial.'));
+                return; 
+            }
+    
             $user = $this->Auth->identify();
             if ($user) {
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
+            } else {
+                $this->Flash->error(__('Usuário ou senha inválidos.'));
             }
-            $this->Flash->error(__('Usuário ou senha inválidos.'));
         }
     }
 
