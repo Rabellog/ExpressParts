@@ -1,0 +1,101 @@
+:root{
+    --color-orange:#FCA311;
+    --color-orange-hover:#a06300;
+    --color-highlight:#4A4A4A;
+    --color-highlight-hover:#636363;
+    --color-secundary:#2C2C2C;
+    --color-background:#1E1E1E;
+}
+
+.modal-dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.modal-body,.modal-body-content{
+    width: 400px;
+    background-color: var(--color-secundary);
+    padding: 30px;
+}
+
+.modal-body h1{
+    margin: 0;
+    margin-left: 30px;
+}
+
+.top-modal{
+    display: flex;
+    align-items: center !important;
+    width: 300px;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 30px;
+}
+
+.top-modal i{
+    color: var(--color-orange);
+    font-size: 24px;
+}
+
+.modal-body-form{
+    display: flex !important;
+    align-items: center;
+
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.button-adicionar{
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--color-orange);
+    color: #fff;
+}
+
+.modal-body-form input{
+    background-color: var(--color-highlight-hover);
+    border: none;
+    width: 200px;
+    height: 35px;
+    border-radius: 0 5px 5px 0;
+}
+
+.box-modal-input {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-highlight);
+    height: 35px;
+}
+
+.box-modal-icon{
+    padding: 8px;
+}
+
+.box-modal-icon i{
+    font-size: 17px;
+}
+
+span{
+    color: #fff;
+    font-family: 'Mulish';
+    font-weight: 400;
+    font-style: normal;
+}
+
+.fechar{
+    border: none;
+    background-color: var(--color-secundary);
+}
