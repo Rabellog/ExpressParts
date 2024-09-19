@@ -2,21 +2,18 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Flash->render() ?>
 
-<?= $this->Form->create() ?>    
-<form action="">
-  <label for="">
+<?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'login']]) ?>    
+<label for="">
     <span>Nome de usuário:</span>
     <div class="box-user"><i></i></div>
-    <input name="" type="text">
-  </label>
+    <?= $this->Form->input('username', ['type' => 'text']); ?>
+</label>
 
-  
-  <label for="">
+<label for="">
     <span>Senha do usuário:</span>
     <div class="box-user"><i></i></div>
-    <input type="password">
-  </label>
+    <?= $this->Form->input('password', ['type' => 'password']); ?>
+</label>
 
-  <?= $this->Form->button(__('Acessar')); ?>
-</form>
-<?= $this->Form->end() ?>
+<?= $this->Form->button(__('Acessar')); ?>
+<?= $this->Form->end(); ?>
