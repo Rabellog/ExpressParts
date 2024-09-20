@@ -23,8 +23,6 @@
           </label>
           <label for="image" class="buttonAnexo">Alterar foto</label>
         </div>
-        <div class="column">
-        </div>
 
         <fieldset>
           <div class="labels-parts">
@@ -60,8 +58,16 @@
           </div>
           <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar']); ?>
         </fieldset>
-        <div class="column">
+
+        <div class="teste">
+        <label>
+              <span>Pesquisa de carros:</span>
+                </span>
+                <input type="text" name="namePart" id="namePart">
+            </label> 
         </div>
+
+      
       </div>
 
       <?php echo $this->Form->end(); ?>

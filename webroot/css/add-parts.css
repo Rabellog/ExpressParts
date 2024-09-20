@@ -11,7 +11,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+    justify-content: space-between;
     gap: 20px;
+}
+
+.modal-input-img label{
+    margin: 0;
 }
 
 .input-img i{
@@ -39,10 +45,29 @@
 fieldset {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     gap: 20px;
-    height: 400px;
+    height: 100%;
+    width: 300px;
+}
+
+.teste{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+}
+
+#namePart{
+    height: 35px;
+    background-color: var(--color-highlight-hover);
+    border: none;
+}
+
+.teste input{
+    border-radius: 5px;
 }
 
 .input-img input[type="file"] {
@@ -80,12 +105,25 @@ fieldset {
     flex-direction: column;
 }
 
+
+.box-modal-input {
+    border-radius: 0 5px 5px 0;
+}
+
 .box-modal-input input{
     background-color: var(--color-highlight-hover);
     border: none;
-    width: 200px;
     height: 35px;
     border-radius: 0 5px 5px 0;
+}
+
+.box-modal-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 37px;
+    height: 37px;
 }
 
 .box-modal-input {
@@ -136,7 +174,7 @@ span{
 .modal-body-form-parts{
     display: flex;
     flex-direction: row;
-    height: 300px;
+    height: 260px;
 }
 
 .labels-parts {

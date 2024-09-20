@@ -75,6 +75,16 @@
     flex-direction: column;
 }
 
+.box-modal-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 37px;
+    height: 37px;
+}
+
+
 .button-adicionar{
     border: none;
     border-radius: 5px;
@@ -82,14 +92,6 @@
     height: 40px;
     background-color: var(--color-orange);
     color: #fff;
-}
-
-.modal-body-form-cars input{
-    background-color: var(--color-highlight-hover);
-    border: none;
-    height: 35px;
-    border-radius: 0 5px 5px 0;
-    width: 400px;
 }
 
 .box-modal-icon{
