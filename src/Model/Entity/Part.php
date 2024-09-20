@@ -11,8 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $image
- * @property float $preco
- * @property int $quantity
+ * @property float $price
+ * @property int $stock
  * @property int $active
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
@@ -37,8 +37,8 @@ class Part extends Entity
     protected $_accessible = [
         'name' => true,
         'image' => true,
-        'preco' => true,
-        'quantity' => true,
+        'price' => true,
+        'stock' => true,
         'active' => true,
         'created' => true,
         'modified' => true,

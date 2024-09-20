@@ -32,10 +32,10 @@
             <dd><?= $part->has('car') ? $this->Html->link($part->car->name, ['controller' => 'Cars', 'action' => 'view', $part->car->id]) : '' ?></dd>
             <dt scope="row"><?= __('Id') ?></dt>
             <dd><?= $this->Number->format($part->id) ?></dd>
-            <dt scope="row"><?= __('Preco') ?></dt>
-            <dd><?= $this->Number->format($part->preco) ?></dd>
-            <dt scope="row"><?= __('Quantity') ?></dt>
-            <dd><?= $this->Number->format($part->quantity) ?></dd>
+            <dt scope="row"><?= __('Price') ?></dt>
+            <dd><?= $this->Number->format($part->price) ?></dd>
+            <dt scope="row"><?= __('Stock') ?></dt>
+            <dd><?= $this->Number->format($part->stock) ?></dd>
             <dt scope="row"><?= __('Active') ?></dt>
             <dd><?= $this->Number->format($part->active) ?></dd>
             <dt scope="row"><?= __('Created') ?></dt>

@@ -51,15 +51,16 @@ class PartsController extends AppController
     public function add()
     {
         $part = $this->Parts->newEmptyEntity();
+        $part->modified_by = $this->Auth->user('name');
         if ($this->request->is('post')) {
             $part = $this->Parts->patchEntity($part, $this->request->getData());
             $part->users_id = $this->Auth->user('id');
             if ($this->Parts->save($part)) {
-                $this->Flash->success(__('The {0} has been saved.', 'Part'));
+                $this->Flash->success(__('A {0} foi salva.', 'peça'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Part'));
+            $this->Flash->error(__('A {0} não pôde ser salva. Por favor, tente novamente.', 'peça'));
         }
         $users = $this->Parts->Users->find('list', ['limit' => 200]);
         $cars = $this->Parts->Cars->find('list', ['limit' => 200]);

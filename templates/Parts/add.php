@@ -31,8 +31,8 @@
               <?php
                 echo $this->Form->control('name');
                 echo $this->Form->control('image');
-                echo $this->Form->control('preco');
-                echo $this->Form->control('quantity');
+                echo $this->Form->control('price');
+                echo $this->Form->control('stock');
                 echo $this->Form->control('active');
                 echo $this->Form->control('modified_by');
                 echo $this->Form->control('users_id', ['options' => $users]);

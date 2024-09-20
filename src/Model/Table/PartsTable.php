@@ -79,14 +79,14 @@ class PartsTable extends Table
             ->notEmptyFile('image');
 
         $validator
-            ->numeric('preco')
-            ->requirePresence('preco', 'create')
-            ->notEmptyString('preco');
+            ->numeric('price')
+            ->requirePresence('price', 'create')
+            ->notEmptyString('price');
 
         $validator
-            ->integer('quantity')
-            ->requirePresence('quantity', 'create')
-            ->notEmptyString('quantity');
+            ->integer('stock')
+            ->requirePresence('stock', 'create')
+            ->notEmptyString('stock');
 
         $validator
             ->integer('active')

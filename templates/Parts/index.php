@@ -35,8 +35,8 @@
                   <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('image') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('preco') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('quantity') ?></th>
+                  <th scope="col"><?= $this->Paginator->sort('price') ?></th>
+                  <th scope="col"><?= $this->Paginator->sort('stock') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('active') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -52,8 +52,8 @@
                   <td><?= $this->Number->format($part->id) ?></td>
                   <td><?= h($part->name) ?></td>
                   <td><?= h($part->image) ?></td>
-                  <td><?= $this->Number->format($part->preco) ?></td>
-                  <td><?= $this->Number->format($part->quantity) ?></td>
+                  <td><?= $this->Number->format($part->price) ?></td>
+                  <td><?= $this->Number->format($part->stock) ?></td>
                   <td><?= $this->Number->format($part->active) ?></td>
                   <td><?= h($part->created) ?></td>
                   <td><?= h($part->modified) ?></td>
