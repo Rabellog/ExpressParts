@@ -21,7 +21,7 @@
                 <span class="box-modal-icon">
                   <i class="fa-solid fa-car-rear"></i>
                 </span>
-                <input type="text" name="nameCar" id="nameCar">
+                <input type="text" name="name" id="name">
               </div>
             </label>
 
@@ -31,7 +31,7 @@
                 <span class="box-modal-icon">
                   <i class="fa-solid fa-car-burst"></i>
                 </span>
-                <input type="text" name="mark" id="mark">
+                <input type="text" name="brand" id="brand">
               </div>
             </label>
 
@@ -45,7 +45,7 @@
               </div>
             </label>
 
-            <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar']); ?>
+            <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar', 'type' => 'submit']); ?>
             </div>
           </div>
 

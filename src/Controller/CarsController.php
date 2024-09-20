@@ -51,15 +51,16 @@ class CarsController extends AppController
     public function add()
     {
         $car = $this->Cars->newEmptyEntity();
+        $car->modified_by = $this->Auth->user('name');
         if ($this->request->is('post')) {
             $car = $this->Cars->patchEntity($car, $this->request->getData());
             $car->users_id = $this->Auth->user('id');
             if ($this->Cars->save($car)) {
-                $this->Flash->success(__('The {0} has been saved.', 'Car'));
+                $this->Flash->success(__('O {0} foi salvo.', 'carro'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Car'));
+            $this->Flash->error(__('O {0} não pôde ser salvo. Por favor, tente novamente.', 'carro'));
         }
         $users = $this->Cars->Users->find('list', ['limit' => 200]);
         $this->set(compact('car', 'users'));
