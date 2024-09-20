@@ -27,3 +27,11 @@
 </main>
 
 <?php echo $this->Html->css('home.css'); ?>
+
+<script>
+    const usuarioExiste = <?= $usuarioExiste ?>;
+</script>
+
+<?php $this->start('scriptBottom'); ?>
+<?php echo $this->Html->script('home/home.js'); ?>
+<?php $this->end();?>
