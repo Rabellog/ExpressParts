@@ -1,3 +1,5 @@
 $('#adicionarCarros').on('click', () => {
-    $("#modalAdicionar").modal("toggle");
+    $("#modalAdicionarCarros").modal("toggle");
 });
+
+console.log("a")

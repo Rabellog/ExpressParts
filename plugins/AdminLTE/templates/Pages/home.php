@@ -1,6 +1,8 @@
 <?php echo $this->element('cars/add') ?>
+<?php echo $this->element('parts/add') ?>
 
 <main>
+  <img class="imageBackground" src="webroot\img\bg-page.png" alt="">
   <h1>O melhor e-commerce de peças para automóveis!</h1>
   <div class="container">
     <div class="card">
@@ -29,3 +31,7 @@
 </main>
 
 <?php echo $this->Html->css('home.css'); ?>
+<?php $this->start('scriptBottom'); ?>
+<?php echo $this->Html->script('cars/add.js'); ?>
+<?php echo $this->Html->script('parts/add.js'); ?>
+<?php $this->end(); ?>

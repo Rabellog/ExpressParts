@@ -7,50 +7,69 @@
     --color-background:#1E1E1E;
 }
 
+.modal-body-cars{
+    border-radius: 10px;
+}
+
+.top-modal-cars{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.top-modal-cars h1{
+    font-family: "Mulish", system-ui;
+    font-size: 30px;
+    font-weight: 1000;
+    color: var(--color-orange);
+}
+
+.form-carros{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 .modal-dialog{
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
-.modal-body{
+.modal-body-cars{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
     align-items: center;
 }
 
-.modal-body,.modal-body-content{
-    width: 400px;
+.modal-body-cars,.modal-body-content-cars{
     background-color: var(--color-secundary);
     padding: 30px;
 }
 
-.modal-body h1{
+.modal-body-cars h1{
     margin: 0;
-    margin-left: 30px;
 }
 
-.top-modal{
+.top-modal-cars{
     display: flex;
     align-items: center !important;
-    width: 300px;
     justify-content: space-between;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--color-highlight-hover);
     margin-bottom: 30px;
 }
 
-.top-modal i{
+.top-modal-cars i{
     color: var(--color-orange);
     font-size: 24px;
 }
 
-.modal-body-form{
+.modal-body-form-cars{
     display: flex !important;
     align-items: center;
-
     justify-content: center;
     gap: 20px;
     flex-direction: column;
@@ -65,19 +84,12 @@
     color: #fff;
 }
 
-.modal-body-form input{
+.modal-body-form-cars input{
     background-color: var(--color-highlight-hover);
     border: none;
-    width: 200px;
     height: 35px;
     border-radius: 0 5px 5px 0;
-}
-
-.box-modal-input {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-highlight);
-    height: 35px;
+    width: 400px;
 }
 
 .box-modal-icon{
