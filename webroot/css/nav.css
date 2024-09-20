@@ -42,6 +42,19 @@ a:hover{
     background-color: var(--color-highlight);
 }
 
+.logout{
+    font-family: Mulish;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 5px;
+    border: none;
+    color: var(--color-orange);
+    background-color: var(--color-highlight);
+    height: 40px;
+    width: 80px;
+}
+
 .login{
     font-family: Mulish;
     font-size: 15px;
