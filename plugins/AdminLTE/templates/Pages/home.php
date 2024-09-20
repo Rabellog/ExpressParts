@@ -31,7 +31,16 @@
 </main>
 
 <?php echo $this->Html->css('home.css'); ?>
+
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
 <?php $this->end(); ?>
+
+<script>
+    const usuarioExiste = <?= $usuarioExiste ?>;
+</script>
+
+<?php $this->start('scriptBottom'); ?>
+<?php echo $this->Html->script('home/home.js'); ?>
+<?php $this->end();?>
