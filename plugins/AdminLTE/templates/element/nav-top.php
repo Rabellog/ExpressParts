@@ -8,8 +8,8 @@
         <li><a href="#" id="adicionarCarros">Adicionar carro</a></li>
         <li><a href="#" id="adicionarPecas">Adicionar peça</a></li>
     </ul>
-    <button class="login">Acesso Administrativo</button>
-    <button class="logout">Logout</button>
+    <button class="login" onclick="window.location.href='login'">Acesso Administrativo</button>
+    <button class="logout" onclick="window.location.href='users/logout'">Logout</button>
 </nav>
 
 <?php echo $this->Html->css('nav.css'); ?>

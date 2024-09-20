@@ -58,8 +58,8 @@ class AppController extends Controller
                 'action' => 'display'
             ],
             'logoutRedirect' => [
-                'controller' => 'Users',
-                'action' => 'login'
+                'controller' => 'Pages',
+                'action' => 'display'
             ]
         ]);
         $userSessao = $this->Auth->user();
