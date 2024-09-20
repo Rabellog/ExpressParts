@@ -11,5 +11,3 @@
     <button class="login">Acesso Administrativo</button>
     <button class="logout">Logout</button>
 </nav>
-
-<?php echo $this->Html->css('nav.css'); ?>
