@@ -20,7 +20,7 @@ main{
 
 h1{
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 110px;
     margin-bottom: 60px;
     font-size: 24px;
     color: var(--color-orange);
@@ -80,7 +80,6 @@ h2{
   color: var(--color-orange);
 }
 
-/* Início da Configuração dos Inputs */
 .search {
     display: flex;
     flex-direction: row;

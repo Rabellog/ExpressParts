@@ -1,3 +1,5 @@
+<?php echo $this->element('cars/add') ?>
+
 <main>
   <h1>O melhor e-commerce de peças para automóveis!</h1>
   <div class="container">
