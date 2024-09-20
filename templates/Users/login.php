@@ -2,7 +2,6 @@
 <?= $this->Flash->render('auth') ?>
 <?= $this->Flash->render() ?>
 
-=======
 <?= $this->Form->create($user) ?>    
 
 <label for="">
@@ -10,7 +9,6 @@
     <div class="box-user"><i></i></div>
     <input name="username" type="text">
   </label>
-=======
     <?= $this->Form->input('username', ['type' => 'text']); ?>
 </label>
 
@@ -19,7 +17,6 @@
     <div class="box-user"><i></i></div>
     <input name="password" type="password">
   </label>
-=======
     <?= $this->Form->input('password', ['type' => 'password']); ?>
 </label>
 
