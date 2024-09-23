@@ -5,11 +5,12 @@ $('#adicionarPecas').on('click', () => {
 $('#nameCarsSearch').on('input', async (e) => {
     const carName = $(e.target).val();
     const response = await pesquisarCarros(carName);
+    console.log(response);
 })
 
 async function pesquisarCarros (carName){
     const urlBase = window.location.pathname.split("/")[1];
-    const urlPesquisarCarros = `/${urlBase}/parts/pesquisar-carros`;
+    const urlPesquisarCarros = `/${urlBase}/cars/pesquisar-carros`;
 
     return await $.getJSON(
         `${urlPesquisarCarros}?carName=${carName}`); 

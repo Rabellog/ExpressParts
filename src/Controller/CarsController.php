@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Exception;
+
 /**
  * Cars Controller
  *
@@ -112,5 +114,38 @@ class CarsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function pesquisarCarros()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $carName = $this->request->getQuery('carName');
+            $cars = $this->Cars->find()
+                ->select([
+                    'Cars.id',
+                    'Cars.name'
+                ])
+                ->where([
+                    'Cars.active' => 1,
+                    'Cars.name LIKE' => "%$carName%"
+                ])
+                ->toArray();
+                
+        } catch (Exception $e) {
+
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+
+        }
+
+        $response['data'] = $cars;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
 }
