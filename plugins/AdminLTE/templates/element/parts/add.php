@@ -17,7 +17,7 @@
 
         <div class="modal-input-img">
           <label for="image" class="input-img">
-          <i class="fa-regular fa-file-image"></i>
+            <i class="fa-regular fa-file-image"></i>
             <p>Arraste aqui!</p>
             <input type="file" id="image" name="image" class="anexo" accept=".jpg, .jpeg, .png">
           </label>
@@ -59,15 +59,35 @@
           <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar']); ?>
         </fieldset>
 
-        <div class="teste">
-        <label>
-              <span>Pesquisa de carros:</span>
-                </span>
-                <input type="text" name="namePart" id="namePart">
-            </label> 
+        <div class="carsSearch">
+          <label>
+            <span>Nome dos veículos:</span>
+            <div class="box-modal-input searchs">
+              <input type="text" name="nameCarsSearch" id="nameCarsSearch">
+            </div>
+          </label>
+
+          <ul class="carsResult">
+            <li class="car-item">Carro 1</li>
+            <li class="car-item">Carro 2</li>
+            <li class="car-item">Carro 3</li>
+            <li class="car-item">Carro 4</li>
+            <li class="car-item">Carro 5</li>
+          </ul>
+
+
+          <div class="cars-view">
+            <div class="car-select">
+              <div class="theCar">
+                <span>Carro01</span>
+              </div>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
         </div>
 
-      
+
+
       </div>
 
       <?php echo $this->Form->end(); ?>

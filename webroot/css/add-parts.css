@@ -1,13 +1,13 @@
-:root{
-    --color-orange:#FCA311;
-    --color-orange-hover:#a06300;
-    --color-highlight:#4A4A4A;
-    --color-highlight-hover:#636363;
-    --color-secundary:#2C2C2C;
-    --color-background:#1E1E1E;
+:root {
+    --color-orange: #FCA311;
+    --color-orange-hover: #a06300;
+    --color-highlight: #4A4A4A;
+    --color-highlight-hover: #636363;
+    --color-secundary: #2C2C2C;
+    --color-background: #1E1E1E;
 }
 
-.modal-input-img{
+.modal-input-img {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,23 +16,23 @@
     gap: 20px;
 }
 
-.modal-input-img label{
+.modal-input-img label {
     margin: 0;
 }
 
-.input-img i{
+.input-img i {
     color: #ffffff;
     font-weight: 400;
     font-size: 45px;
 }
 
-.input-img p{
+.input-img p {
     color: #fff;
     font-size: 16px;
     font-weight: 400;
 }
 
-.input-img{
+.input-img {
     display: flex !important;
     flex-direction: column;
     justify-content: center;
@@ -52,38 +52,56 @@ fieldset {
     width: 300px;
 }
 
-.teste{
+.carsSearch {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     height: 100%;
+    gap: 10px;
+    position: relative;
 }
 
-#namePart{
+#namePart {
     height: 35px;
     background-color: var(--color-highlight-hover);
     border: none;
 }
 
-.teste input{
-    border-radius: 5px;
+#nameCarsSearch {
+    font-family: 'Mulish';
+    font-weight: 400;
+    width: 194px;
+    height: 35px;
+    border: none;
+    padding-left: 10px;
+    color: var(--color-background);
+    background-color: var(--color-highlight-hover);
+    color: #fff;
+}
+
+fieldset input{
+    padding-left: 10px;
+    color: #fff;
+    font-family: 'Mulish';
+    font-weight: 400;   
 }
 
 .input-img input[type="file"] {
     display: none;
 }
 
-.modal-body-parts,.modal-body-content{
+.modal-body-parts,
+.modal-body-content {
     background-color: var(--color-secundary);
     padding: 30px;
 }
 
-.modal-body-parts h1{
+.modal-body-parts h1 {
     margin: 0;
 }
 
-.top-modal-parts{
+.top-modal-parts {
     display: flex;
     width: 100%;
     align-items: center !important;
@@ -92,12 +110,12 @@ fieldset {
     margin-bottom: 30px;
 }
 
-.top-modal-parts i{
+.top-modal-parts i {
     color: var(--color-orange);
     font-size: 24px;
 }
 
-.modal-body-form-parts{
+.modal-body-form-parts {
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -105,19 +123,56 @@ fieldset {
     flex-direction: column;
 }
 
-
-.box-modal-input {
-    border-radius: 0 5px 5px 0;
-}
-
-.box-modal-input input{
+.box-modal-input input {
     background-color: var(--color-highlight-hover);
     border: none;
     height: 35px;
-    border-radius: 0 5px 5px 0;
 }
 
-.box-modal-icon{
+.carsResult {
+    background-color: var(--color-highlight);
+    width: 194px; /* Largura do input */
+    max-height: 150px; /* Altura máxima */
+    overflow-y: auto; /* Rolagem vertical se necessário */
+    position: absolute;
+    z-index: 20;
+    top: 55px; /* Abaixo do input */
+    left: 0;
+    margin-top: 0; 
+    display: none; /* Inicialmente oculto */
+    border-radius: 5px; /* Cantos arredondados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+    flex-direction: column; /* Para garantir que os itens fiquem em coluna */
+}
+
+.carsSearch ul {
+    margin: 0; /* Remove margens indesejadas */
+    padding: 0; /* Remove padding indesejado */
+    list-style: none; /* Remove o estilo de lista */
+    display: flex; /* Exibe como flex container */
+    flex-direction: column; /* Alinha os itens em coluna */
+    gap: 0px;
+    border-radius: 0px;
+}
+
+.carsResult .car-item {
+    color: #fff; /* Cor do texto */
+    padding: 10px; /* Espaçamento interno */
+    border-bottom: 1px solid var(--color-highlight); /* Linha separadora */
+    cursor: pointer; /* Cursor de ponteiro para interatividade */
+    transition: background-color 0.2s; /* Transição suave para o fundo */
+}
+
+.carsResult .car-item:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.carsResult .car-item:hover {
+    background-color: var(--color-orange-hover); /* Cor de fundo ao passar o mouse */
+}
+
+
+.box-modal-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,7 +188,7 @@ fieldset {
     height: 35px;
 }
 
-.buttonAnexo{
+.buttonAnexo {
     display: flex;
     background-color: var(--color-orange);
     color: #fff;
@@ -147,19 +202,19 @@ fieldset {
     align-items: center;
 }
 
-span{
+span {
     color: #fff;
     font-family: 'Mulish';
     font-weight: 400;
     font-style: normal;
 }
 
-.fechar{
+.fechar {
     border: none;
     background-color: var(--color-secundary);
 }
 
-.modal-body-img label{
+.modal-body-img label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -171,7 +226,7 @@ span{
     color: #fff;
 }
 
-.modal-body-form-parts{
+.modal-body-form-parts {
     display: flex;
     flex-direction: row;
     height: 260px;
@@ -183,9 +238,9 @@ span{
     gap: 10px;
     justify-content: space-between;
     flex-direction: column;
-}   
+}
 
-.column{
+.column {
     display: flex;
     top: 0;
     height: 100%;
@@ -193,9 +248,54 @@ span{
     background-color: var(--color-highlight-hover);
 }
 
-.top-modal-parts h1{
+.top-modal-parts h1 {
     font-family: "Mulish", system-ui;
     font-size: 30px;
     font-weight: 1000;
     color: var(--color-orange);
+}
+
+#nameSearch {
+    border-radius: 5px;
+}
+
+.icone i {
+    color: #fff;
+}
+
+.cars-view {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-highlight-hover);
+}
+
+.car-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.car-select i {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--color-orange);
+}
+
+.theCar {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: var(--color-highlight);
+    border: none;
+    height: 35px;
+    width: 100%;
+    font-size: 13px;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
 }
