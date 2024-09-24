@@ -131,26 +131,25 @@ fieldset input{
 
 .carsResult {
     background-color: var(--color-highlight);
-    width: 194px; /* Largura do input */
-    max-height: 150px; /* Altura máxima */
-    overflow-y: auto; /* Rolagem vertical se necessário */
+    width: 194px; 
+    max-height: 150px; 
+    overflow-y: auto;
     position: absolute;
     z-index: 20;
-    top: 55px; /* Abaixo do input */
-    left: 0;
+    top: 55px;
     margin-top: 0; 
-    display: none; /* Inicialmente oculto */
-    border-radius: 5px; /* Cantos arredondados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
-    flex-direction: column; /* Para garantir que os itens fiquem em coluna */
+    display: none; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    flex-direction: column;
 }
 
 .carsSearch ul {
-    margin: 0; /* Remove margens indesejadas */
-    padding: 0; /* Remove padding indesejado */
-    list-style: none; /* Remove o estilo de lista */
-    display: flex; /* Exibe como flex container */
-    flex-direction: column; /* Alinha os itens em coluna */
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column;
     gap: 0px;
     border-radius: 0px;
 }

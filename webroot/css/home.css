@@ -111,3 +111,108 @@ h2{
     filter: blur(20px);
     opacity: 0.3; 
 }
+
+.sale{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.sale h3{
+    font-family: "Mulish", system-ui;
+    font-weight: 1000;
+    margin: 0;
+    color: var(--color-orange);
+}
+
+.add-sale{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: var(--color-orange);
+}
+
+.add-sale:hover{
+    cursor: pointer;
+}
+
+.add-sale i{
+    color: #fff;
+    font-size: 16px;
+}
+
+.parts{
+    width: 100%;
+    background-color: var(--color-secundary);
+    padding: 30px;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-highlight-hover);
+}
+
+.comprar{
+    background-color: var(--color-orange);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    width: 80px;
+}
+
+.parts{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 100%;
+    height: auto;
+    background-color: var(--color-highlight);
+    row-gap: 12rem;
+    padding: 30px;
+}
+
+.part{
+    display: flex;
+    margin: 0 auto;
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.parts p{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 20px;
+    font-family: 'Mulish';
+    font-weight: 400;
+    color: #fff;
+    margin-top: 5px;
+    width: 100%;
+    line-height: 40px;
+}
+
+.parts strong{
+    font-size: 24px;
+    color: red;
+    font-family: 700;
+}
+
+.parts span{
+    font-size: 16px;
+    color: var(--color-highlight-hover);
+    font-family: 'Mulish';
+    text-decoration: line-through;
+}
