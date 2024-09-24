@@ -1,6 +1,6 @@
 <?php echo $this->Html->css('add-parts.css'); ?>
 
-<div class="modal fade" id="modalAdicionarPecas" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel" aria-hidden="true">
+<div class="modal fade" id="modalAdicionarPecas" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel">
   <div class="modal-dialog">
     <div class="modal-body-parts">
 
@@ -67,31 +67,22 @@
             </div>
           </label>
 
-          <ul class="carsResult">
-            <li class="car-item">Carro 1</li>
-            <li class="car-item">Carro 2</li>
-            <li class="car-item">Carro 3</li>
-            <li class="car-item">Carro 4</li>
-            <li class="car-item">Carro 5</li>
+          <ul id="carsResult">
           </ul>
 
 
-          <div class="cars-view">
-            <div class="car-select">
-              <div class="theCar">
-                <span>Carro01</span>
-              </div>
-              <i class="fa-solid fa-xmark"></i>
-            </div>
-          </div>
+          <ul class="cars-view">
+          </ul>
+
         </div>
-
-
-
       </div>
 
-      <?php echo $this->Form->end(); ?>
+
 
     </div>
+
+    <?php echo $this->Form->end(); ?>
+
   </div>
+</div>
 </div>
