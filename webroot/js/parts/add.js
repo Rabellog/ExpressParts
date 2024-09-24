@@ -24,7 +24,6 @@ $(document).ready(function() {
         }
     });
 
-    // Para ocultar a lista quando clicar fora do input
     $(document).on('click', function(event) {
         if (!$(event.target).closest('.carsSearch').length) {
             $('.carsResult').addClass('hidden').css('display', 'none');
