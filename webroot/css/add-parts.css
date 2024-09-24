@@ -129,10 +129,11 @@ fieldset input{
     height: 35px;
 }
 
-.carsResult {
+#carsResult {
     background-color: var(--color-highlight);
     width: 194px; 
     max-height: 150px; 
+    overflow-x: hidden;
     overflow-y: auto;
     position: absolute;
     z-index: 20;
@@ -154,20 +155,24 @@ fieldset input{
     border-radius: 0px;
 }
 
-.carsResult .car-item {
-    color: #fff; /* Cor do texto */
-    padding: 10px; /* Espaçamento interno */
-    border-bottom: 1px solid var(--color-highlight); /* Linha separadora */
-    cursor: pointer; /* Cursor de ponteiro para interatividade */
-    transition: background-color 0.2s; /* Transição suave para o fundo */
+#carsResult .car-item {
+    color: #fff; 
+    padding: 10px;
+    border-bottom: 1px solid var(--color-highlight); 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+
 }
 
-.carsResult .car-item:last-child {
-    border-bottom: none; /* Remove a linha do último item */
+#carsResult .car-item:last-child {
+    border-bottom: none; 
 }
 
-.carsResult .car-item:hover {
-    background-color: var(--color-orange-hover); /* Cor de fundo ao passar o mouse */
+#carsResult .car-item:hover {
+    background-color: var(--color-orange-hover); 
 }
 
 
@@ -262,12 +267,6 @@ span {
     color: #fff;
 }
 
-.cars-view {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-highlight-hover);
-}
-
 .car-select {
     display: flex;
     align-items: center;
@@ -283,18 +282,56 @@ span {
     color: var(--color-orange);
 }
 
-.theCar {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    background-color: var(--color-highlight);
-    border: none;
-    height: 35px;
+.cars-view {
+    max-width: 190px;
     width: 100%;
-    font-size: 13px;
-    color: #fff;
+    min-height: 180px;
+    height: 180px;
+    position: relative;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: var(--color-highlight-hover);
 }
 
-.hidden {
-    display: none;
+.cars-view li{
+    display: flex;
+    border-bottom: 1px solid var(--color-highlight-hover);
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px 10px;
+    width: 100%;
+    height: 35px;
+    background-color: var(--color-highlight);
+}
+
+.cars-view i{
+    font-size: 16px
+}
+
+.cars-view span {
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+
+
+li i:hover{
+    cursor: pointer;
+}
+
+.teste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 10px;
+    background-color: var(--color-highlight);
+    width: 35px;
+    height: 35px;
+}
+
+.teste i{
+    display: flex;
+    font-size: 16px;
 }
