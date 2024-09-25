@@ -45,5 +45,6 @@ class Part extends Entity
         'modified_by' => true,
         'users_id' => true,
         'user' => true,
+        'cars' => true,
     ];
 }

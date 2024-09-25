@@ -78,7 +78,7 @@ $('#carsResult').on('click', (event) => {
         const carsViewLength = $('.cars-view li').length;
         const liElement = $(
             `<li title="${liSelected.text()}">
-            <input type="hidden" value="${liSelected.attr('data-id')}" name="cars[${carsViewLength}]">
+            <input type="hidden" value="${liSelected.attr('data-id')}" name="cars[${carsViewLength}][id]">
             <span>${liSelected.text()}</span>
             <i class="fa-solid fa-xmark button-remove"></i>
         </li>`
