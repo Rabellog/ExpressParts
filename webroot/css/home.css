@@ -127,7 +127,7 @@ h2{
     color: var(--color-orange);
 }
 
-.add-sale{
+#adicionarDesconto{
     display: flex;
     text-align: center;
     justify-content: center;
@@ -139,11 +139,11 @@ h2{
     background-color: var(--color-orange);
 }
 
-.add-sale:hover{
+#adicionarDesconto:hover{
     cursor: pointer;
 }
 
-.add-sale i{
+#adicionarDesconto i{
     color: #fff;
     font-size: 16px;
 }

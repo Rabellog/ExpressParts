@@ -11,6 +11,13 @@
     border-radius: 10px;
 }
 
+input{
+    padding-left: 10px;
+    color: #fff !important; 
+    font-weight: 400;
+    font-family: 'Mulish';
+}
+
 .top-modal-cars{
     display: flex;
     width: 100%;
