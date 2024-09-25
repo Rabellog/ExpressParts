@@ -21,7 +21,6 @@ use Cake\ORM\Entity;
  * @property int $users_id
  *
  * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\Car $car
  */
 class Part extends Entity
 {
@@ -46,6 +45,5 @@ class Part extends Entity
         'modified_by' => true,
         'users_id' => true,
         'user' => true,
-        'car' => true,
     ];
 }
