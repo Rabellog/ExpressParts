@@ -175,6 +175,13 @@ fieldset input{
     background-color: var(--color-orange-hover); 
 }
 
+.car-item{
+    display: flex;
+    align-items: center;
+    min-height: 35px !important;
+    height: 35px !important;
+    max-height: 35px !important;
+}
 
 .box-modal-icon {
     display: flex;
