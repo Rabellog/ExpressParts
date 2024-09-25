@@ -19,7 +19,6 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  * @property string|null $modified_by
  * @property int $users_id
- * @property int|null $cars_id
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Car $car
@@ -46,7 +45,6 @@ class Part extends Entity
         'modified' => true,
         'modified_by' => true,
         'users_id' => true,
-        'cars_id' => true,
         'user' => true,
         'car' => true,
     ];

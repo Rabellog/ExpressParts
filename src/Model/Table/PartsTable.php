@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Parts Model
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- * @property \App\Model\Table\CarsTable&\Cake\ORM\Association\BelongsTo $Cars
  *
  * @method \App\Model\Entity\Part newEmptyEntity()
  * @method \App\Model\Entity\Part newEntity(array $data, array $options = [])
@@ -51,9 +50,6 @@ class PartsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'users_id',
             'joinType' => 'INNER',
-        ]);
-        $this->belongsTo('Cars', [
-            'foreignKey' => 'cars_id',
         ]);
     }
 
@@ -104,10 +100,6 @@ class PartsTable extends Table
             ->integer('users_id')
             ->notEmptyString('users_id');
 
-        $validator
-            ->integer('cars_id')
-            ->allowEmptyString('cars_id');
-
         return $validator;
     }
 
@@ -121,7 +113,6 @@ class PartsTable extends Table
     public function buildRules(RulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn('users_id', 'Users'), ['errorField' => 'users_id']);
-        $rules->add($rules->existsIn('cars_id', 'Cars'), ['errorField' => 'cars_id']);
 
         return $rules;
     }
