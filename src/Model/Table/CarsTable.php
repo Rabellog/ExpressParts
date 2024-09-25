@@ -51,6 +51,11 @@ class CarsTable extends Table
             'foreignKey' => 'users_id',
             'joinType' => 'INNER',
         ]);
+        $this->belongsToMany('Parts', [
+            'foreignKey' => 'car_id',
+            'targetForeignKey' => 'part_id',
+            'joinTable' => 'parts_cars',
+        ]);
     }
 
     /**
