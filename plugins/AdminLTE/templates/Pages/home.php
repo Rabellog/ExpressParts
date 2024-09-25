@@ -36,47 +36,38 @@
     </div>
   </div>
 
-  <div class="parts">
+  <div class="partsDiscount">
+    <?php foreach ($partsDesconto as $part) { ?>
       <div class="part">
-        <div class="img"></div>
-        <p>A</p>
-        <span>R$1.000.000,00</span>
-        <strong>R$999,99</strong>
+        <div class="img">
+          <img src="img\parts\<?= $part->image ?>" alt="<?= $part->image ?>">
+        </div>
+        <p><?= $part->name ?></p>
+        <span>R$ <?= $part->price ?></span>
+        <strong>R$ <?= $part->priceWithDiscount ?></strong>
         <button type="button" class="comprar">Comprar</button>
       </div>
-    
-      <div class="part">
-        <div class="img"></div>
-        <p>B</p>
-        <span>R$1.000.000,00</span>
-        <strong>R$999,99</strong>
-        <button type="button" class="comprar">Comprar</button>
-      </div>
-
-      <div class="part">
-        <div class="img"></div>
-        <p>C</p>
-        <span>R$1.000.000,00</span>
-        <strong>R$999,99</strong>
-        <button type="button" class="comprar">Comprar</button>
-      </div>
-
-      <div class="part">
-        <div class="img"></div>
-        <p>D</p>
-        <span>R$1.000.000,00</span>
-        <strong>R$999,99</strong>
-        <button type="button" class="comprar">Comprar</button>
-      </div>
-
-      <div class="part">
-        <div class="img"></div>
-        <p>F</p>
-        <span>R$1.000.000,00</span>
-        <strong>R$999,99</strong>
-        <button type="button" class="comprar">Comprar</button>
-      </div>
+    <?php } ?>
   </div>
+
+  <div class="catalogo">
+    <h3>Catálogo:</h3>
+  </div>
+
+  <div class="parts">
+
+    <?php foreach ($partsCatalogo as $part) { ?>
+      <div class="part">
+        <div class="img">
+          <img src="img\parts\<?= $part->image ?>" alt="<?= $part->image ?>">
+        </div>
+        <p><?= $part->name ?></p>
+        <span>R$ <?= $part->price ?></span>
+        <button type="button" class="comprar">Comprar</button>
+      </div>
+    <?php } ?>
+  </div>
+
 </main>
 
 <?php echo $this->Html->css('home.css'); ?>
