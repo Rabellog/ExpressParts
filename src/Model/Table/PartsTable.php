@@ -54,7 +54,6 @@ class PartsTable extends Table
         ]);
         $this->belongsTo('Cars', [
             'foreignKey' => 'cars_id',
-            'joinType' => 'INNER',
         ]);
     }
 
@@ -89,6 +88,10 @@ class PartsTable extends Table
             ->notEmptyString('stock');
 
         $validator
+            ->integer('discount')
+            ->allowEmptyString('discount');
+
+        $validator
             ->integer('active')
             ->notEmptyString('active');
 
@@ -103,7 +106,7 @@ class PartsTable extends Table
 
         $validator
             ->integer('cars_id')
-            ->notEmptyString('cars_id');
+            ->allowEmptyString('cars_id');
 
         return $validator;
     }

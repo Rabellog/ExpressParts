@@ -60,9 +60,10 @@ class CarsController extends AppController
             if ($this->Cars->save($car)) {
                 $this->Flash->success(__('O {0} foi salvo.', 'carro'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Pages','action' => 'display']);
             }
             $this->Flash->error(__('O {0} não pôde ser salvo. Por favor, tente novamente.', 'carro'));
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
         $users = $this->Cars->Users->find('list', ['limit' => 200]);
         $this->set(compact('car', 'users'));

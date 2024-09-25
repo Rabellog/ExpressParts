@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Exception;
+
 /**
  * Parts Controller
  *
@@ -53,14 +55,34 @@ class PartsController extends AppController
         $part = $this->Parts->newEmptyEntity();
         $part->modified_by = $this->Auth->user('name');
         if ($this->request->is('post')) {
+            $image = $this->request->getData('image');
             $part = $this->Parts->patchEntity($part, $this->request->getData());
             $part->users_id = $this->Auth->user('id');
+
+            if (!empty($image->getClientFilename())) {
+                $targetPath = WWW_ROOT . 'img/parts/';
+                
+                $fileName = time() . '_' . $image->getClientFilename();
+                $filePath = $targetPath . $fileName;
+                
+                $caminhoTemporario = $image->getStream()->getMetadata('uri');
+
+                if (!move_uploaded_file($caminhoTemporario, $filePath)) {
+                    $this->Flash->error(__('A {0} não pôde ser salva. Por favor, tente novamente.', 'peça'));
+                    return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+                    
+                } else {
+                    $part->image = $image->getClientFilename();
+                }
+            }
+
             if ($this->Parts->save($part)) {
                 $this->Flash->success(__('A {0} foi salva.', 'peça'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
             }
             $this->Flash->error(__('A {0} não pôde ser salva. Por favor, tente novamente.', 'peça'));
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
         $users = $this->Parts->Users->find('list', ['limit' => 200]);
         $cars = $this->Parts->Cars->find('list', ['limit' => 200]);
