@@ -32,6 +32,10 @@ $('#adicionarPecas').on('click', () => {
     $("#modalAdicionarPecas").modal("toggle");
 });
 
+$('#adicionarDesconto').on('click', () => {
+    $("#modalAdicionarPromos").modal("toggle");
+});
+
 $('#nameCarsSearch').on('input', async (event) => {
 
     try {
@@ -52,11 +56,11 @@ $('#nameCarsSearch').on('input', async (event) => {
 
 });
 
-// $('#nameCarsSearch').on('blur', (event) => {
-//     event.preventDefault();
-//     $('#carsResult').hide();
-//     $(event).blur();
-// })
+$('#nameCarsSearch').on('blur', (event) => {
+    setTimeout(()=>{
+      $('#carsResult').hide();
+    },100)
+});
 
 $('#nameCarsSearch').on('focus', () => {
     const carsResultLength = $('#carsResult').children().length;
@@ -75,10 +79,9 @@ $('#carsResult').on('click', (event) => {
             return;
         }
 
-        const carsViewLength = $('.cars-view li').length;
         const liElement = $(
             `<li title="${liSelected.text()}">
-            <input type="hidden" value="${liSelected.attr('data-id')}" name="cars[${carsViewLength}]">
+            <input type="hidden" value="${liSelected.attr('data-id')}" name="cars">
             <span>${liSelected.text()}</span>
             <i class="fa-solid fa-xmark button-remove"></i>
         </li>`
@@ -90,17 +93,11 @@ $('#carsResult').on('click', (event) => {
         })
 
         $('.cars-view').append(liElement);
+        //validar se o elemento é o mesmo
+
+
         $('#carsResult').hide();
     }
-});
+})
 
-$(".anexo").change((event) => {
-    const input = event.target;
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            $('#imagePreview').attr('src', e.target.result).show();
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-});
+/////////////////////////////////////////////////////

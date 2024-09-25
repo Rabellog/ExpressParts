@@ -1,0 +1,45 @@
+:root {
+    --color-orange: #FCA311;
+    --color-orange-hover: #a06300;
+    --color-highlight: #4A4A4A;
+    --color-highlight-hover: #636363;
+    --color-secundary: #2C2C2C;
+    --color-background: #1E1E1E;
+}
+
+#ofertas{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#ofertas input{
+    display: flex;
+    width: 176px;
+    height: 35px;
+    background-color: var(--color-highlight);
+    padding-left: 10px;
+    border: none;
+}
+
+#ofertas strong{
+    color: red;
+    font-family: 'Mulish';
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+#ofertas span{
+    margin-top: 10px;
+}
+
+.partsSearch{
+    display: flex;
+    flex-direction: column;
+}
+
+.partsInfo{
+    display: flex;
+    flex-direction: column;
+}
