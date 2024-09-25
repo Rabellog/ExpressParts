@@ -26,6 +26,11 @@
     font-size: 45px;
 }
 
+.input-img img{
+    width: 200px;
+    height: 200px;
+}
+
 .input-img p {
     color: #fff;
     font-size: 16px;

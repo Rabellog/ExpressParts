@@ -17,8 +17,7 @@
 
         <div class="modal-input-img">
           <label for="image" class="input-img">
-            <i class="fa-regular fa-file-image"></i>
-            <p>Arraste aqui!</p>
+            <img id="imagePreview" src="" alt="imagePreview">
             <input type="file" id="image" name="image" class="anexo" accept=".jpg, .jpeg, .png">
           </label>
           <label for="image" class="buttonAnexo">Alterar foto</label>
@@ -32,7 +31,7 @@
                 <span class="box-modal-icon">
                   <i class="fa-solid fa-car-side"></i>
                 </span>
-                <input type="text" name="namePart" id="namePart">
+                <input type="text" name="name" id="namePart">
               </div>
             </label>
 
@@ -63,7 +62,7 @@
           <label>
             <span>Nome dos veículos:</span>
             <div class="box-modal-input searchs">
-              <input type="text" name="nameCarsSearch" id="nameCarsSearch">
+              <input type="text" id="nameCarsSearch">
             </div>
           </label>
 
