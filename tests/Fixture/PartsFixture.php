@@ -26,11 +26,10 @@ class PartsFixture extends TestFixture
                 'stock' => 1,
                 'discount' => 1,
                 'active' => 1,
-                'created' => '2024-09-24 19:10:01',
-                'modified' => '2024-09-24 19:10:01',
+                'created' => '2024-09-25 14:20:33',
+                'modified' => '2024-09-25 14:20:33',
                 'modified_by' => 'Lorem ipsum dolor sit amet',
                 'users_id' => 1,
-                'cars_id' => 1,
             ],
         ];
         parent::init();
