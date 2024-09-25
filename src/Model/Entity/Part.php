@@ -13,12 +13,13 @@ use Cake\ORM\Entity;
  * @property string $image
  * @property float $price
  * @property int $stock
+ * @property int|null $discount
  * @property int $active
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  * @property string|null $modified_by
  * @property int $users_id
- * @property int $cars_id
+ * @property int|null $cars_id
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Car $car
@@ -39,6 +40,7 @@ class Part extends Entity
         'image' => true,
         'price' => true,
         'stock' => true,
+        'discount' => true,
         'active' => true,
         'created' => true,
         'modified' => true,
