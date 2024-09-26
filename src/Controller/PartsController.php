@@ -138,9 +138,10 @@ class PartsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function buscarParts() {
+    public function buscarParts($searchParts) {
         return $this->Parts->find()
         ->where([
+            'Parts.name LIKE' => "$searchParts%",
             'Parts.discount IS' => null
         ]);
     }
@@ -155,5 +156,74 @@ class PartsController extends AppController
             $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
         }
         return $partsDiscount;
+    }
+
+    public function pesquisarPecas()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $partName = $this->request->getQuery('partName');
+            $parts = $this->Parts->find()
+                ->select([
+                    'Parts.id',
+                    'Parts.name'
+                ])
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.name LIKE' => "%$partName%"
+                ])
+                ->toArray();
+                
+        } catch (Exception $e) {
+
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+
+        }
+
+        $response['data'] = $parts;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+    }
+
+    public function pesquisarPecasPorId()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $partId = $this->request->getQuery('partId');
+            $parts = $this->Parts->find()
+                ->select([
+                    'Parts.id',
+                    'Parts.name',
+                    'Parts.price',
+                    'Parts.stock',
+                    'Parts.discount'
+                ])
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.id' => $partId
+                ])
+                ->toArray();
+                
+        } catch (Exception $e) {
+
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+
+        }
+
+        $response['data'] = $parts;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
 }

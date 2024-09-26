@@ -59,7 +59,7 @@ $('#nameCarsSearch').on('input', async (event) => {
 $('#nameCarsSearch').on('blur', (event) => {
     setTimeout(()=>{
       $('#carsResult').hide();
-    },100)
+    },300)
 });
 
 $('#nameCarsSearch').on('focus', () => {
