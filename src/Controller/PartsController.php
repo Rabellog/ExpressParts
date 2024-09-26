@@ -72,7 +72,7 @@ class PartsController extends AppController
                     return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
                     
                 } else {
-                    $part->image = $image->getClientFilename();
+                    $part->image = $fileName;
                 }
             }
 
@@ -136,5 +136,24 @@ class PartsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function buscarParts() {
+        return $this->Parts->find()
+        ->where([
+            'Parts.discount IS' => null
+        ]);
+    }
+
+    public function buscarPartsDiscount() {
+        $partsDiscount = $this->Parts->find()
+        ->where([
+            'Parts.discount IS NOT' => null
+        ]);
+
+        foreach($partsDiscount as $part) {
+            $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
+        }
+        return $partsDiscount;
     }
 }
