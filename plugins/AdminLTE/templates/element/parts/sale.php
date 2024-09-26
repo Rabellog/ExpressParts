@@ -19,28 +19,27 @@
                     <span>Pesquisa por peças</span>
                     <input type="text" name="namePartsSearch" id="namePartsSearch">
 
-                    <ul id="partsResult hide">
+                    <ul id="partsResult">
                     </ul>
 
                     <span>Promoção (%):</span>
-                    <input type="number">
+                    <input type="number" id="partDiscountValue">
 
-                    <span>Desconto aplicado:</span>
-                    <strong>100,00R$</strong>
+                    <p>Desconto aplicado:</p>
+                    <span id="applyDiscount">10R$</span>
                 </div>
 
                 <div class="partsInfo">
                     <span>Nome da peça:</span>
-                    <input type="text">
+                    <input type="text" id="partDiscountName" disabled>
 
                     <span>Valor da peça:</span>
-                    <input type="number">
+                    <input type="number" id="partDiscountPrice" disabled>
 
                     <span>Estoque da peça:</span>
-                    <input type="number">
+                    <input type="number" id="partDiscountStock" disabled>
 
-                    <ul class="parts-view">
-                    </ul>
+                    <button class="saveDiscount">Salvar</button>
                 </div>
 
             </div>

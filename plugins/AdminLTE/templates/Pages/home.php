@@ -27,9 +27,12 @@
   </div>
 
   <h2>ExpressParts</h2>
+  <?php echo $this->Form->create(null, ['role' => 'form']); ?>
   <div class="search">
-    <input type="text" class="input-search" placeholder="Buscar...">
+    <input type="text" class="input-search" name="searchParts" value="<?= $searchParts ?>" placeholder="Buscar...">
+    <?php echo $this->Form->button(__('Buscar'), ['class' => 'button-adicionar']); ?>
   </div>
+  <?php echo $this->Form->end(); ?>
 
   <div class="sale">
     <h3>Ofertas em Destaque:</h3>
@@ -76,6 +79,8 @@
 
 <script>
   const usuarioExiste = <?= $usuarioExiste ?>;
+  const searchParts = <?= $searchParts ?>;
+  
 </script>
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>
