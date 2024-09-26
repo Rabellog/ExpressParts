@@ -61,11 +61,13 @@ class PagesController extends AppController
         }
 
         $usuarioExiste = $this->Auth->user() ? 1 : 0;
+
+        $searchParts = $this->request->getData('searchParts');
         $partsController = new PartsController();
-        $partsCatalogo = $partsController->buscarParts();
+        $partsCatalogo = $partsController->buscarParts($searchParts);
         $partsDesconto = $partsController->buscarPartsDiscount();
 
-        $this->set(compact('page', 'subpage', 'usuarioExiste', 'partsCatalogo', 'partsDesconto'));
+        $this->set(compact('page', 'subpage', 'usuarioExiste', 'partsCatalogo', 'partsDesconto', 'searchParts'));
 
         try {
             return $this->render(implode('/', $path));
