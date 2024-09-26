@@ -20,11 +20,10 @@
                     <input type="text" name="namePartsSearch" id="namePartsSearch">
 
                     <ul id="partsResult">
-                        <li title="aaa" data-id="1" class="part-item">AAAA</li>
                     </ul>
 
                     <span>Promoção (%):</span>
-                    <input type="number" id="discount">
+                    <input type="number" id="partDiscountValue">
 
                     <p>Desconto aplicado:</p>
                     <span id="applyDiscount">10R$</span>
@@ -32,14 +31,15 @@
 
                 <div class="partsInfo">
                     <span>Nome da peça:</span>
-                    <input type="text" id="name">
+                    <input type="text" id="partDiscountName" disabled>
 
                     <span>Valor da peça:</span>
-                    <input type="number" id="price">
+                    <input type="number" id="partDiscountPrice" disabled>
 
                     <span>Estoque da peça:</span>
-                    <input type="number" id="stock">
+                    <input type="number" id="partDiscountStock" disabled>
 
+                    <button class="saveDiscount">Salvar</button>
                 </div>
 
             </div>

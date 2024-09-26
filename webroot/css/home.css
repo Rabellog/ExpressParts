@@ -148,15 +148,15 @@ h2{
     font-size: 16px;
 }
 
-.parts, .partsDiscount{
+.parts, .partsDiscount {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     width: 100%;
-    background-color: var(--color-secundary);
+    height: auto;
+    background-color: var(--color-highlight);
     padding: 30px;
-    margin-bottom: 35px;
-    border-top: 2px solid #d6890e;
-    border-bottom: 2px solid #d6890e;
-    box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.5);
 }
+
 
 .img{
     width: 180px;

@@ -111,18 +111,19 @@ $(".anexo").change((event) => {
 
 ////////////////////////////////////////////////////////////////////////////
 
-const addParts = (response) => {
+const addPart = (response) => {
 
     if (response.hasError) {
 
     } else {
 
-        const partResult = response.data;
+        const partResult = response.data[0];
+        console.log(partResult.name);
 
-        const name = $('#name');
-        const price = $('#price');
-        const stock = $('#stock');
-        const discount = $('#discount');
+        const name = $('#partDiscountName');
+        const price = $('#partDiscountPrice');
+        const stock = $('#partDiscountStock');
+        const discount = $('#partDiscountValue');
         const applyDiscount = $('#applyDiscount');
 
         name.val(partResult.name);
@@ -130,6 +131,8 @@ const addParts = (response) => {
         discount.val(partResult.discount);
         stock.val(partResult.stock);
         applyDiscount.text(partResult.applyDiscount);
+
+
     }
 }
 
@@ -145,8 +148,6 @@ $('#namePartsSearch').on('input', async (event) => {
 
     try {
         const partsElement = $('#partsResult');
-
-
         const partName = $(event.target).val();
         if (partName.length > 0) {
             partsElement.empty();
@@ -181,8 +182,6 @@ $('#namePartsSearch').on('focus', () => {
        
         const response = await pesquisarPecaPorId(partId);
         addPart(response);
-
-        
         $('#partsResult').hide();
     }
 });
@@ -195,7 +194,7 @@ async function pesquisarPecaPorId(partId){
         `${urlPesquisaPecaPorId}?partId=${partId}`);
 }
 
-const addPart = (response) => {
+const addParts = (response,partsElement) => {
 
     if (response.hasError) {
 
