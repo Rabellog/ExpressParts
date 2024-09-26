@@ -56,12 +56,6 @@ $('#nameCarsSearch').on('input', async (event) => {
 
 });
 
-$('#nameCarsSearch').on('blur', (event) => {
-    setTimeout(()=>{
-      $('#carsResult').hide();
-    },100)
-});
-
 $('#nameCarsSearch').on('focus', () => {
     const carsResultLength = $('#carsResult').children().length;
     if (carsResultLength > 0) {
