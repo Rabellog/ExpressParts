@@ -52,12 +52,6 @@ $('#nameCarsSearch').on('input', async (event) => {
 
 });
 
-// $('#nameCarsSearch').on('blur', (event) => {
-//     event.preventDefault();
-//     $('#carsResult').hide();
-//     $(event).blur();
-// })
-
 $('#nameCarsSearch').on('focus', () => {
     const carsResultLength = $('#carsResult').children().length;
     if (carsResultLength > 0) {
