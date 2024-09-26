@@ -1,5 +1,7 @@
 <?php echo $this->element('cars/add') ?>
 <?php echo $this->element('parts/add') ?>
+<?php echo $this->element('parts/sale') ?>
+
 
 <main>
   <img class="imageBackground" src="webroot\img\bg-page.png" alt="">
@@ -31,7 +33,7 @@
 
   <div class="sale">
     <h3>Ofertas em Destaque:</h3>
-    <div class="add-sale">
+    <div id="adicionarDesconto">
       <i class="fa-solid fa-plus"></i>
     </div>
   </div>
@@ -78,5 +80,6 @@
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
+<?php echo $this->Html->script('parts/sale.js'); ?>
 <?php echo $this->Html->script('home/home.js'); ?>
 <?php $this->end(); ?>

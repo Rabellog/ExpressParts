@@ -17,8 +17,6 @@
 
         <div class="modal-input-img">
           <label for="image" class="input-img">
-            <!-- <i class="fa-regular fa-file-image"></i>
-            <p>Arraste aqui!</p> -->
             <img id="imagePreview" src="" alt="imagePreview">
             <input type="file" id="image" name="image" class="anexo" accept=".jpg, .jpeg, .png">
           </label>

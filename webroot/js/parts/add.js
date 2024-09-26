@@ -32,6 +32,10 @@ $('#adicionarPecas').on('click', () => {
     $("#modalAdicionarPecas").modal("toggle");
 });
 
+$('#adicionarDesconto').on('click', () => {
+    $("#modalAdicionarPromos").modal("toggle");
+});
+
 $('#nameCarsSearch').on('input', async (event) => {
 
     try {
