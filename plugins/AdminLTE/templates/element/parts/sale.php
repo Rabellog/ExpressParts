@@ -19,28 +19,27 @@
                     <span>Pesquisa por peças</span>
                     <input type="text" name="namePartsSearch" id="namePartsSearch">
 
-                    <ul id="partsResult hide">
+                    <ul id="partsResult">
+                        <li title="aaa" data-id="1" class="part-item">AAAA</li>
                     </ul>
 
                     <span>Promoção (%):</span>
-                    <input type="number">
+                    <input type="number" id="discount">
 
-                    <span>Desconto aplicado:</span>
-                    <strong>100,00R$</strong>
+                    <p>Desconto aplicado:</p>
+                    <span id="applyDiscount">10R$</span>
                 </div>
 
                 <div class="partsInfo">
                     <span>Nome da peça:</span>
-                    <input type="text">
+                    <input type="text" id="name">
 
                     <span>Valor da peça:</span>
-                    <input type="number">
+                    <input type="number" id="price">
 
                     <span>Estoque da peça:</span>
-                    <input type="number">
+                    <input type="number" id="stock">
 
-                    <ul class="parts-view">
-                    </ul>
                 </div>
 
             </div>

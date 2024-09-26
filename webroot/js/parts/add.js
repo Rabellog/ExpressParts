@@ -108,3 +108,110 @@ $(".anexo").change((event) => {
         reader.readAsDataURL(input.files[0]);
     }
 });
+
+////////////////////////////////////////////////////////////////////////////
+
+const addParts = (response) => {
+
+    if (response.hasError) {
+
+    } else {
+
+        const partResult = response.data;
+
+        const name = $('#name');
+        const price = $('#price');
+        const stock = $('#stock');
+        const discount = $('#discount');
+        const applyDiscount = $('#applyDiscount');
+
+        name.val(partResult.name);
+        price.val(partResult.price);
+        discount.val(partResult.discount);
+        stock.val(partResult.stock);
+        applyDiscount.text(partResult.applyDiscount);
+    }
+}
+
+async function pesquisarPecas(partName) {
+    const urlBase = window.location.pathname.split("/")[1];
+    const urlPesquisarPecas = `/${urlBase}/parts/pesquisar-pecas`;
+
+    return await $.getJSON(
+        `${urlPesquisarPecas}?partName=${partName}`);
+}
+
+$('#namePartsSearch').on('input', async (event) => {
+
+    try {
+        const partsElement = $('#partsResult');
+
+
+        const partName = $(event.target).val();
+        if (partName.length > 0) {
+            partsElement.empty();
+            const response = await pesquisarPecas(partName);
+            addParts(response, partsElement);
+        } else {
+            partsElement.hide();
+        }
+    } catch (exception) {
+    }
+});
+
+$('#namePartsSearch').on('blur', (event) => {
+    setTimeout(()=>{
+      $('#partsResult').hide();
+    },300)
+});
+
+$('#namePartsSearch').on('focus', () => {
+    const partsResultLength = $('#partsResult').children().length;
+    if (partsResultLength > 0) {
+        $('#partsResult').show();
+    }
+})
+
+ $('#partsResult').on('click',async (event) => {
+
+    const lipSelected = $(event.target);
+
+    if(lipSelected.is('li')){
+        const partId = lipSelected.data('id');
+       
+        const response = await pesquisarPecaPorId(partId);
+        addPart(response);
+
+        
+        $('#partsResult').hide();
+    }
+});
+
+async function pesquisarPecaPorId(partId){
+    const urlBase = window.location.pathname.split("/")[1];
+    const urlPesquisaPecaPorId = `/${urlBase}/parts/pesquisar-pecas-por-id`;
+
+    return await $.getJSON(
+        `${urlPesquisaPecaPorId}?partId=${partId}`);
+}
+
+const addPart = (response) => {
+
+    if (response.hasError) {
+
+    } else {
+
+
+        const partResult = response.data;
+
+        if (partResult.length > 0) {
+
+            partsElement.show();
+
+            for (const part of partResult) {
+                const lipElement = $(`<li title="${part.name}" data-id="${part.id}" class="part-item">${part.name}</li>`);
+                partsElement.append(lipElement);
+            }
+        }
+    }
+}
