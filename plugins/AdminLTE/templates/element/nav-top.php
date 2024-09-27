@@ -11,6 +11,8 @@
     <button class="login" onclick="window.location.href='login'">Acesso Administrativo</button>
     <button class="logout" onclick="window.location.href='users/logout'">Logout</button>
 </nav>
-
+<script>
+    const usuarioExiste = <?= $usuarioExiste ?>;
+</script>
 <?php echo $this->Html->css('nav.css'); ?>
 
