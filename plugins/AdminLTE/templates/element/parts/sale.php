@@ -11,14 +11,14 @@
                 </button>
             </div>
 
-            <?php echo $this->Form->create(null, ['role' => 'form', 'type' => 'file', 'url' => ['controller' => 'Parts', 'action' => 'add']]); ?>
+            <?php echo $this->Form->create(null, ['role' => 'form', 'id' => 'formSale', 'url' => ['controller' => 'Parts', 'action' => 'edit']]); ?>
 
             <div id="ofertas">
 
                 <div class="partsSearch">
                     <label>
                     <span>Pesquisa por peças</span>
-                    <input type="text" name="namePartsSearch" id="namePartsSearch">
+                    <input type="text" id="namePartsSearch">
                     </label>
 
                     <ul id="partsResult">
@@ -26,7 +26,7 @@
 
                     <div class="promos">
                         <span>Promoção (%):</span>
-                        <input type="number" id="partDiscountValue" placeholder="0" step="0.01" min="0" max="100">
+                        <input type="number" id="partDiscountValue" name="discount" placeholder="0" step="0.01" min="0" max="100">
                     </div>
 
                     <button class="saveDiscount">Salvar</button>

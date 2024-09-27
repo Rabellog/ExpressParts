@@ -13,6 +13,13 @@ use Exception;
  */
 class PartsController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        // Permite acesso à páginas específicas sem login necessário
+        $this->Auth->allow(['pesquisarPecasCatalogo']);
+    }
     /**
      * Index method
      *
@@ -68,7 +75,7 @@ class PartsController extends AppController
                 $caminhoTemporario = $image->getStream()->getMetadata('uri');
 
                 if (!move_uploaded_file($caminhoTemporario, $filePath)) {
-                    $this->Flash->error(__('A {0} não pôde ser salva. Por favor, tente novamente.', 'peça'));
+                    $this->Flash->error(__('A Peça não pode ser salva. Por favor, tente novamente.'));
                     return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
                     
                 } else {
@@ -77,11 +84,11 @@ class PartsController extends AppController
             }
 
             if ($this->Parts->save($part)) {
-                $this->Flash->success(__('A {0} foi salva.', 'peça'));
+                $this->Flash->success(__('A Peça foi salva.'));
 
                 return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
             }
-            $this->Flash->error(__('A {0} não pôde ser salva. Por favor, tente novamente.', 'peça'));
+            $this->Flash->error(__('A Peça não pode ser salva. Por favor, tente novamente.'));
             return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
         $users = $this->Parts->Users->find('list', ['limit' => 200]);
@@ -106,11 +113,12 @@ class PartsController extends AppController
             $part = $this->Parts->patchEntity($part, $this->request->getData());
             $part->modified_by = $this->Auth->user('id');
             if ($this->Parts->save($part)) {
-                $this->Flash->success(__('The {0} has been saved.', 'Part'));
+                $this->Flash->success(__('A Oferta foi aplicada.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
             }
-            $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Part'));
+            $this->Flash->error(__('A Oferta não pode ser aplicada. Por favor, tente novamente.'));
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
         $users = $this->Parts->Users->find('list', ['limit' => 200]);
         $cars = $this->Parts->Cars->find('list', ['limit' => 200]);
@@ -209,7 +217,8 @@ class PartsController extends AppController
                 ])
                 ->where([
                     'Parts.active' => 1,
-                    'Parts.name LIKE' => "$partName%"
+                    'Parts.name LIKE' => "$partName%",
+                    'Parts.discount IS' => null
                 ])
                 ->toArray();
                 
