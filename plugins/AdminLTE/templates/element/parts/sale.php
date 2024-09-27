@@ -16,30 +16,39 @@
             <div id="ofertas">
 
                 <div class="partsSearch">
+                    <label>
                     <span>Pesquisa por peças</span>
                     <input type="text" name="namePartsSearch" id="namePartsSearch">
+                    </label>
 
                     <ul id="partsResult">
                     </ul>
 
-                    <span>Promoção (%):</span>
-                    <input type="number" id="partDiscountValue">
+                    <div class="promos">
+                        <span>Promoção (%):</span>
+                        <input type="number" id="partDiscountValue" placeholder="0" step="0.01" min="0" max="100">
+                    </div>
 
-                    <p>Desconto aplicado:</p>
-                    <span id="applyDiscount">10R$</span>
+                    <button class="saveDiscount">Salvar</button>
+
                 </div>
 
                 <div class="partsInfo">
+                    <label>
                     <span>Nome da peça:</span>
                     <input type="text" id="partDiscountName" disabled>
-
+                    </label>
+                   
+                    <label>
                     <span>Valor da peça:</span>
                     <input type="number" id="partDiscountPrice" disabled>
-
+                    </label>
+                   
+                    <label>
                     <span>Estoque da peça:</span>
                     <input type="number" id="partDiscountStock" disabled>
+                    </label>
 
-                    <button class="saveDiscount">Salvar</button>
                 </div>
 
             </div>

@@ -40,7 +40,6 @@
 #ofertas saveDiscount{
     width: 100%;
     height: 45px;
-    margin-top: 20px;
 }
 
 #ofertas strong{
@@ -100,6 +99,7 @@
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
+    margin-top: 20px !important;
 }
 
 #partsResult {
