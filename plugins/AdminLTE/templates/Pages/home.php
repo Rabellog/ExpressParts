@@ -27,12 +27,12 @@
   </div>
 
   <h2>ExpressParts</h2>
-  <?php echo $this->Form->create(null, ['role' => 'form']); ?>
+  
   <div class="search">
-    <input type="text" class="input-search" name="searchParts" value="<?= $searchParts ?>" placeholder="Buscar...">
-    <?php echo $this->Form->button(__(''), ['class' => 'fa-solid fa-magnifying-glass teste']); ?>
+    <input type="text" class="input-search" id="searchParts" placeholder="Buscar...">
+    <?php echo $this->Form->button(__(''), ['class' => 'fa-solid fa-magnifying-glass teste', 'id' => 'btnSearch']); ?>
   </div>
-  <?php echo $this->Form->end(); ?>
+
 
   <div class="sale">
     <h3>Ofertas em Destaque:</h3>
@@ -55,7 +55,7 @@
     <?php } ?>
   </div>
 
-  <div class="catalogo">
+  <div id="catalogo" class="catalogo">
     <h3>Catálogo:</h3>
   </div>
 
@@ -77,14 +77,10 @@
 
 <?php echo $this->Html->css('home.css'); ?>
 
-<script>
-  const usuarioExiste = <?= $usuarioExiste ?>;
-  const searchParts = <?= $searchParts ?>;
-  
-</script>
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
+<?php echo $this->Html->script('parts/search.js'); ?>
 <?php echo $this->Html->script('parts/sale.js'); ?>
 <?php echo $this->Html->script('home/home.js'); ?>
 <?php $this->end(); ?>
