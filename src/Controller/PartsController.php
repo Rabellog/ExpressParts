@@ -138,10 +138,9 @@ class PartsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function buscarParts($searchParts) {
+    public function buscarParts() {
         return $this->Parts->find()
         ->where([
-            'Parts.name LIKE' => "$searchParts%",
             'Parts.discount IS' => null
         ]);
     }
@@ -176,6 +175,41 @@ class PartsController extends AppController
                 ->where([
                     'Parts.active' => 1,
                     'Parts.name LIKE' => "%$partName%"
+                ])
+                ->toArray();
+                
+        } catch (Exception $e) {
+
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+
+        }
+
+        $response['data'] = $parts;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+    }
+
+    public function pesquisarPecasCatalogo()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $partName = $this->request->getQuery('partName');
+            $parts = $this->Parts->find()
+                ->select([
+                    'Parts.id',
+                    'Parts.name',
+                    'Parts.price',
+                    'Parts.image'
+                ])
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.name LIKE' => "$partName%"
                 ])
                 ->toArray();
                 
