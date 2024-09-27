@@ -68,7 +68,12 @@
         </div>
         <p><?= $part->name ?></p>
         <span>R$ <?= $part->price ?></span>
-        <button type="button" class="comprar">Comprar</button>
+        <a 
+          href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto <?= $part->name ?>, que custa R$ <?= $part->price ?>." 
+          target="_blank"
+          class="comprar">
+         Comprar
+      </a>
       </div>
     <?php } ?>
   </div>
