@@ -122,14 +122,15 @@ const addPart = (response) => {
     } else {
 
         const partResult = response.data[0];
-        console.log(partResult.name);
 
+        const formSale = ($('#formSale').attr('action'));
         const name = $('#partDiscountName');
         const price = $('#partDiscountPrice');
         const stock = $('#partDiscountStock');
         const discount = $('#partDiscountValue');
         const applyDiscount = $('#applyDiscount');
-
+        
+        $('#formSale').attr('action', `${formSale}/${partResult.id}`)
         name.val(partResult.name);
         price.val(partResult.price);
         discount.val(partResult.discount);
