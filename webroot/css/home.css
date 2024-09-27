@@ -19,10 +19,11 @@ main{
 }
 
 h1{
+    font-weight: 800;
     margin: 0 auto;
     margin-top: 110px;
     margin-bottom: 60px;
-    font-size: 24px;
+    font-size: 30px;
     color: #fff;
 }
 
@@ -50,7 +51,7 @@ i{
     text-align: center;
     padding: 20px;
     height: 350px;
-    border-radius: 10px;
+    border-radius: 3px;
     background-color: var(--color-highlight);
 }
 
@@ -94,7 +95,9 @@ h2{
     width: 250px;
     height: 35px;
     padding-left: 8px;
-    border: 0.5px solid #E1DFDF;
+    border: none;
+    background-color: var(--color-highlight-hover);
+    color: #fff;
 }
 
 .input-search:focus {
@@ -148,25 +151,34 @@ h2{
     font-size: 16px;
 }
 
-.parts, .partsDiscount {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+.parts, .partsDiscount{
     width: 100%;
-    height: auto;
-    background-color: var(--color-highlight);
-    padding: 30px;
-}
-
-
-.img{
-    width: 180px;
-    height: 180px;
-}
-
-img {
-    width: 90%;
-    border-radius: 20px;
+    background-color: var(--color-secundary);
+    padding: 30px;   
     box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.5);
+}
+
+.teste{
+    width: 35px;
+    height: 35px;
+    background-color: var(--color-orange);
+    color: #fff;
+    border: none;
+}
+
+img{
+    width: 210px;
+    height: 210px;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+    border-radius: 2000px;
+    background-color: var(--color-highlight-hover);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .comprar{
@@ -184,19 +196,34 @@ img {
     grid-template-columns: repeat(5,1fr);
     width: 100%;
     height: auto;
-    background-color: var(--color-highlight);
-    row-gap: 12rem;
-    padding: 30px;
+    background-color: var(--color-secundary);
+    padding: 40px;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.part p{
+    margin: 0px;
 }
 
 .part{
     display: flex;
     margin: 0 auto;
-    width: 200px;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--color-highlight);
+    width: 100%;
+    border-radius: 3px;
 }
+
+.catalogo h3{
+    margin-top: 40px;
+}
+
+
 
 .parts p, .partsDiscount p{
     display: flex;
@@ -210,7 +237,7 @@ img {
     color: #fff;
     margin-top: 5px;
     width: 100%;
-    line-height: 10px;
+    height: 60px;
 }
 
 .partsDiscount strong{

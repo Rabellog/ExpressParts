@@ -30,7 +30,7 @@
   <?php echo $this->Form->create(null, ['role' => 'form']); ?>
   <div class="search">
     <input type="text" class="input-search" name="searchParts" value="<?= $searchParts ?>" placeholder="Buscar...">
-    <?php echo $this->Form->button(__('Buscar'), ['class' => 'button-adicionar']); ?>
+    <?php echo $this->Form->button(__(''), ['class' => 'fa-solid fa-magnifying-glass teste']); ?>
   </div>
   <?php echo $this->Form->end(); ?>
 
