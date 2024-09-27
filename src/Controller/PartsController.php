@@ -13,6 +13,13 @@ use Exception;
  */
 class PartsController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        // Permite acesso à páginas específicas sem login necessário
+        $this->Auth->allow(['pesquisarPecasCatalogo']);
+    }
     /**
      * Index method
      *
