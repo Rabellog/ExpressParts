@@ -1,4 +1,5 @@
 <?php echo $this->element('cars/add') ?>
+<?php echo $this->element('cars/search-car') ?>
 <?php echo $this->element('parts/add') ?>
 <?php echo $this->element('parts/sale') ?>
 
@@ -84,6 +85,7 @@
 </script>
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>
+<?php echo $this->Html->script('cars/search-car.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
 <?php echo $this->Html->script('parts/sale.js'); ?>
 <?php echo $this->Html->script('home/home.js'); ?>

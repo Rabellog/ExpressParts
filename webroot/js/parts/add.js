@@ -36,6 +36,10 @@ $('#adicionarDesconto').on('click', () => {
     $("#modalAdicionarPromos").modal("toggle");
 });
 
+$('#pesquisarPecas').on('click', () => {
+    $("#modalPesquisarPecas").modal("toggle");
+});
+
 $('#nameCarsSearch').on('input', async (event) => {
 
     try {
@@ -214,3 +218,4 @@ const addParts = (response,partsElement) => {
         }
     }
 }
+
