@@ -259,5 +259,10 @@ img{
     font-family: 'Mulish';
     font-weight: bold;
     padding: 10px;
+}
 
+.parts a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
