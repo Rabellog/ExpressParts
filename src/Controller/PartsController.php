@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -68,16 +69,15 @@ class PartsController extends AppController
 
             if (!empty($image->getClientFilename())) {
                 $targetPath = WWW_ROOT . 'img/parts/';
-                
+
                 $fileName = time() . '_' . $image->getClientFilename();
                 $filePath = $targetPath . $fileName;
-                
+
                 $caminhoTemporario = $image->getStream()->getMetadata('uri');
 
                 if (!move_uploaded_file($caminhoTemporario, $filePath)) {
                     $this->Flash->error(__('A Peça não pode ser salva. Por favor, tente novamente.'));
                     return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
-                    
                 } else {
                     $part->image = $fileName;
                 }
@@ -146,21 +146,25 @@ class PartsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function buscarParts() {
+    public function buscarParts()
+    {
         return $this->Parts->find()
-        ->where([
-            'Parts.discount IS' => null
-        ]);
+            ->where([
+                'Parts.discount IS' => null,
+                'Parts.stock IS NOT' => 0
+            ]);
     }
 
-    public function buscarPartsDiscount() {
+    public function buscarPartsDiscount()
+    {
         $partsDiscount = $this->Parts->find()
-        ->where([
-            'Parts.discount IS NOT' => null
-        ]);
+            ->where([
+                'Parts.discount IS NOT' => null,
+                'Parts.stock IS NOT' => 0
+            ]);
 
-        foreach($partsDiscount as $part) {
-            $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
+        foreach ($partsDiscount as $part) {
+                $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
         }
         return $partsDiscount;
     }
@@ -185,13 +189,11 @@ class PartsController extends AppController
                     'Parts.name LIKE' => "%$partName%"
                 ])
                 ->toArray();
-                
         } catch (Exception $e) {
 
             $response['hasError'] = true;
             $response['message'] = 'Erro inesperado!';
             return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-
         }
 
         $response['data'] = $parts;
@@ -221,13 +223,11 @@ class PartsController extends AppController
                     'Parts.discount IS' => null
                 ])
                 ->toArray();
-                
         } catch (Exception $e) {
 
             $response['hasError'] = true;
             $response['message'] = 'Erro inesperado!';
             return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-
         }
 
         $response['data'] = $parts;
@@ -257,13 +257,11 @@ class PartsController extends AppController
                     'Parts.id' => $partId
                 ])
                 ->toArray();
-                
         } catch (Exception $e) {
 
             $response['hasError'] = true;
             $response['message'] = 'Erro inesperado!';
             return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-
         }
 
         $response['data'] = $parts;
