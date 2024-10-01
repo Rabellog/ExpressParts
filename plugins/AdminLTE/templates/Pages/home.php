@@ -1,6 +1,8 @@
 <?php echo $this->element('cars/add') ?>
 <?php echo $this->element('cars/search-car') ?>
 <?php echo $this->element('parts/add') ?>
+<?php echo $this->element('cars/edit') ?>
+<?php echo $this->element('parts/edit') ?>
 <?php echo $this->element('parts/sale') ?>
 
 
