@@ -40,9 +40,8 @@ $('#editarCarros').on('click', () => {
     $("#modalEditarCarros").modal("toggle");
 });
 
-$('#aadicionarCarros').on('click', () => {
+$('#adicionarCarros').on('click', () => {
     $("#modalAdicionarCarros").modal("toggle");
-    $("#modalEditarCarros").modal("hide")
 });
 
 $('#editarPecas').on('click', () => {
