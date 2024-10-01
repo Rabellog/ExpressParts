@@ -1,4 +1,4 @@
-<?php echo $this->Html->css('nav.css'); ?>
+<?php echo $this->Html->css('layout/nav.css'); ?>
 
 <nav>
     <ul>

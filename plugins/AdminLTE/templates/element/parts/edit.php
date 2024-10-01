@@ -1,4 +1,4 @@
-<?php echo $this->Html->css('edit-pecas.css'); ?>
+<?php echo $this->Html->css('parts/edit-pecas.css'); ?>
 
 <?php echo $this->element('cars/add') ?>
 

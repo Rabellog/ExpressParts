@@ -54,6 +54,12 @@ $('#aadicionarPecas').on('click', () => {
     $("#modalEditarPecas").modal("hide")
 });
 
+$('#aadicionarCarros').on('click', () => {
+    $("#modalAdicionarCarros").modal("toggle");
+    $("#modalEditarCarros").modal("hide")
+});
+
+
 console.log($('#modalAdicionarCarros'));
 
 $('#nameCarsSearch').on('input', async (event) => {

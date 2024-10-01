@@ -1,16 +1,3 @@
-:root {
-    --color-orange: #FCA311;
-    --color-orange-hover: #a06300;
-    --color-highlight: #4A4A4A;
-    --color-highlight-hover: #636363;
-    --color-secundary: #2C2C2C;
-    --color-background: #1E1E1E;
-}
-
-body{
-    background-color: var(--color-background);
-}
-
 .box-edit{
     width: 200px;
     height: 200px;
