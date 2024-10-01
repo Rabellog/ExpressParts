@@ -45,7 +45,7 @@
               </div>
             </label>
 
-            <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar', 'type' => 'submit']); ?>
+            <?php echo $this->Form->button(__(' Salvar'), ['class' => 'button-adicionar', 'type' => 'submit']); ?>
             </div>
           </div>
 

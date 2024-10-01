@@ -55,7 +55,7 @@
               </div>
             </label>
           </div>
-          <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar']); ?>
+          <?php echo $this->Form->button(__('Salvar'), ['class' => 'button-adicionar']); ?>
         </fieldset>
 
         <div class="carsSearch">
