@@ -1,21 +1,5 @@
-:root{
-    --color-orange:#FCA311;
-    --color-orange-hover:#a06300;
-    --color-highlight:#4A4A4A;
-    --color-highlight-hover:#636363;
-    --color-secundary:#2C2C2C;
-    --color-background:#1E1E1E;
-}
-
 .modal-body-cars{
     border-radius: 10px;
-}
-
-input{
-    padding-left: 10px;
-    color: #fff !important; 
-    font-weight: 400;
-    font-family: 'Mulish';
 }
 
 .top-modal-cars{
@@ -107,13 +91,6 @@ input{
 
 .box-modal-icon i{
     font-size: 17px;
-}
-
-span{
-    color: #fff;
-    font-family: 'Mulish';
-    font-weight: 400;
-    font-style: normal;
 }
 
 .fechar{

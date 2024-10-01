@@ -88,7 +88,8 @@
 
 </main>
 
-<?php echo $this->Html->css('home.css'); ?>
+<?php echo $this->Html->css('layout/home.css'); ?>
+<?php echo $this->Html->css('global-styles.css'); ?>
 
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>

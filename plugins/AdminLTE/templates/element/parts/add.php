@@ -1,4 +1,4 @@
-<?php echo $this->Html->css('add-parts.css'); ?>
+<?php echo $this->Html->css('parts/add-parts.css'); ?>
 
 <div class="modal fade" id="modalAdicionarPecas" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel">
   <div class="modal-dialog">
