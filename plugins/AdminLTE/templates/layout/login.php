@@ -1,7 +1,7 @@
 <?= $this->Form->create() ?>   
 
 <form class="form-login">
-  <h1>Acesso Administrativo</h1>
+  <h1 class="acesso">Acesso Administrativo</h1>
 
   <label for="">
     <span> Nome de usuário:</span>
