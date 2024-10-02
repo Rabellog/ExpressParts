@@ -84,7 +84,7 @@ class AppController extends Controller
         parent::beforeFilter($event);
 
         // Permite acesso à páginas específicas sem login necessário
-        $this->Auth->allow(['display', 'login']);
+        $this->Auth->allow(['display', 'login', 'buscarPecas', 'buscarQuantidadeTotalPaginas']);
     }
 
     public function isAuthorized($user)

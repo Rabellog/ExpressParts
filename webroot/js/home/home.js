@@ -16,11 +16,15 @@ function gerenciarExibicaoUsuario() {
         $("#adicionarPecas").show();
         $(".login").hide();
         $(".logout").show();
+        $("#editarCarros").show();
+        $("#editarPecas").show();
     } else {
         $("#adicionarCarros").hide();
         $("#adicionarPecas").hide();
         $("#adicionarDesconto").hide();
         $(".logout").hide();
+        $("#editarCarros").hide();
+        $("#editarPecas").hide();
     }
 }
 
