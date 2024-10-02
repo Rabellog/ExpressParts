@@ -28,7 +28,7 @@
   </div>
 
   <h2>ExpressParts</h2>
-  
+
   <div class="search">
     <input type="text" class="input-search" id="searchParts" placeholder="Buscar...">
     <?php echo $this->Form->button(__(''), ['class' => 'fa-solid fa-magnifying-glass teste', 'id' => 'btnSearch']); ?>
@@ -51,12 +51,12 @@
         <p><?= $part->name ?></p>
         <span>R$ <?= $part->price ?></span>
         <strong>R$ <?= $part->priceWithDiscount ?></strong>
-        <a 
-          href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto <?= $part->name ?>, que está na promoção e custa R$ <?= $part->priceWithDiscount ?>." 
+        <a
+          href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto <?= $part->name ?>, que está na promoção e custa R$ <?= $part->priceWithDiscount ?>."
           target="_blank"
           class="comprar">
-         Comprar
-      </a>
+          Comprar
+        </a>
       </div>
     <?php } ?>
   </div>
@@ -65,23 +65,9 @@
     <h3>Catálogo:</h3>
   </div>
 
-  <div class="parts">
-
-    <?php foreach ($partsCatalogo as $part) { ?>
-      <div class="part">
-        <div class="img">
-          <img src="img\parts\<?= $part->image ?>" alt="<?= $part->image ?>">
-        </div>
-        <p><?= $part->name ?></p>
-        <span>R$ <?= $part->price ?></span>
-        <a 
-          href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto <?= $part->name ?>, que custa R$ <?= $part->price ?>." 
-          target="_blank"
-          class="comprar">
-         Comprar
-      </a>
-      </div>
-    <?php } ?>
+  <div class="parts" id="parts"></div>
+    <ul class="pagination" id="pagination">
+    </ul>
   </div>
 
 </main>
@@ -92,7 +78,6 @@
 <?php echo $this->Html->script('cars/add.js'); ?>
 <?php echo $this->Html->script('cars/search-car.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
-<?php echo $this->Html->script('parts/search.js'); ?>
 <?php echo $this->Html->script('parts/sale.js'); ?>
 <?php echo $this->Html->script('home/home.js'); ?>
 <?php $this->end(); ?>

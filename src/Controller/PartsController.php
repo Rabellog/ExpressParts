@@ -18,7 +18,6 @@ class PartsController extends AppController
     {
         parent::beforeFilter($event);
 
-        // Permite acesso à páginas específicas sem login necessário
         $this->Auth->allow(['pesquisarPecasCatalogo']);
     }
     /**
@@ -146,16 +145,75 @@ class PartsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function buscarParts()
+    public function buscarPecas()
     {
-        return $this->Parts->find()
-            ->where([
-                'Parts.discount IS' => null,
-                'Parts.stock IS NOT' => 0
-            ]);
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $paginaAtual = $this->request->getQuery('pagina');
+            $quantidadeItens = $this->request->getQuery('exibir');
+            $partName = $this->request->getQuery('searchPart');
+
+            $offset = ($paginaAtual - 1) * $quantidadeItens;
+
+            $pecas = $this->Parts->find()
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.name LIKE' => "$partName%",
+                    'Parts.discount IS' => null
+                ])
+                ->limit($quantidadeItens)
+                ->offset($offset)
+                ->all();    
+        } catch (Exception $e) {
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+        }
+        $response['data'] = $pecas;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
 
-    public function buscarPartsDiscount()
+    public function buscarQuantidadeTotalPaginas()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $quantidadeItens = $this->request->getQuery('exibir');
+            $partName = $this->request->getQuery('searchPart');
+
+            $totalItens = $this->Parts->find()
+                ->select(['total' => 'COUNT(*)'])
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.name LIKE' => "$partName%",
+                    'Parts.discount IS' => null
+                ])
+                ->first();
+
+            $totalItensCount = $totalItens ? $totalItens->total : 0;
+
+            $pages = ceil($totalItensCount / $quantidadeItens);
+
+            $pages = range(1, $pages);
+        } catch (Exception $e) {
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+        }
+        $response['data'] = $pages;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+    }
+
+    public function buscarPecasDiscount()
     {
         $partsDiscount = $this->Parts->find()
             ->where([
@@ -164,74 +222,9 @@ class PartsController extends AppController
             ]);
 
         foreach ($partsDiscount as $part) {
-                $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
+            $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
         }
         return $partsDiscount;
-    }
-
-    public function pesquisarPecas()
-    {
-        $response = [
-            'data' => [],
-            'hasError' => false,
-            'message' => ''
-        ];
-
-        try {
-            $partName = $this->request->getQuery('partName');
-            $parts = $this->Parts->find()
-                ->select([
-                    'Parts.id',
-                    'Parts.name'
-                ])
-                ->where([
-                    'Parts.active' => 1,
-                    'Parts.name LIKE' => "%$partName%"
-                ])
-                ->toArray();
-        } catch (Exception $e) {
-
-            $response['hasError'] = true;
-            $response['message'] = 'Erro inesperado!';
-            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-        }
-
-        $response['data'] = $parts;
-        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-    }
-
-    public function pesquisarPecasCatalogo()
-    {
-        $response = [
-            'data' => [],
-            'hasError' => false,
-            'message' => ''
-        ];
-
-        try {
-            $partName = $this->request->getQuery('partName');
-            $parts = $this->Parts->find()
-                ->select([
-                    'Parts.id',
-                    'Parts.name',
-                    'Parts.price',
-                    'Parts.image'
-                ])
-                ->where([
-                    'Parts.active' => 1,
-                    'Parts.name LIKE' => "$partName%",
-                    'Parts.discount IS' => null
-                ])
-                ->toArray();
-        } catch (Exception $e) {
-
-            $response['hasError'] = true;
-            $response['message'] = 'Erro inesperado!';
-            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-        }
-
-        $response['data'] = $parts;
-        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
 
     public function pesquisarPecasPorId()
