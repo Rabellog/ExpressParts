@@ -1,24 +1,24 @@
-:root {
-    --color-orange: #FCA311;
-    --color-orange-hover: #d6890e;
-    --color-highlight: #4A4A4A;
-    --color-highlight-hover: #636363;
-    --color-secundary: #2C2C2C;
-    --color-background: #1E1E1E;
+:root{
+    --color-orange:#FCA311;
+    --color-orange-hover:#d6890e;
+    --color-highlight:#4A4A4A;
+    --color-highlight-hover:#636363;
+    --color-secundary:#2C2C2C;
+    --color-background:#1E1E1E;
 }
 
-body {
+body{
     background-color: var(--color-background);
 }
 
-main {
+main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
 }
 
-h1 {
+h1{
     font-weight: 800;
     margin: 0 auto;
     margin-top: 110px;
@@ -27,25 +27,25 @@ h1 {
     color: #fff;
 }
 
-.container {
+.container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap:30px;
     padding: 40px;
     width: 100%;
-    background-color: var(--color-secundary);
+    background-color:var(--color-secundary);
 }
 
-i {
+i{
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 60px;
     color: var(--color-orange);
 }
 
-.card {
+.card{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -55,13 +55,13 @@ i {
     background-color: var(--color-highlight);
 }
 
-.card p {
+.card p{
     color: #fff;
     width: 140px;
     flex-grow: 1;
 }
 
-.buttonCard {
+.buttonCard{
     margin-top: 10px;
     padding: 10px 20px;
     color: #fff;
@@ -73,12 +73,12 @@ i {
     width: 100px;
 }
 
-h2 {
-    margin: 40px auto;
-    font-family: "Mulish", system-ui;
-    font-size: 40px;
-    font-weight: 1000;
-    color: var(--color-orange);
+h2{
+  margin: 40px auto;
+  font-family: "Mulish", system-ui;
+  font-size: 40px;
+  font-weight: 1000;
+  color: var(--color-orange);
 }
 
 .search {
@@ -109,14 +109,13 @@ h2 {
     top: 0;
     width: 100%;
     height: 800px;
-    object-fit: cover;
+    object-fit: cover; 
     z-index: -1;
     filter: blur(20px);
-    opacity: 0.3;
+    opacity: 0.3; 
 }
 
-.sale,
-.catalogo {
+.sale, .catalogo{
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -124,15 +123,14 @@ h2 {
     margin-bottom: 40px;
 }
 
-.sale h3,
-.catalogo h3 {
+.sale h3, .catalogo h3{
     font-family: "Mulish", system-ui;
     font-weight: 1000;
     margin: 0;
     color: var(--color-orange);
 }
 
-#adicionarDesconto {
+#adicionarDesconto{
     display: flex;
     text-align: center;
     justify-content: center;
@@ -144,24 +142,23 @@ h2 {
     background-color: var(--color-orange);
 }
 
-#adicionarDesconto:hover {
+#adicionarDesconto:hover{
     cursor: pointer;
 }
 
-#adicionarDesconto i {
+#adicionarDesconto i{
     color: #fff;
     font-size: 16px;
 }
 
-.parts,
-.partsDiscount {
+.parts, .partsDiscount{
     width: 100%;
     background-color: var(--color-secundary);
-    padding: 30px;
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.5);
+    padding: 30px;   
+    box-shadow: 2px 2px 10px 1px rgba(0,0,0,0.5);
 }
 
-.teste {
+.teste{
     width: 35px;
     height: 35px;
     background-color: var(--color-orange);
@@ -169,7 +166,7 @@ h2 {
     border: none;
 }
 
-img {
+img{
     width: 180px;
     height: 180px;
 }
@@ -184,7 +181,7 @@ img {
     align-items: center;
 }
 
-.comprar {
+.comprar{
     background-color: var(--color-orange);
     color: #fff;
     border: none;
@@ -194,10 +191,9 @@ img {
     font-weight: 600;
 }
 
-.parts,
-.partsDiscount {
+.parts, .partsDiscount{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5,1fr);
     width: 100%;
     height: auto;
     background-color: var(--color-secundary);
@@ -206,11 +202,11 @@ img {
     column-gap: 20px;
 }
 
-.part p {
+.part p{
     margin: 0px;
 }
 
-.part {
+.part{
     display: flex;
     margin: 0 auto;
     flex-direction: column;
@@ -223,16 +219,15 @@ img {
     border-radius: 3px;
 }
 
-.catalogo h3 {
+.catalogo h3{
     margin-top: 40px;
 }
 
 
 
-.parts p,
-.partsDiscount p {
+.parts p, .partsDiscount p{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -245,20 +240,20 @@ img {
     height: 60px;
 }
 
-.partsDiscount strong {
+.partsDiscount strong{
     font-size: 24px;
     color: red;
     font-family: 700;
 }
 
-.partsDiscount span {
+.partsDiscount span{
     font-size: 16px;
     color: var(--color-highlight-hover);
     font-family: 'Mulish';
     text-decoration: line-through;
 }
 
-.parts span {
+.parts span{
     font-size: 22px;
     color: white;
     font-family: 'Mulish';
@@ -266,7 +261,7 @@ img {
     padding: 10px;
 }
 
-.comprar {
+.comprar{
     display: flex;
     align-items: center;
     justify-content: center;

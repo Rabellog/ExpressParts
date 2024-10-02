@@ -36,9 +36,31 @@ $('#adicionarDesconto').on('click', () => {
     $("#modalAdicionarPromos").modal("toggle");
 });
 
-$('#pesquisarPecas').on('click', () => {
-    $("#modalPesquisarPecas").modal("toggle");
+$('#editarCarros').on('click', () => {
+    $("#modalEditarCarros").modal("toggle");
 });
+
+$('#adicionarCarros').on('click', () => {
+    $("#modalAdicionarCarros").modal("toggle");
+});
+
+$('#editarPecas').on('click', () => {
+    $("#modalEditarPecas").modal("toggle");
+});
+
+
+$('#aadicionarPecas').on('click', () => {
+    $("#modalAdicionarPecas").modal("toggle");
+    $("#modalEditarPecas").modal("hide")
+});
+
+$('#aadicionarCarros').on('click', () => {
+    $("#modalAdicionarCarros").modal("toggle");
+    $("#modalEditarCarros").modal("hide")
+});
+
+
+console.log($('#modalAdicionarCarros'));
 
 $('#nameCarsSearch').on('input', async (event) => {
 

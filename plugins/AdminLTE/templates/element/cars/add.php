@@ -1,4 +1,4 @@
-<?php echo $this->Html->css('add-cars.css'); ?>
+<?php echo $this->Html->css('cars/add-cars.css'); ?>
 
 <div class="modal fade" id="modalAdicionarCarros" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -45,7 +45,7 @@
               </div>
             </label>
 
-            <?php echo $this->Form->button(__('Adicionar'), ['class' => 'button-adicionar', 'type' => 'submit']); ?>
+            <?php echo $this->Form->button(__(' Salvar'), ['class' => 'button-adicionar', 'type' => 'submit']); ?>
             </div>
           </div>
 

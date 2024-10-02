@@ -1,4 +1,4 @@
-<?php echo $this->Html->css('add-sales.css'); ?>
+<?php echo $this->Html->css('parts/add-sales.css'); ?>
 
 <div class="modal fade" id="modalAdicionarPromos" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel">
     <div class="modal-dialog">

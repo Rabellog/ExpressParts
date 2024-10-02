@@ -2,4 +2,4 @@
   <p>Direitos Reservados</p>
 </footer>
 
-<?php echo $this->Html->css('footer.css'); ?>
+<?php echo $this->Html->css('layout/footer.css'); ?>

@@ -1,6 +1,8 @@
 <?php echo $this->element('cars/add') ?>
 <?php echo $this->element('cars/search-car') ?>
 <?php echo $this->element('parts/add') ?>
+<?php echo $this->element('cars/edit') ?>
+<?php echo $this->element('parts/edit') ?>
 <?php echo $this->element('parts/sale') ?>
 
 
@@ -72,7 +74,8 @@
 
 </main>
 
-<?php echo $this->Html->css('home.css'); ?>
+<?php echo $this->Html->css('layout/home.css'); ?>
+<?php echo $this->Html->css('global-styles.css'); ?>
 
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/add.js'); ?>
