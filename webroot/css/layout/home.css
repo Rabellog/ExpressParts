@@ -1,3 +1,32 @@
+:root{
+    --color-orange:#FCA311;
+    --color-orange-hover:#d6890e;
+    --color-highlight:#4A4A4A;
+    --color-highlight-hover:#636363;
+    --color-secundary:#2C2C2C;
+    --color-background:#1E1E1E;
+}
+
+body{
+    background-color: var(--color-background);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+h1{
+    font-weight: 800;
+    margin: 0 auto;
+    margin-top: 110px;
+    margin-bottom: 60px;
+    font-size: 30px;
+    color: #fff;
+}
+
 .container{
     display: flex;
     flex-direction: row;
@@ -44,6 +73,13 @@ i{
     width: 100px;
 }
 
+h2{
+  margin: 40px auto;
+  font-family: "Mulish", system-ui;
+  font-size: 40px;
+  font-weight: 1000;
+  color: var(--color-orange);
+}
 
 .search {
     display: flex;
@@ -85,6 +121,13 @@ i{
     flex-direction: row;
     align-items: center;
     margin-bottom: 40px;
+}
+
+.sale h3, .catalogo h3{
+    font-family: "Mulish", system-ui;
+    font-weight: 1000;
+    margin: 0;
+    color: var(--color-orange);
 }
 
 #adicionarDesconto{
@@ -223,3 +266,60 @@ img{
     align-items: center;
     justify-content: center;
 }
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+ ul {
+    gap: 0px;
+}
+
+.pagination li span{
+    background: var(--color-background);
+    color: #fff;
+    padding: 5px 15px 5px 15px;
+    column-gap: 0px;
+    font-family: 'Mulish';
+    font-weight: 400;
+    font-size: 20px;
+    border: none;
+}
+
+.pagination.active span {
+    background-color: var(--color-orange-hover); 
+    color: white;         
+    padding: 5px 15px 5px 15px;
+    column-gap: 0px;
+    font-family: 'Mulish';
+    font-weight: 400;
+    font-size: 20px; 
+}
+
+.pagination.active span:hover {
+    background-color: var(--color-orange-hover); 
+    color: white;         
+    padding: 5px 15px 5px 15px;
+    column-gap: 0px;
+    font-family: 'Mulish';
+    font-weight: 400;
+    font-size: 20px; 
+}
+
+.pagination li span:hover {
+    background-color: var(--color-orange-hover); 
+    color: #fff;
+    cursor: pointer;           
+}
+
+.pagination li span:focus {
+    background-color: var(--color-orange-hover); 
+    color: #fff;
+    cursor: pointer;           
+}
+
+/* .first:first-child {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+} */
