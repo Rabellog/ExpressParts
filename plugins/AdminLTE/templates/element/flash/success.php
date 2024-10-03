@@ -5,4 +5,4 @@
     </div>
 </section>
 
-<?php echo $this->Html->css('sucess-add.css'); ?>
+<?php echo $this->Html->css('alerts/sucess-add.css'); ?>
