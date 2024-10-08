@@ -111,6 +111,11 @@ class PartsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $part = $this->Parts->patchEntity($part, $this->request->getData());
             $part->modified_by = $this->Auth->user('id');
+
+            if (isset($this->request->getData()['discount'])) {
+                $part->discount = $this->request->getData()['discount'];
+            }
+    
             if ($this->Parts->save($part)) {
                 $this->Flash->success(__('A Oferta foi aplicada.'));
 
@@ -260,4 +265,70 @@ class PartsController extends AppController
         $response['data'] = $parts;
         return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
+
+    public function pesquisarPecasDesconto()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $partName = $this->request->getQuery('partName');
+            $parts = $this->Parts->find()
+                ->select([
+                    'Parts.id',
+                    'Parts.name'
+                ])
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.name LIKE' => "%$partName%"
+                ])
+                ->toArray();
+                
+        } catch (Exception $e) {
+
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+
+        }
+
+        $response['data'] = $parts;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+    }
+    public function addDesconto($id = null)
+{
+    $this->request->allowMethod(['post']); // Permitir apenas requisições POST
+
+    $part = $this->Parts->get($id); // Obter a peça pelo ID
+
+    if ($part) {
+        // Obter o desconto da requisição
+        $discount = $this->request->getData('discount');
+        // Atribuir o desconto à peça
+        $part->discount = $discount;
+
+        // Tente salvar a peça com o novo desconto
+        if ($this->Parts->save($part)) {
+            $response = [
+                'hasError' => false,
+                'message' => 'Desconto adicionado com sucesso!'
+            ];
+        } else {
+            $response = [
+                'hasError' => true,
+                'message' => 'Erro ao aplicar o desconto. Por favor, tente novamente.'
+            ];
+        }
+    } else {
+        $response = [
+            'hasError' => true,
+            'message' => 'Peça não encontrada.'
+        ];
+    }
+
+    return $this->response->withType('application/json')->withStringBody(json_encode($response));
+}
 }

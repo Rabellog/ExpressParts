@@ -2,9 +2,7 @@ const urlBase = window.location.pathname.split("/")[1];
 const addPart = (response) => {
 
     if (response.hasError) {
-
     } else {
-
         const partResult = response.data[0];
         console.log(partResult.name);
 
@@ -21,7 +19,6 @@ const addPart = (response) => {
         discount.val(partResult.discount);
         stock.val(partResult.stock);
         applyDiscount.text(partResult.applyDiscount);
-
 
     }
 }
@@ -69,7 +66,6 @@ $('#partsResult').on('click', async (event) => {
 
     if (lipSelected.is('li')) {
         const partId = lipSelected.data('id');
-
         const response = await pesquisarPecaPorId(partId);
         addPart(response);
         $('#partsResult').hide();
@@ -79,22 +75,15 @@ $('#partsResult').on('click', async (event) => {
 async function pesquisarPecaPorId(partId) {
     const urlBase = window.location.pathname.split("/")[1];
     const urlPesquisaPecaPorId = `/${urlBase}/parts/pesquisar-pecas-por-id`;
-
     return await $.getJSON(
         `${urlPesquisaPecaPorId}?partId=${partId}`);
 }
-
 const addParts = (response, partsElement) => {
-
     if (response.hasError) {
-
     }
-
     const partResult = response.data;
-
     if (partResult.length > 0) {
         partsElement.show();
-
         partsElement.empty();
 
         for (const part of partResult) {

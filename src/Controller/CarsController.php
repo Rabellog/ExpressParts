@@ -86,11 +86,11 @@ class CarsController extends AppController
             $car = $this->Cars->patchEntity($car, $this->request->getData());
             $car->modified_by = $this->Auth->user('id');
             if ($this->Cars->save($car)) {
-                $this->Flash->success(__('The {0} has been saved.', 'Car'));
+                $this->Flash->success(__('O Carro foi editado com sucesso!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The {0} could not be saved. Please, try again.', 'Car'));
+            $this->Flash->error(__('O Carro não pode ser editado. Por favor, tente novamente.'));
         }
         $users = $this->Cars->Users->find('list', ['limit' => 200]);
         $this->set(compact('car', 'users'));
