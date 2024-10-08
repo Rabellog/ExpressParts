@@ -1,0 +1,178 @@
+.box-edit{
+    width: 200px;
+    height: 200px;
+    background-color: var(--color-highlight-hover);
+}
+
+.content-edit{
+    height: 100vh;
+}
+
+.fa-trash{
+    background-color: red;
+    color: #fff;
+    padding: 6px;
+    border-radius: 3px;
+    margin-right: 4px;
+}
+
+.fa-pen{
+    background-color:dodgerblue;
+    color: #fff;
+    padding: 6px;
+    border-radius: 3px;
+}
+.partsSearchEdit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+    position: relative;
+}
+
+#namePart {
+    height: 35px;
+    background-color: var(--color-highlight-hover);
+    border: none;
+}
+
+#nameCarsSearchEdit {
+    font-family: 'Mulish';
+    font-weight: 400;
+    width: 194px;
+    height: 35px;
+    border: none;
+    padding-left: 10px;
+    color: var(--color-background);
+    background-color: var(--color-highlight-hover);
+    color: #fff;
+}
+
+#partsResultEdit {
+    background-color: var(--color-highlight);
+    width: 194px; 
+    max-height: 150px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 20;
+    top: 55px;
+    margin-top: 0; 
+    display: none; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    flex-direction: column;
+}
+
+.partsSearchEdit ul {
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column;
+    gap: 0px;
+    border-radius: 0px;
+}
+
+#partsResultEdit .part-item {
+    width: 100%;
+    color: #fff; 
+    padding: 10px;
+    border-bottom: 1px solid var(--color-highlight); 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+#partsResultEdit .part-item:last-child {
+    border-bottom: none; 
+}
+
+#partsResultEdit .part-item:hover {
+    background-color: var(--color-orange-hover); 
+}
+
+#partsResultEdit input{
+    border-bottom: 2px solid var(--color-orange) !important;
+}
+
+.part-item{
+    display: flex;
+    align-items: center;
+    min-height: 35px !important;
+    height: 35px !important;
+    max-height: 35px !important;
+}
+
+
+.fechar {
+    padding: 4px 0px 0px 20px;
+}
+
+.parts-viewEdit {
+    padding-top: 10px;
+    max-width: 194px !important;
+    width: 100%;
+    min-height: 190px;
+    height: 250px;
+}
+
+.modal-body-parts {
+    padding: 20px 30px 20px 30px;
+}
+
+.part-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.part-select i {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--color-orange);
+}
+
+.parts-viewEdit {
+    max-width: 190px;
+    width: 100%;
+    min-height: 180px;
+    height: 180px;
+    position: relative;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: var(--color-highlight-hover);
+}
+
+.parts-viewEdit li{
+    display: flex;
+    border-bottom: 1px solid var(--color-highlight-hover);
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px 10px;
+    width: 100%;
+    height: 35px;
+    background-color: var(--color-highlight);
+}
+
+.parts-viewEdit i{
+    font-size: 16px
+}
+
+.parts-viewEdit span {
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+li i:hover{
+    cursor: pointer;
+}
