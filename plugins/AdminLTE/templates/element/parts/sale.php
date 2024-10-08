@@ -1,5 +1,6 @@
 <?php echo $this->Html->css('parts/add-sales.css'); ?>
 
+
 <div class="modal fade" id="modalAdicionarPromos" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel">
     <div class="modal-dialog">
         <div class="modal-body-parts">
@@ -29,7 +30,7 @@
                         <input type="number" id="partDiscountValue" name="discount" placeholder="0" step="0.01" min="0" max="100">
                     </div>
 
-                    <button class="saveDiscount">Salvar</button>
+                    <button class="saveDiscount" id="applyDiscount">Salvar</button>
 
                 </div>
 
