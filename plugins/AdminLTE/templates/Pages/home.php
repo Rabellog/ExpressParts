@@ -51,8 +51,10 @@
           <img src="img\parts\<?= $part->image ?>" alt="<?= $part->image ?>">
         </div>
         <p><?= $part->name ?></p>
-        <span>R$ <?= $part->price ?></span>
-        <strong>R$ <?= $part->priceWithDiscount ?></strong>
+        <div id="values">
+          <span>R$ <?= $part->price ?></span>
+          <strong>R$ <?= $part->priceWithDiscount ?></strong>
+        </div>
         <a
           href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto <?= $part->name ?>, que está na promoção e custa R$ <?= $part->priceWithDiscount ?>."
           target="_blank"
@@ -68,8 +70,8 @@
   </div>
 
   <div class="parts" id="parts"></div>
-    <ul class="pagination" id="pagination">
-    </ul>
+  <ul class="pagination" id="pagination">
+  </ul>
   </div>
 
 </main>
@@ -78,8 +80,7 @@
 <?php echo $this->Html->css('global-styles.css'); ?>
 
 <?php $this->start('scriptBottom'); ?>
-<?php echo $this->Html->script('cars/add.js'); ?>
-<?php echo $this->Html->script('cars/search-car.js'); ?>
+<?php echo $this->Html->script('cars/edit.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
 <?php echo $this->Html->script('parts/sale.js'); ?>
 <?php echo $this->Html->script('home/home.js'); ?>

@@ -14,39 +14,21 @@
         </button>
       </div>
 
-      <?php echo $this->Form->create(null, ['role' => 'form', 'url' => ['controller' => 'Cars', 'action' => 'add']]); ?>
+      <div class="carsSearchEdit">
+        <label>
+          <span>Nome dos veículos:</span>
+          <div class="box-modal-input searchs">
+            <input type="text" id="nameCarsSearchEdit">
+          </div>
+        </label>
+        
+        <ul class="cars-viewEdit">
+        </ul>
 
-      <div class="modal-body-form-cars">
-        <div class="form-carros">
-
-          <label>
-            <span>Nome do carro:</span>
-            <div class="box-modal-input">
-              <input type="text" name="name" id="nameEditCar">
-            </div>
-          </label>
-
-          <div class="edit-view-cars">
-            <ul class="edit-results-cars">
-              <li class="edit-result-car">
-                <p>Teste</p>
-                <div class="xesque">
-                <i class="fa-solid fa-trash"></i>
-                <span type="button" id="aadicionarCarros">
-                  <i class="fa-solid fa-pen"></i>
-                </span>
-                </div>
-              </li>
-            </ul>
-          </div>x
-        </div>
       </div>
-
-      <?php echo $this->Form->end(); ?>
 
     </div>
   </div>
 </div>
 <?php $this->start('scriptBottom'); ?>
-<?php echo $this->Html->script('cars/add.js'); ?>
 <?php $this->end(); ?>

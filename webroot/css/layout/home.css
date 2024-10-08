@@ -139,7 +139,7 @@ h2{
     height: 30px;
     margin-left: 30px;
     border-radius: 5px;
-    background-color: var(--color-orange);
+    background-color: var(--color-highlight);
 }
 
 #adicionarDesconto:hover{
@@ -182,7 +182,7 @@ img{
 }
 
 .comprar{
-    background-color: var(--color-orange);
+    background-color: var(--color-background);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -214,7 +214,6 @@ img{
     text-align: center;
     gap: 10px;
     padding: 20px;
-    background-color: var(--color-highlight);
     width: 100%;
     border-radius: 3px;
 }
@@ -222,8 +221,6 @@ img{
 .catalogo h3{
     margin-top: 40px;
 }
-
-
 
 .parts p, .partsDiscount p{
     display: flex;
@@ -241,14 +238,13 @@ img{
 }
 
 .partsDiscount strong{
-    font-size: 24px;
-    color: red;
-    font-family: 700;
+    font-size: 26px;
+    color: rgb(23, 192, 31);
 }
 
 .partsDiscount span{
     font-size: 16px;
-    color: var(--color-highlight-hover);
+    color: red;
     font-family: 'Mulish';
     text-decoration: line-through;
 }
@@ -265,6 +261,12 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.comprar:hover{
+    background-color: var(--color-highlight);
+    color: #fff;
+    transition: 2s;
 }
 
 .pagination{
@@ -317,4 +319,9 @@ img{
     background-color: var(--color-orange-hover); 
     color: #fff;
     cursor: pointer;           
+}
+
+#values {
+    display: flex;
+    flex-direction: column;
 }

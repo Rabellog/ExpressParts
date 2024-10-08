@@ -8,23 +8,6 @@
     height: 100vh;
 }
 
-.edit-view-cars{
-    height: 300px;
-    width: 350px;
-    background-color: var(--color-highlight-hover);
-}
-
-.edit-view-cars ul li{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    background-color: var(--color-highlight);
-    padding-left: 20px;
-    padding-right: 20px;
-    align-items: center;
-}
-
 .fa-trash{
     background-color: red;
     color: #fff;
@@ -39,21 +22,157 @@
     padding: 6px;
     border-radius: 3px;
 }
-
-.edit-view-cars i{
-    font-size: 16px;
+.carsSearchEdit {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+    position: relative;
 }
 
-.edit-view-cars p{
-    margin: 0px;
+#namePart {
+    height: 35px;
+    background-color: var(--color-highlight-hover);
+    border: none;
+}
+
+#nameCarsSearchEdit {
+    font-family: 'Mulish';
+    font-weight: 400;
+    width: 194px;
+    height: 35px;
+    border: none;
+    padding-left: 10px;
+    color: var(--color-background);
+    background-color: var(--color-highlight-hover);
     color: #fff;
 }
 
-.edit-result-car{
-    height: 40px;
-    margin-bottom: 1px solid var(--color-highlight-hover);
+#carsResultEdit {
+    background-color: var(--color-highlight);
+    width: 194px; 
+    max-height: 150px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 20;
+    top: 55px;
+    margin-top: 0; 
+    display: none; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    flex-direction: column;
 }
 
-#nameEditCar{
-    width: 350px;
+.carsSearchEdit ul {
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column;
+    gap: 0px;
+    border-radius: 0px;
+}
+
+#carsResultEdit .car-item {
+    width: 100%;
+    color: #fff; 
+    padding: 10px;
+    border-bottom: 1px solid var(--color-highlight); 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+#carsResultEdit .car-item:last-child {
+    border-bottom: none; 
+}
+
+#carsResultEdit .car-item:hover {
+    background-color: var(--color-orange-hover); 
+}
+
+#carsResultEdit input{
+    border-bottom: 2px solid var(--color-orange) !important;
+}
+
+.car-item{
+    display: flex;
+    align-items: center;
+    min-height: 35px !important;
+    height: 35px !important;
+    max-height: 35px !important;
+}
+
+
+.fechar {
+    padding: 4px 0px 0px 20px;
+}
+
+.cars-viewEdit {
+    padding-top: 10px;
+    max-width: 194px !important;
+    width: 100%;
+    min-height: 190px;
+    height: 250px;
+}
+
+.modal-body-cars {
+    padding: 20px 30px 20px 30px;
+}
+
+.car-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.car-select i {
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--color-orange);
+}
+
+.cars-viewEdit {
+    max-width: 190px;
+    width: 100%;
+    min-height: 180px;
+    height: 180px;
+    position: relative;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: var(--color-highlight-hover);
+}
+
+.cars-viewEdit li{
+    display: flex;
+    border-bottom: 1px solid var(--color-highlight-hover);
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px 10px;
+    width: 100%;
+    height: 35px;
+    background-color: var(--color-highlight);
+}
+
+.cars-viewEdit i{
+    font-size: 16px
+}
+
+.cars-viewEdit span {
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+li i:hover{
+    cursor: pointer;
 }
