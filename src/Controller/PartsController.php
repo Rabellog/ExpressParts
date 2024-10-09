@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Database\Expression\QueryExpression;
 use Exception;
 
 /**
@@ -103,11 +104,12 @@ class PartsController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit($id)
     {
         $part = $this->Parts->get($id, [
             'contain' => []
         ]);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $part = $this->Parts->patchEntity($part, $this->request->getData());
             $part->modified_by = $this->Auth->user('id');
@@ -115,7 +117,7 @@ class PartsController extends AppController
             if (isset($this->request->getData()['discount'])) {
                 $part->discount = $this->request->getData()['discount'];
             }
-    
+
             if ($this->Parts->save($part)) {
                 $this->Flash->success(__('A Oferta foi aplicada.'));
 
@@ -166,14 +168,19 @@ class PartsController extends AppController
             $offset = ($paginaAtual - 1) * $quantidadeItens;
 
             $pecas = $this->Parts->find()
-                ->where([
-                    'Parts.active' => 1,
-                    'Parts.name LIKE' => "$partName%",
-                    'Parts.discount IS' => null
-                ])
+                ->where(function (QueryExpression $exp) use ($partName) {
+                    return $exp
+                        ->eq('Parts.active', 1)
+                        ->like('Parts.name', "$partName%")
+                        ->or_([
+                            'Parts.discount IS' => null,
+                            'Parts.discount' => 0
+                        ]);
+                })
+
                 ->limit($quantidadeItens)
                 ->offset($offset)
-                ->all();    
+                ->all();
         } catch (Exception $e) {
             $response['hasError'] = true;
             $response['message'] = 'Erro inesperado!';
@@ -223,6 +230,7 @@ class PartsController extends AppController
         $partsDiscount = $this->Parts->find()
             ->where([
                 'Parts.discount IS NOT' => null,
+                'Parts.discount IS NOT' => 0,
                 'Parts.stock IS NOT' => 0
             ]);
 
@@ -286,49 +294,43 @@ class PartsController extends AppController
                     'Parts.name LIKE' => "%$partName%"
                 ])
                 ->toArray();
-                
         } catch (Exception $e) {
 
             $response['hasError'] = true;
             $response['message'] = 'Erro inesperado!';
             return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-
         }
 
         $response['data'] = $parts;
         return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
-    public function addDesconto($id = null)
-{
-    $this->request->allowMethod(['post']); // Permitir apenas requisições POST
 
-    $part = $this->Parts->get($id); // Obter a peça pelo ID
-
-    if ($part) {
-        // Obter o desconto da requisição
-        $discount = $this->request->getData('discount');
-        // Atribuir o desconto à peça
-        $part->discount = $discount;
-
-        // Tente salvar a peça com o novo desconto
-        if ($this->Parts->save($part)) {
-            $response = [
-                'hasError' => false,
-                'message' => 'Desconto adicionado com sucesso!'
-            ];
-        } else {
-            $response = [
-                'hasError' => true,
-                'message' => 'Erro ao aplicar o desconto. Por favor, tente novamente.'
-            ];
-        }
-    } else {
+    public function addDesconto($partId)
+    {
         $response = [
-            'hasError' => true,
-            'message' => 'Peça não encontrada.'
+            'hasError' => false,
+            'message' => ''
         ];
-    }
 
-    return $this->response->withType('application/json')->withStringBody(json_encode($response));
-}
+        if ($this->request->is('post')) {
+            $part = $this->Parts->get($partId);
+
+            $discount = $this->request->getData('discount');
+            if ($discount) {
+                $part->discount = $discount;
+            } else {
+                $part->discount = null;
+            }
+
+            if ($this->Parts->save($part)) {
+                $this->Flash->success(__('A Oferta foi aplicada.'));
+
+                return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+            }
+            $this->Flash->error(__('A Oferta não pode ser aplicada. Por favor, tente novamente.'));
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
+
+        return $this->response->withType("application/json")->withStringBody(json_encode($response));
+    }
 }

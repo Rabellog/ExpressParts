@@ -4,7 +4,11 @@ const addPart = (response) => {
     if (response.hasError) {
     } else {
         const partResult = response.data[0];
-        console.log(partResult.name);
+
+        if (!partResult) {
+            console.error("A peça não foi encontrada!");
+            return;
+        }
 
         const name = $('#partDiscountName');
         const price = $('#partDiscountPrice');
@@ -12,6 +16,7 @@ const addPart = (response) => {
         const discount = $('#partDiscountValue');
         const applyDiscount = $('#applyDiscount');
 
+        const formSale = $('#formSale').attr('action'); 
         $('#formSale').attr('action', `${formSale}/${partResult.id}`)
 
         name.val(partResult.name);
@@ -62,10 +67,13 @@ $('#namePartsSearch').on('focus', () => {
 
 $('#partsResult').on('click', async (event) => {
 
-    const lipSelected = $(event.target);
+    const liSelected = $(event.target);
 
-    if (lipSelected.is('li')) {
-        const partId = lipSelected.data('id');
+    if (liSelected.is('li')) {
+        const partId = liSelected.attr('data-id'); 
+
+        $('#partsResult').data('id', partId);
+
         const response = await pesquisarPecaPorId(partId);
         addPart(response);
         $('#partsResult').hide();
@@ -95,31 +103,24 @@ const addParts = (response, partsElement) => {
     }
 }
 
-const addDesconto = async (partId, discount) => {
-    try {
-        const response = await $.ajax({
-            type: "POST",
-            url: `/${urlBase}/parts/add-desconto/${partId}`,
-            data: { discount: discount },
-            dataType: "json"
-        });
 
-        if (response.hasError) {
-            alert(response.message);
-        } else {
-            alert('Desconto adicionado com sucesso!');
-        }
-    } catch (error) {
-        console.error("Erro ao adicionar desconto:", error);
-        alert("Erro ao adicionar desconto. Tente novamente.");
-    }
+const addDesconto = async (partId, discount) => {
+
+    const response = await $.ajax({
+        type: "POST", 
+        url: `/${urlBase}/parts/add-desconto/${partId}`, 
+        data: { discount: discount }, 
+        dataType: "json" 
+    });
+
+    return response;
 };
 
 $('#applyDiscount').on('click', async (event) => {
     event.preventDefault();
 
     const discount = $('#partDiscountValue').val();
-    const partId = $('#partsResult').data('id');
+    const partId = $('#selectedPartId').val();
     const $button = $(event.currentTarget);
 
     if (!partId) {
@@ -136,7 +137,6 @@ $('#applyDiscount').on('click', async (event) => {
 
     try {
         await addDesconto(partId, discount);
-        alert("Desconto aplicado com sucesso.");
     } catch (error) {
         console.error("Erro ao aplicar desconto:", error);
         alert("Erro ao aplicar desconto. Tente novamente.");

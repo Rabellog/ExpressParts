@@ -12,14 +12,14 @@
                 </button>
             </div>
 
-            <?php echo $this->Form->create(null, ['role' => 'form', 'id' => 'formSale', 'url' => ['controller' => 'Parts', 'action' => 'edit']]); ?>
+            <?php echo $this->Form->create(null, ['role' => 'form', 'id' => 'formSale', 'url' => ['controller' => 'Parts', 'action' => 'addDesconto']]); ?>
 
             <div id="ofertas">
 
                 <div class="partsSearch">
                     <label>
-                    <span>Pesquisa por peças</span>
-                    <input type="text" id="namePartsSearch">
+                        <span>Pesquisa por peças</span>
+                        <input type="text" id="namePartsSearch">
                     </label>
 
                     <ul id="partsResult">
@@ -27,27 +27,30 @@
 
                     <div class="promos">
                         <span>Promoção (%):</span>
-                        <input type="number" id="partDiscountValue" name="discount" placeholder="0" step="0.01" min="0" max="100">
+                        <input type="number" id="partDiscountValue" name="discount" step="0.1" min="0" max="100">
                     </div>
 
-                    <button class="saveDiscount" id="applyDiscount">Salvar</button>
+                    <button type="submit" class="saveDiscount">Salvar</button>
 
                 </div>
 
                 <div class="partsInfo">
+
+                    <input type="hidden" id="selectedPartId" name="partId">
+
                     <label>
-                    <span>Nome da peça:</span>
-                    <input type="text" id="partDiscountName" disabled>
+                        <span>Nome da peça:</span>
+                        <input type="text" id="partDiscountName" disabled>
                     </label>
-                   
+
                     <label>
-                    <span>Valor da peça:</span>
-                    <input type="number" id="partDiscountPrice" disabled>
+                        <span>Valor da peça:</span>
+                        <input type="number" id="partDiscountPrice" disabled>
                     </label>
-                   
+
                     <label>
-                    <span>Estoque da peça:</span>
-                    <input type="number" id="partDiscountStock" disabled>
+                        <span>Estoque da peça:</span>
+                        <input type="number" id="partDiscountStock" disabled>
                     </label>
 
                 </div>

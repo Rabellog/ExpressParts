@@ -37,12 +37,12 @@ const addCarsEdit = (response) => {
 
         if (carResultEdit.length > 0) {
             carResultEdit.forEach(car => {
-                const liElement = $(`<li title="${car.name}"><input type="hidden" value="${car.id}" name="cars[${$('.cars-viewEdit li').length}][id]"><span>${car.name}</span><div><i class="fa-solid fa-trash"></i><span type="button" id="aadicionarCarros"><i class="fa-solid fa-pen"></i></span></div></li>`);
+                const liElementEdit = $(`<li title="${car.name}"><input type="hidden" value="${car.id}" name="cars[${$('.cars-viewEdit li').length}][id]"><span>${car.name}</span><div><i class="fa-solid fa-trash"></i><span type="button" id="aadicionarCarros"><i class="fa-solid fa-pen"></i></span></div></li>`);
 
-                $('.cars-viewEdit').append(liElement);
+                $('.cars-viewEdit').append(liElementEdit);
 
-                liElement.find('.fa-trash').on('click', () => {
-                    liElement.remove();
+                liElementEdit.find('.fa-trash').on('click', () => {
+                    liElementEdit.remove();
                 });
             });
         }
@@ -99,8 +99,8 @@ const addCars = (response, carsElement) => {
             carsElement.show();
 
             for (const car of carResult) {
-                const liElement = $(`<li title="${car.name}" data-id="${car.id}" class="car-item">${car.name}</li>`);
-                carsElement.append(liElement);
+                const liElementAdd = $(`<li title="${car.name}" data-id="${car.id}" class="car-item">${car.name}</li>`);
+                carsElement.append(liElementAdd);
             }
         }
     }
@@ -159,7 +159,7 @@ $('#carsResult').on('click', (event) => {
         }
 
         const carsViewLength = $('.cars-view li').length;
-        const liElement = $(
+        const liElementCars = $(
             `<li title="${liSelected.text()}">
             <input type="hidden" value="${liSelected.attr('data-id')}" name="cars[${carsViewLength}][id]">
             <span>${liSelected.text()}</span>
@@ -167,11 +167,7 @@ $('#carsResult').on('click', (event) => {
         </li>`
         );
 
-        liElement.find('.button-remove').on('click', () => {
-            liElement.remove();
-        })
-
-        $('.cars-view').append(liElement);
+        $('.cars-view').append(liElementCars);
         $('#carsResult').hide();
     }
 });
