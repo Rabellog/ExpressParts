@@ -168,15 +168,11 @@ class PartsController extends AppController
             $offset = ($paginaAtual - 1) * $quantidadeItens;
 
             $pecas = $this->Parts->find()
-                ->where(function (QueryExpression $exp) use ($partName) {
-                    return $exp
-                        ->eq('Parts.active', 1)
-                        ->like('Parts.name', "$partName%")
-                        ->or_([
-                            'Parts.discount IS' => null,
-                            'Parts.discount' => 0
-                        ]);
-                })
+                ->where([
+                    'Parts.active' => 1,
+                    'Parts.name LIKE' => "$partName%",
+                    'Parts.discount IS' => null
+                ])
 
                 ->limit($quantidadeItens)
                 ->offset($offset)
