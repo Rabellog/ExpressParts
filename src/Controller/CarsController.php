@@ -136,6 +136,7 @@ class CarsController extends AppController
                     'Cars.active' => 1,
                     'Cars.name LIKE' => "%$carName%"
                 ])
+                ->orderAsc('Cars.name')
                 ->toArray();
                 
         } catch (Exception $e) {

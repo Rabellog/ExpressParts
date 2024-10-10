@@ -173,9 +173,9 @@ class PartsController extends AppController
                     'Parts.name LIKE' => "$partName%",
                     'Parts.discount IS' => null
                 ])
-
                 ->limit($quantidadeItens)
                 ->offset($offset)
+                ->orderAsc('Parts.name')
                 ->all();
         } catch (Exception $e) {
             $response['hasError'] = true;
@@ -228,7 +228,8 @@ class PartsController extends AppController
                 'Parts.discount IS NOT' => null,
                 'Parts.discount IS NOT' => 0,
                 'Parts.stock IS NOT' => 0
-            ]);
+            ])
+            ->orderAsc('Parts.name');
 
         foreach ($partsDiscount as $part) {
             $part->priceWithDiscount = $part->price - ($part->price * $part->discount / 100);
@@ -289,6 +290,7 @@ class PartsController extends AppController
                     'Parts.active' => 1,
                     'Parts.name LIKE' => "%$partName%"
                 ])
+                ->orderAsc('Parts.name')
                 ->toArray();
         } catch (Exception $e) {
 
