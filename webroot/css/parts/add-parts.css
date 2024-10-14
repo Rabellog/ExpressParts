@@ -12,8 +12,6 @@
 }
 
 .input-img i {
-    color: #ffffff;
-    font-weight: 400;
     font-size: 45px;
 }
 
@@ -303,17 +301,19 @@ li i:hover{
     cursor: pointer;
 }
 
-.teste{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: 10px;
-    background-color: var(--color-highlight);
-    width: 35px;
-    height: 35px;
+#dropArea {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.teste i{
-    display: flex;
-    font-size: 16px;
+#dropArea.dragover {
+    background-color: #f0f0f0;
+}
+
+#imagePreview {
+    max-width: 125%;
+    height: auto;
 }

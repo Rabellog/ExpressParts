@@ -5,7 +5,6 @@
 <?php echo $this->element('parts/edit') ?>
 <?php echo $this->element('parts/sale') ?>
 
-
 <main>
   <img class="imageBackground" src="webroot\img\bg-page.png" alt="">
   <h1>O melhor e-commerce de peças para automóveis!</h1>
@@ -13,19 +12,21 @@
     <div class="card">
       <i class="fa-solid fa-phone"></i>
       <p>Nossa equipe especializada está pronta para ajudar você a encontrar a peça ideal. Conte conosco!</p>
-      <button class="buttonCard">Suporte</button>
+      <a href="https://wa.me/5548996186913?text=Olá%2C%20preciso%20de%20suporte." target="_blank" class="suporte">
+        <button class="buttonCardSuporte">Suporte</button>
+      </a>
     </div>
 
     <div class="card">
       <i class="fa-solid fa-list"></i>
       <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
-      <button class="buttonCard">Catálogo</button>
+      <button class="buttonCard" id="buttonCatalogo">Catálogo</button>
     </div>
 
     <div class="card">
       <i class="fa-solid fa-percent"></i>
       <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
-      <button class="buttonCard">Promoções</button>
+      <button class="buttonCard" id="buttonPromocoes">Promoções</button>
     </div>
   </div>
 
@@ -37,7 +38,7 @@
   </div>
 
 
-  <div class="sale">
+  <div class="sale" id="sale">
     <h3>Ofertas em Destaque:</h3>
     <div id="adicionarDesconto">
       <i class="fa-solid fa-plus"></i>

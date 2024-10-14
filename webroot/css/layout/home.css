@@ -53,6 +53,15 @@ i{
     height: 350px;
     border-radius: 3px;
     background-color: var(--color-highlight);
+    justify-content: flex-end;
+    align-items: center;
+}
+
+a.suporte {
+    padding: 0;
+    color: #fff;
+    height: 35px;
+    width: 100px;
 }
 
 .card p{
@@ -61,9 +70,23 @@ i{
     flex-grow: 1;
 }
 
+.buttonCardSuporte{
+    height: 100%;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-orange);
+    cursor: pointer;
+    align-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .buttonCard{
-    margin-top: 10px;
-    padding: 10px 20px;
+    margin-top: 6px;
+    height: 60px;
     color: #fff;
     border-radius: 5px;
     border: none;
@@ -71,6 +94,9 @@ i{
     cursor: pointer;
     align-self: center;
     width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h2{

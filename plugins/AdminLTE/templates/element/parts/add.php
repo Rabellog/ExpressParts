@@ -16,8 +16,9 @@
       <div class="modal-body-form-parts">
 
         <div class="modal-input-img">
-          <label for="image" class="input-img">
-            <img id="imagePreview" src="" alt="imagePreview">
+          <label for="image" class="input-img" id="dropArea">
+            <i id="icone" class="fa-solid fa-file-circle-plus"></i>
+            <img id="imagePreview" src="" alt="imagePreview" hidden>
             <input type="file" id="image" name="image" class="anexo" accept=".jpg, .jpeg, .png">
           </label>
           <label for="image" class="buttonAnexo">Alterar foto</label>
