@@ -141,6 +141,14 @@ h2{
     opacity: 0.3; 
 }
 
+.part img:hover{
+    width: 210px;
+    height: 210px;
+    transition: 0.3s;
+    filter: contrast(200%);
+    cursor: pointer;
+}
+
 .sale, .catalogo{
     display: flex;
     justify-content: center;
@@ -165,7 +173,7 @@ h2{
     height: 30px;
     margin-left: 30px;
     border-radius: 5px;
-    background-color: var(--color-highlight);
+    background-color: var(--color-orange);
 }
 
 #adicionarDesconto:hover{
@@ -268,6 +276,11 @@ img{
     color: rgb(23, 192, 31);
 }
 
+.parts span{
+    font-size: 26px !important;
+    color: rgb(23, 192, 31) !important;   
+}
+
 .partsDiscount span{
     font-size: 16px;
     color: red;
@@ -316,7 +329,7 @@ img{
 }
 
 .pagination.active span {
-    background-color: var(--color-orange-hover); 
+    background-color: var(--color-orange); 
     color: white;         
     padding: 5px 15px 5px 15px;
     column-gap: 0px;
@@ -326,8 +339,9 @@ img{
 }
 
 .pagination.active span:hover {
-    background-color: var(--color-orange-hover); 
-    color: white;         
+    background-color: var(--color-orange); 
+    color: white;
+    cursor: pointer;
     padding: 5px 15px 5px 15px;
     column-gap: 0px;
     font-family: 'Mulish';
