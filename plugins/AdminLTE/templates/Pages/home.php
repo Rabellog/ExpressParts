@@ -73,7 +73,7 @@
   <div class="parts" id="parts"></div>
   <ul class="pagination" id="pagination">
   </ul>
-  </div>
+  
 
 </main>
 

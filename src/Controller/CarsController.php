@@ -150,4 +150,13 @@ class CarsController extends AppController
         $response['data'] = $cars;
         return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
+
+    public function carsList() {
+        $this->paginate = [
+            'contain' => ['Users'],
+        ];
+        $cars = $this->paginate($this->Cars);
+
+        $this->set(compact('cars'));
+    }
 }
