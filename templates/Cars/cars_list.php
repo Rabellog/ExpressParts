@@ -1,14 +1,16 @@
-<?php echo $this->Html->css('teste.css'); ?>
+<?php echo $this->Html->css('teste'); ?>
+<?php echo $this->Html->css('layout/nav'); ?>
+<?php echo $this->Html->css('global-styles'); ?>
 
 <main>
-    <label class="xesq">
+    <label class="search-car">
         <input type="text">
-        <div class="c">
+        <div class="icon-search-car">
             <i class="fa-solid fa-magnifying-glass"></i>          
         </div>
     </label>
-    <ul>
-        <li>
+    <ul class="car-list">
+        <li class="car-element">
             <span>
                 Testando
             </span>

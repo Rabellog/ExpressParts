@@ -1,3 +1,6 @@
+<?php echo $this->Html->css('layout/nav.css'); ?>
+
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
@@ -6,6 +9,7 @@
     <div class="pull-right"><?php echo $this->Html->link(__('New'), ['action' => 'add'], ['class'=>'btn btn-success btn-xs']) ?></div>
   </h1>
 </section>
+
 
 <!-- Main content -->
 <section class="content">
@@ -32,30 +36,18 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                  <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('brand') ?></th>
                   <th scope="col"><?= $this->Paginator->sort('model') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('active') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('modified_by') ?></th>
-                  <th scope="col"><?= $this->Paginator->sort('users_id') ?></th>
                   <th scope="col" class="actions text-center"><?= __('Actions') ?></th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($cars as $car): ?>
                 <tr>
-                  <td><?= $this->Number->format($car->id) ?></td>
                   <td><?= h($car->name) ?></td>
                   <td><?= h($car->brand) ?></td>
                   <td><?= h($car->model) ?></td>
-                  <td><?= $this->Number->format($car->active) ?></td>
-                  <td><?= h($car->created) ?></td>
-                  <td><?= h($car->modified) ?></td>
-                  <td><?= h($car->modified_by) ?></td>
-                  <td><?= $this->Number->format($car->users_id) ?></td>
                   <td class="actions text-right">
                       <?= $this->Html->link(__('View'), ['action' => 'view', $car->id], ['class'=>'btn btn-info btn-xs']) ?>
                       <?= $this->Html->link(__('Edit'), ['action' => 'edit', $car->id], ['class'=>'btn btn-warning btn-xs']) ?>

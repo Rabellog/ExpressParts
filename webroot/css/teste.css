@@ -1,9 +1,8 @@
-ul{
+.car-list {
     display: flex;
     flex-direction: row;
     list-style: none;
-    gap: 10px;
-    margin-bottom: 0;
+    margin-bottom: 30px;
 }
 
 a{
@@ -13,7 +12,19 @@ a{
     border-radius: 5px;
 }
 
-body{
+footer{
+    display: flex;
+    position:relative;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    height: 90px;
+    width: 100%;
+}
+
+main{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,43 +32,41 @@ body{
     height: 100vh;
 }
 
-ul{
+.car-list {
     flex-direction: column;
     display: flex;
     justify-content: flex-start;
-    max-width: 1000px;
-    min-width: 900px;
-
+    width: 900px !important;
     min-height: 500px;
     max-height: 500px;
 
-    background-color: var(--color-secundary);
+    background-color: var(--color-highlight-hover);
 
     overflow-y: auto;
 }
 
-.xesq{
+.search-car{
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
-
+    margin-top: 100px;
     height: 41px;
 }
 
-.xesq input{
-    max-width: 1000px;
-    min-width: 900px;
+.search-car input{
+    border-radius: 5px 0 0 5px;
+    width:400px;
     height: 41px;
     background-color: var(--color-highlight);
     border: none;
 }
 
-li{
+.car-element{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     justify-content: space-between;
     width: 100%;
-    background-color: var(--color-background);
+    background-color: var(--color-highlight);
     align-items: center;
     text-align: center;
 
@@ -66,7 +75,7 @@ li{
 .buttons{
     display: flex;
     justify-content: space-between;
-    margin-right: 70px;
+    margin-right: 100px;
 }
 
 span{padding: 10px;}
@@ -100,7 +109,7 @@ span{padding: 10px;}
     border-radius: 4px;
 }
 
-.c{
+.icon-search-car{
     width: 41px;
     height: 41px;
     background-color: var(--color-orange);
@@ -110,6 +119,7 @@ span{padding: 10px;}
     text-align: center;
     justify-content: center;
     align-items: center;
+    border-radius: 0 5px 5px 0;
 }
 
 p{
