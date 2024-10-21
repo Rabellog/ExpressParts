@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Http\Exception\NotFoundException;
 use Exception;
 
 /**
@@ -60,7 +62,7 @@ class CarsController extends AppController
             if ($this->Cars->save($car)) {
                 $this->Flash->success(__('O {0} foi salvo.', 'carro'));
 
-                return $this->redirect(['controller' => 'Pages','action' => 'display']);
+                return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
             }
             $this->Flash->error(__('O {0} não pôde ser salvo. Por favor, tente novamente.', 'carro'));
             return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
@@ -138,25 +140,54 @@ class CarsController extends AppController
                 ])
                 ->orderAsc('Cars.name')
                 ->toArray();
-                
         } catch (Exception $e) {
 
             $response['hasError'] = true;
             $response['message'] = 'Erro inesperado!';
             return  $this->response->withType("application/json")->withStringBody(json_encode($response));
-
         }
 
         $response['data'] = $cars;
         return  $this->response->withType("application/json")->withStringBody(json_encode($response));
     }
 
-    public function carsList() {
+    public function carsList()
+    {
         $this->paginate = [
             'contain' => ['Users'],
         ];
         $cars = $this->paginate($this->Cars);
 
         $this->set(compact('cars'));
+    }
+
+    public function pesquisarCarrosRelacionados()
+    {
+        $response = [
+            'data' => [],
+            'hasError' => false,
+            'message' => ''
+        ];
+
+        try {
+            $partId = $this->request->getQuery('partId');
+            $cars = $this->Cars->find()
+            ->matching('Parts', function ($q) use ($partId) {
+                return $q->where(['Parts.id' => $partId]);
+            })
+            ->all();
+            if ($cars->isEmpty()) {
+                $this->Flash->error(__('Nenhum carro encontrado para esta peça.'));
+            }
+        } catch (Exception $e) {
+
+            $response['hasError'] = true;
+            $response['message'] = 'Erro inesperado!';
+            return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+        }
+
+        $response['data'] = $cars;
+        return  $this->response->withType("application/json")->withStringBody(json_encode($response));
+
     }
 }
