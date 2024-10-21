@@ -76,7 +76,9 @@ return function (RouteBuilder $routes): void {
         $builder->connect('/pecas',['controller' => 'Parts','action' => 'index']);
         $builder->connect('/pecas/adicionar',['controller' => 'Parts','action' => 'add']);
         $builder->connect('/pecas/visualizar/*',['controller' => 'Parts','action' => 'view']);
-        $builder->connect('/pecas/editar/*',['controller' => 'Parts','action' => 'edit']);
+        $builder->connect('/pecas/editar/:partId', ['controller' => 'Parts', 'action' => 'edit'], ['pass' => ['partId'], 'partId' => '\d+']);
+
+        $builder->connect('/pecasECarros/remover',['controller' => 'PartsCars','action' => 'delete']);
         /*
          * Connect catchall routes for all controllers.
          *

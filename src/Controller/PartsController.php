@@ -104,26 +104,57 @@ class PartsController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id)
+    public function edit($partId = null)
     {
-        $part = $this->Parts->get($id, [
-            'contain' => []
+        $part = $this->Parts->get($partId, [
+            'contain' => ['Cars']
         ]);
 
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $part = $this->Parts->patchEntity($part, $this->request->getData());
-            $part->modified_by = $this->Auth->user('id');
+        if (!$partId) {
+            $this->Flash->error(__('Peça não encontrada.'));
+            return $this->redirect(['action' => 'index']);
+        }
 
-            if (isset($this->request->getData()['discount'])) {
-                $part->discount = $this->request->getData()['discount'];
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $image = $this->request->getData('image');
+            $part = $this->Parts->patchEntity($part, $this->request->getData());
+            $part->users_id = $this->Auth->user('id');
+            $part->modified_by = $this->Auth->user('name'); 
+
+            if (!empty($image->getClientFilename())) {
+                $targetPath = WWW_ROOT . 'img/parts/';
+                $fileName = time() . '_' . $image->getClientFilename();
+                $filePath = $targetPath . $fileName;
+            
+                $caminhoTemporario = $image->getStream()->getMetadata('uri');
+            
+                // Mover o arquivo para o caminho final
+                if (!move_uploaded_file($caminhoTemporario, $filePath)) {
+                    $this->Flash->error(__('A Peça não pode ser editada. Por favor, tente novamente.'));
+                    return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+                } else {
+                    // Se o upload foi bem-sucedido, atualize o campo 'image'
+                    $part->image = $fileName;
+                }
+            } else {
+                // Quando não há uma nova imagem enviada
+                // Verifique se a peça já tem uma imagem anterior
+                if (!empty($part->image)) {
+                    // Mantém a imagem existente
+                    $part->image = $part->image; 
+                } else {
+                    // Se não houver uma imagem anterior, pode definir um valor padrão ou tratar o caso
+                    $this->Flash->error(__('A Peça precisa ter uma imagem. Por favor, envie uma.'));
+                    return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+                }
             }
+            
 
             if ($this->Parts->save($part)) {
-                $this->Flash->success(__('A Oferta foi aplicada.'));
-
+                $this->Flash->success(__('A Peça foi editada.'));
                 return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
             }
-            $this->Flash->error(__('A Oferta não pode ser aplicada. Por favor, tente novamente.'));
+            $this->Flash->error(__('A Peça não pode ser editada. Por favor, tente novamente.'));
             return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
         $users = $this->Parts->Users->find('list', ['limit' => 200]);
@@ -250,6 +281,7 @@ class PartsController extends AppController
             $parts = $this->Parts->find()
                 ->select([
                     'Parts.id',
+                    'Parts.image',
                     'Parts.name',
                     'Parts.price',
                     'Parts.stock',

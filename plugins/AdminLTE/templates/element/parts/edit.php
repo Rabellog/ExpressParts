@@ -1,43 +1,90 @@
-<?php echo $this->Html->css('parts/edit-parts.css'); ?>
+<?php echo $this->Html->css('parts/add-parts.css'); ?>
 
-<?php echo $this->element('parts/add') ?>
-
-
-<div class="modal fade" id="modalEditarPecas" tabindex="-1" role="dialog" aria-labelledby="modalAdicionarLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditarPecas" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel">
   <div class="modal-dialog">
     <div class="modal-body-parts">
 
       <div class="top-modal-parts">
-        <h1>Editar peças</h1>
+        <h1>Peças</h1>
         <button class="fechar" type="button" data-dismiss="modal" aria-label="Close">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
 
-      <div class="partsSearchEdit">
-        <label>
-          <span>Nome dos veículos:</span>
-          <div class="box-modal-input searchs">
-            <input type="text" id="namePartsSearchEdit">
-          </div>
-        </label>
-        
-        <ul class="parts-viewEdit">
-        <li>
-          <input type="hidden" value="teste" name="teste">
-          <span>teste</span>
-          <div><i class="fa-solid fa-trash"></i>
-          <span type="button" id="aadicionarPecass">
-            <i class="fa-solid fa-pen"></i>
-          </span>
-        </div>
-      </li>
-        </ul>
+      <?php echo $this->Form->create(null, ['id' => 'formPartEdit','role' => 'form', 'type' => 'file', 'url' => ['controller' => 'Parts', 'action' => 'edit']]); ?>
 
+      <div class="modal-body-form-parts">
+
+      <input type="hidden" id="selectedPartId" name="partId">
+
+        <div class="modal-input-img">
+          <label for="image" class="input-img" id="dropAreaEdit">
+            <i id="iconeEdit" class="fa-solid fa-file-circle-plus"></i>
+            <img id="imagePreview" src="" alt="imagePreview" class="imagePreview" hidden>
+            <input type="file" id="image" name="image" class="anexoEdit" accept=".jpg, .jpeg, .png">
+          </label>
+          <label for="image" class="buttonAnexo">Alterar foto</label>
+        </div>
+
+        <fieldset>
+          <div class="labels-parts">
+            <label>
+              <span>Nome:</span>
+              <div class="box-modal-input">
+                <span class="box-modal-icon">
+                  <i class="fa-solid fa-car-side"></i>
+                </span>
+                <input type="text" name="name" id="namePart" class="namePart">
+              </div>
+            </label>
+
+            <label>
+              <span>Estoque:</span>
+              <div class="box-modal-input">
+                <span class="box-modal-icon">
+                  <i class="fa-solid fa-box-open"></i>
+                </span>
+                <input type="number" name="stock" id="stock" class="stock">
+              </div>
+            </label>
+
+            <label>
+              <span>Valor:</span>
+              <div class="box-modal-input">
+                <span class="box-modal-icon">
+                  <i class="fa-solid fa-tag"></i>
+                </span>
+                <input type="number" name="price" id="price" class="price">
+              </div>
+            </label>
+          </div>
+          <?php echo $this->Form->button(__('Editar'), ['class' => 'button-adicionar', 'id' => 'editar']); ?>
+        </fieldset>
+
+        <div class="carsSearch">
+          <label>
+            <span>Nome dos veículos:</span>
+            <div class="box-modal-input searchs">
+              <input type="text" id="nameCarsSearchEdit">
+            </div>
+          </label>
+
+          <ul id="carsResultEdit">
+          </ul>
+
+
+          <ul class="cars-view" id="cars-viewEdit">
+          </ul>
+
+        </div>
       </div>
 
+
+
     </div>
+
+    <?php echo $this->Form->end(); ?>
+
   </div>
 </div>
-<?php $this->start('scriptBottom'); ?>
-<?php $this->end(); ?>
+</div>

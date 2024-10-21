@@ -7,8 +7,16 @@
     gap: 20px;
 }
 
+.modal {
+    padding-right: 0 !important;
+}
+
 .modal-input-img label {
     margin: 0;
+}
+
+#modalEditarPecas {
+    padding-top: 5%;
 }
 
 .input-img i {
@@ -72,7 +80,7 @@
 .modal-body-parts,
 .modal-body-content {
     background-color: var(--color-secundary);
-    padding: 30px;
+    padding: 15px 30px 30px 30px;
 }
 
 .modal-body-parts h1 {
@@ -297,7 +305,7 @@
     overflow: hidden;
 }
 
-li i:hover{
+li i:hover, .buttonAnexo{
     cursor: pointer;
 }
 

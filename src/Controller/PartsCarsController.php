@@ -1,7 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
+
+use Exception;
 
 /**
  * PartsCars Controller
@@ -97,16 +100,45 @@ class PartsCarsController extends AppController
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $partsCar = $this->PartsCars->get($id);
-        if ($this->PartsCars->delete($partsCar)) {
-            $this->Flash->success(__('The parts car has been deleted.'));
-        } else {
-            $this->Flash->error(__('The parts car could not be deleted. Please, try again.'));
+    public function delete()
+{
+    $response = [
+        'hasError' => false,
+        'message' => '',
+        'data' => []
+    ];
+
+    try {
+        $this->request->allowMethod(['get']); 
+
+        $carId = $this->request->getQuery('carId');
+        $partId = $this->request->getQuery('partId');
+
+        if (!$carId || !$partId) {
+            throw new Exception('Parâmetros inválidos');
         }
 
-        return $this->redirect(['action' => 'index']);
+        $this->fetchTable('PartsCars');
+
+        $partsCar = $this->PartsCars->find()
+            ->where(['cars_id' => $carId, 'parts_id' => $partId])
+            ->first();
+
+        if (!$partsCar) {
+            throw new Exception('Relação não encontrada.'); 
+        }
+
+        if ($this->PartsCars->delete($partsCar)) {
+            $response['message'] = 'Relação removida com sucesso.';
+        } else {
+            throw new Exception('Erro ao remover a relação.');
+        }
+    } catch (Exception $e) {
+        $response['hasError'] = true;
+        $response['message'] = $e->getMessage();
     }
+
+    return $this->response->withType('application/json')->withStringBody(json_encode($response));
+}
+
 }

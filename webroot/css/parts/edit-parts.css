@@ -1,28 +1,51 @@
-.box-edit{
+.modal-input-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.modal {
+    padding-right: 0 !important;
+}
+
+.modal-input-img label {
+    margin: 0;
+}
+
+#modalEditarPecas {
+    padding-top: 5%;
+}
+
+.input-img i {
+    font-size: 45px;
+}
+
+.input-img img{
     width: 200px;
     height: 200px;
-    background-color: var(--color-highlight-hover);
 }
 
-.content-edit{
-    height: 100vh;
-}
-
-.fa-trash{
-    background-color: red;
+.input-img p {
     color: #fff;
-    padding: 6px;
-    border-radius: 3px;
-    margin-right: 4px;
+    font-size: 16px;
+    font-weight: 400;
 }
 
-.fa-pen{
-    background-color:dodgerblue;
-    color: #fff;
-    padding: 6px;
-    border-radius: 3px;
+.input-img {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-highlight);
+    width: 200px;
+    height: 200px;
 }
-.partsSearchEdit {
+
+
+.carsSearch {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -38,7 +61,7 @@
     border: none;
 }
 
-#nameCarsSearchEdit {
+#nameCarsSearch {
     font-family: 'Mulish';
     font-weight: 400;
     width: 194px;
@@ -50,7 +73,49 @@
     color: #fff;
 }
 
-#partsResultEdit {
+.input-img input[type="file"] {
+    display: none;
+}
+
+.modal-body-parts,
+.modal-body-content {
+    background-color: var(--color-secundary);
+    padding: 15px 30px 30px 30px;
+}
+
+.modal-body-parts h1 {
+    margin: 0;
+}
+
+.top-modal-parts {
+    display: flex;
+    width: 100%;
+    align-items: center !important;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-highlight-hover);
+    margin-bottom: 30px;
+}
+
+.top-modal-parts i {
+    color: var(--color-orange);
+    font-size: 24px;
+}
+
+.modal-body-form-parts {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.box-modal-input input {
+    background-color: var(--color-highlight-hover);
+    border: none;
+    height: 35px;
+}
+
+#carsResultEdit {
     background-color: var(--color-highlight);
     width: 194px; 
     max-height: 150px; 
@@ -66,7 +131,7 @@
     flex-direction: column;
 }
 
-.partsSearchEdit ul {
+.carsSearch ul {
     margin: 0; 
     padding: 0; 
     list-style: none; 
@@ -76,7 +141,7 @@
     border-radius: 0px;
 }
 
-#partsResultEdit .part-item {
+#carsResultEdit .car-item {
     width: 100%;
     color: #fff; 
     padding: 10px;
@@ -88,19 +153,19 @@
     text-overflow: ellipsis;
 }
 
-#partsResultEdit .part-item:last-child {
+#carsResultEdit .car-item:last-child {
     border-bottom: none; 
 }
 
-#partsResultEdit .part-item:hover {
+#carsResultEdit .car-item:hover {
     background-color: var(--color-orange-hover); 
 }
 
-#partsResultEdit input{
+#carsResultEdit input{
     border-bottom: 2px solid var(--color-orange) !important;
 }
 
-.part-item{
+.car-item{
     display: flex;
     align-items: center;
     min-height: 35px !important;
@@ -108,31 +173,98 @@
     max-height: 35px !important;
 }
 
+.box-modal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 37px;
+    height: 37px;
+}
+
+.box-modal-input {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-highlight);
+    height: 35px;
+}
+
+.buttonAnexo {
+    display: flex;
+    background-color: var(--color-orange);
+    color: #fff;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
 
 .fechar {
-    padding: 4px 0px 0px 20px;
+    border: none;
+    background-color: var(--color-secundary);
 }
 
-.parts-viewEdit {
-    padding-top: 10px;
-    max-width: 194px !important;
-    width: 100%;
-    min-height: 190px;
-    height: 250px;
+.modal-body-img label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    background-color: var(--color-orange);
+    color: #fff;
 }
 
-.modal-body-parts {
-    padding: 20px 30px 20px 30px;
+.modal-body-form-parts {
+    display: flex;
+    flex-direction: row;
+    height: 260px;
 }
 
-.part-select {
+.labels-parts {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.column {
+    display: flex;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background-color: var(--color-highlight-hover);
+}
+
+.top-modal-parts h1 {
+    font-family: "Mulish", system-ui;
+    font-size: 30px;
+    font-weight: 1000;
+    color: var(--color-orange);
+}
+
+#nameSearch {
+    border-radius: 5px;
+}
+
+.icone i {
+    color: #fff;
+}
+
+.car-select {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
 }
 
-.part-select i {
+.car-select i {
     position: absolute;
     right: 10px;
     font-size: 16px;
@@ -140,7 +272,7 @@
     color: var(--color-orange);
 }
 
-.parts-viewEdit {
+.cars-viewEdit {
     max-width: 190px;
     width: 100%;
     min-height: 180px;
@@ -151,7 +283,7 @@
     background-color: var(--color-highlight-hover);
 }
 
-.parts-viewEdit li{
+.cars-viewEdit li{
     display: flex;
     border-bottom: 1px solid var(--color-highlight-hover);
     align-items: center;
@@ -163,16 +295,45 @@
     background-color: var(--color-highlight);
 }
 
-.parts-viewEdit i{
+.cars-viewEdit i{
     font-size: 16px
 }
 
-.parts-viewEdit span {
+.cars-viewEdit span {
     text-overflow: ellipsis;
     white-space:nowrap;
     overflow: hidden;
 }
 
-li i:hover{
+li i:hover, .buttonAnexo{
     cursor: pointer;
+}
+
+#dropArea {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dropArea.dragover {
+    background-color: #f0f0f0;
+}
+
+#dropAreaEdit {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dropArea.dragover {
+    background-color: #f0f0f0;
+}
+
+#imagePreview {
+    max-width: 125%;
+    height: auto;
 }

@@ -29,7 +29,6 @@ const addPart = (response) => {
 }
 
 async function pesquisarPecas(partName) {
-    const urlBase = window.location.pathname.split("/")[1];
     const urlPesquisarPecas = `/${urlBase}/parts/pesquisar-pecas-desconto`;
 
     return await $.getJSON(
@@ -81,7 +80,6 @@ $('#partsResult').on('click', async (event) => {
 });
 
 async function pesquisarPecaPorId(partId) {
-    const urlBase = window.location.pathname.split("/")[1];
     const urlPesquisaPecaPorId = `/${urlBase}/parts/pesquisar-pecas-por-id`;
     return await $.getJSON(
         `${urlPesquisaPecaPorId}?partId=${partId}`);
