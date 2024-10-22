@@ -77,30 +77,6 @@ $('#carsResult').on('click', (event) => {
     }
 });
 
-$('#carsResultEdit').on('click', (event) => {
-
-    const liSelected = $(event.target);
-
-    if(liSelected.is('li')){
-
-        if($(`.cars-viewEdit input[value="${liSelected.attr('data-id')}"]`).length > 0){
-            return;
-        }
-
-        const carsViewLength = $('.cars-viewEdit li').length;
-        const liElementCars = $(
-            `<li title="${liSelected.text()}">
-            <input type="hidden" value="${liSelected.attr('data-id')}" name="cars[${carsViewLength}][id]">
-            <span>${liSelected.text()}</span>
-            <i class="fa-solid fa-xmark button-remove"></i>
-        </li>`
-        );
-
-        $('.cars-viewEdit').append(liElementCars);
-        $('#carsResultEdit').hide();
-    }
-});
-
 $(".anexo").change((event) => {
     const input = event.target;
     if (input.files && input.files[0]) {
@@ -111,21 +87,6 @@ $(".anexo").change((event) => {
         reader.readAsDataURL(input.files[0]);
     }
 });
-
-// Evento para detectar a alteração da imagem
-$(".anexoEdit").change((event) => {
-    const input = event.target;
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            $('#imagePreviewEdit').attr('src', '').hide();
-            $('#imagePreviewEdit').attr('src', e.target.result).show();
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-});
-
-
 
 async function pesquisarCarrosRelacionados(partId) {
     const urlPesquisarCarros = `/${urlBase}/cars/pesquisar-carros-relacionados`;
