@@ -61,7 +61,7 @@
     border: none;
 }
 
-#nameCarsSearch {
+#nameCarsSearchEdit {
     font-family: 'Mulish';
     font-weight: 400;
     width: 194px;
@@ -249,11 +249,7 @@
     color: var(--color-orange);
 }
 
-#nameSearch {
-    border-radius: 5px;
-}
-
-.icone i {
+.iconeEdit i {
     color: #fff;
 }
 
@@ -309,18 +305,6 @@ li i:hover, .buttonAnexo{
     cursor: pointer;
 }
 
-#dropArea {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#dropArea.dragover {
-    background-color: #f0f0f0;
-}
-
 #dropAreaEdit {
     border: 2px dashed #ccc;
     padding: 20px;
@@ -329,11 +313,23 @@ li i:hover, .buttonAnexo{
     cursor: pointer;
 }
 
-#dropArea.dragover {
+#dropAreaEdit.dragover {
     background-color: #f0f0f0;
 }
 
-#imagePreview {
+#dropAreaEditEdit {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dropAreaEdit.dragover {
+    background-color: #f0f0f0;
+}
+
+#imagePreviewEdit {
     max-width: 125%;
     height: auto;
 }

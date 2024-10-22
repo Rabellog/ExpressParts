@@ -352,66 +352,28 @@ const buscarInformacoesPart = (response, response1) => {
     }
 };
 
+$(".anexoEdit").change((event) => {
+    const input = event.target;
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            $('#imagePreviewEdit').attr('src', '').hide();
+            $('#imagePreviewEdit').attr('src', e.target.result).show();
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+});
+
 const dropAreaEdit = document.getElementById('dropAreaEdit');
-const inputFileEdit = document.getElementById('image');
-const imagePreviewEdit = document.getElementById('imagePreview');
+const inputFileEdit = document.getElementById('imageEdit'); // Ajuste no ID
+const imagePreviewEdit = document.getElementById('imagePreviewEdit');
 const iconEdit = document.getElementById('iconeEdit');
 
-document.getElementById('image').addEventListener('change', function (event) {
-    if (event.target.files && event.target.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            imagePreviewEdit.src = '';
-            imagePreviewEdit.hidden = true;
-
-            imagePreviewEdit.src = e.target.result;
-            imagePreviewEdit.hidden = false;
-            iconEdit.style.display = 'none';
-        };
-
-        reader.readAsDataURL(event.target.files[0]);
-    }
-});
-
-['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-    dropAreaEdit.addEventListener(eventName, preventDefaultsEdit, false);
-});
-
-function preventDefaultsEdit(e) {
-    e.preventDefault();
-    e.stopPropagation();
-}
-
-['dragenter', 'dragover'].forEach(eventName => {
-    dropAreaEdit.addEventListener(eventName, () => dropAreaEdit.classList.add('dragover'), false);
-});
-
-['dragleave', 'drop'].forEach(eventName => {
-    dropAreaEdit.addEventListener(eventName, () => dropAreaEdit.classList.remove('dragover'), false);
-});
-
-dropAreaEdit.addEventListener('drop', handleDropEdit, false);
-
-function handleDropEdit(e) {
-    const files = e.dataTransfer.files;
-    inputFileEdit.files = files;
-    handleFileEdit(files[0]);
-}
-
-inputFileEdit.addEventListener('change', function (event) {
-    if (event.target.files && event.target.files[0]) {
-        handleFileEdit(event.target.files[0]);
-    }
-});
-
-function handleFileEdit(file) {
+// Função para lidar com o arquivo selecionado ou arrastado
+function handleFile(file) {
     const reader = new FileReader();
 
     reader.onload = function (e) {
-        imagePreviewEdit.src = '';
-        imagePreviewEdit.hidden = true;
-
         imagePreviewEdit.src = e.target.result;
         imagePreviewEdit.hidden = false;
         iconEdit.style.display = 'none';
@@ -420,13 +382,49 @@ function handleFileEdit(file) {
     reader.readAsDataURL(file);
 }
 
-$('#nameCarsSearchEdit').on('input', async (event) => {
+// Evento de mudança no input de arquivo
+inputFileEdit.addEventListener('change', function (event) {
+    if (event.target.files && event.target.files[0]) {
+        handleFile(event.target.files[0]);
+    }
+});
 
-    console.log('O input é: ', $('#nameCarsSearchEdit').val()); 
+// Prevenir comportamento padrão de arrastar e soltar
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropAreaEdit.addEventListener(eventName, preventDefaults, false);
+});
+
+function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+}
+
+// Adicionar e remover classe CSS ao arrastar
+['dragenter', 'dragover'].forEach(eventName => {
+    dropAreaEdit.addEventListener(eventName, () => dropAreaEdit.classList.add('dragover'), false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    dropAreaEdit.addEventListener(eventName, () => dropAreaEdit.classList.remove('dragover'), false);
+});
+
+// Lidar com o arquivo arrastado
+dropAreaEdit.addEventListener('drop', function (e) {
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        inputFileEdit.files = files; // Definir os arquivos do input
+        handleFile(files[0]); // Lidar com o arquivo
+    }
+}, false);
+
+
+$('.nameCarsSearchEdit').on('input', async (event) => {
+
+    console.log('O input é: ', $('.nameCarsSearchEdit').val()); 
     
     try {
-        console.log($('#nameCarsSearchEdit'));
-        const carsElementEdit = $('#carsResultEdit');
+        console.log($('.nameCarsSearchEdit'));
+        const carsElementEdit = $('.carsResultEdit');
         console.log(carsElementEdit);
 
         const carName = $(event.target).val();
@@ -442,16 +440,40 @@ $('#nameCarsSearchEdit').on('input', async (event) => {
     }
 });
 
-$('#nameCarsSearchEdit').on('blur', () => {
+$('.nameCarsSearchEdit').on('blur', () => {
     setTimeout(() => {
-        $('#carsResultEdit').hide();
+        $('.carsResultEdit').hide();
     }, 300);
 });
 
-$('#nameCarsSearchEdit').on('focus', () => {
-    const resultEditCarLength = $('#carsResultEdit').children().length;
+$('.nameCarsSearchEdit').on('focus', () => {
+    const resultEditCarLength = $('.carsResultEdit').children().length;
     if (resultEditCarLength > 0) {
-        $('#carsResultEdit').show();
+        $('.carsResultEdit').show();
+    }
+});
+
+$('.carsResultEdit').on('click', (event) => {
+console.log($('.carsResultEdit'));
+    const liSelected = $(event.target);
+
+    if(liSelected.is('li')){
+
+        if($(`.cars-viewEdit input[value="${liSelected.attr('data-id')}"]`).length > 0){
+            return;
+        }
+
+        const carsViewLength = $('.cars-viewEdit li').length;
+        const liElementCars = $(
+            `<li title="${liSelected.text()}">
+            <input type="hidden" value="${liSelected.attr('data-id')}" name="cars[${carsViewLength}][id]">
+            <span>${liSelected.text()}</span>
+            <i class="fa-solid fa-xmark button-remove"></i>
+        </li>`
+        );
+
+        $('.cars-viewEdit').append(liElementCars);
+        $('.carsResultEdit').hide();
     }
 });
 

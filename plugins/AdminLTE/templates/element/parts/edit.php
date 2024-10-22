@@ -1,4 +1,4 @@
-<?php echo $this->Html->css('parts/add-parts.css'); ?>
+<?php echo $this->Html->css('parts/edit-parts.css'); ?>
 
 <div class="modal fade" id="modalEditarPecas" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel">
   <div class="modal-dialog">
@@ -11,19 +11,19 @@
         </button>
       </div>
 
-      <?php echo $this->Form->create(null, ['id' => 'formPartEdit','role' => 'form', 'type' => 'file', 'url' => ['controller' => 'Parts', 'action' => 'edit']]); ?>
+      <?php echo $this->Form->create(null, ['id' => 'formPartEdit', 'role' => 'form', 'type' => 'file', 'url' => ['controller' => 'Parts', 'action' => 'edit']]); ?>
 
       <div class="modal-body-form-parts">
 
-      <input type="hidden" id="selectedPartId" name="partId">
+        <input type="hidden" id="selectedPartId" name="partId">
 
         <div class="modal-input-img">
-          <label for="image" class="input-img" id="dropAreaEdit">
+          <label for="imageEdit" class="input-img" id="dropAreaEdit">
             <i id="iconeEdit" class="fa-solid fa-file-circle-plus"></i>
-            <img id="imagePreview" src="" alt="imagePreview" class="imagePreview" hidden>
-            <input type="file" id="image" name="image" class="anexoEdit" accept=".jpg, .jpeg, .png">
+            <img id="imagePreviewEdit" src="" alt="imagePreview" class="imagePreviewEdit" hidden>
+            <input type="file" id="imageEdit" name="imageEdit" class="anexoEdit" accept=".jpg, .jpeg, .png">
           </label>
-          <label for="image" class="buttonAnexo">Alterar foto</label>
+          <label for="imageEdit" class="buttonAnexo">Alterar foto</label>
         </div>
 
         <fieldset>
@@ -65,21 +65,20 @@
           <label>
             <span>Nome dos veículos:</span>
             <div class="box-modal-input searchs">
-              <input type="text" id="nameCarsSearchEdit">
+              <input type="text" id="nameCarsSearchEdit" class="nameCarsSearchEdit">
             </div>
           </label>
 
-          <ul id="carsResultEdit">
+          <ul id="carsResultEdit" class="carsResultEdit">
           </ul>
 
 
-          <ul class="cars-view" id="cars-viewEdit">
+          <ul class="cars-viewEdit" id="cars-viewEdit">
           </ul>
 
         </div>
       </div>
-
-
+   
 
     </div>
 

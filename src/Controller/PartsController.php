@@ -110,53 +110,44 @@ class PartsController extends AppController
             'contain' => ['Cars']
         ]);
 
-        if (!$partId) {
-            $this->Flash->error(__('Peça não encontrada.'));
-            return $this->redirect(['action' => 'index']);
-        }
+        $oldImage = $part->image;
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $image = $this->request->getData('image');
-            $part = $this->Parts->patchEntity($part, $this->request->getData());
+            $data = $this->request->getData();
+            $image = $this->request->getData('imageEdit');
+
+            $part = $this->Parts->patchEntity($part, $data);
+
             $part->users_id = $this->Auth->user('id');
-            $part->modified_by = $this->Auth->user('name'); 
+            $part->modified_by = $this->Auth->user('name');
 
             if (!empty($image->getClientFilename())) {
                 $targetPath = WWW_ROOT . 'img/parts/';
+
                 $fileName = time() . '_' . $image->getClientFilename();
                 $filePath = $targetPath . $fileName;
-            
+
                 $caminhoTemporario = $image->getStream()->getMetadata('uri');
-            
-                // Mover o arquivo para o caminho final
+
                 if (!move_uploaded_file($caminhoTemporario, $filePath)) {
-                    $this->Flash->error(__('A Peça não pode ser editada. Por favor, tente novamente.'));
+                    $this->Flash->error(__('A Peça não pode ser salva. Por favor, tente novamente.'));
                     return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
                 } else {
-                    // Se o upload foi bem-sucedido, atualize o campo 'image'
                     $part->image = $fileName;
                 }
             } else {
-                // Quando não há uma nova imagem enviada
-                // Verifique se a peça já tem uma imagem anterior
-                if (!empty($part->image)) {
-                    // Mantém a imagem existente
-                    $part->image = $part->image; 
-                } else {
-                    // Se não houver uma imagem anterior, pode definir um valor padrão ou tratar o caso
-                    $this->Flash->error(__('A Peça precisa ter uma imagem. Por favor, envie uma.'));
-                    return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
-                }
+                $part->image = $oldImage;
             }
-            
 
             if ($this->Parts->save($part)) {
                 $this->Flash->success(__('A Peça foi editada.'));
                 return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
             }
+
             $this->Flash->error(__('A Peça não pode ser editada. Por favor, tente novamente.'));
             return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
+
         $users = $this->Parts->Users->find('list', ['limit' => 200]);
         $cars = $this->Parts->Cars->find('list', ['limit' => 200]);
         $this->set(compact('part', 'users', 'cars'));

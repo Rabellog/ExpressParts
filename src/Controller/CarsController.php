@@ -176,9 +176,6 @@ class CarsController extends AppController
                 return $q->where(['Parts.id' => $partId]);
             })
             ->all();
-            if ($cars->isEmpty()) {
-                $this->Flash->error(__('Nenhum carro encontrado para esta peça.'));
-            }
         } catch (Exception $e) {
 
             $response['hasError'] = true;
