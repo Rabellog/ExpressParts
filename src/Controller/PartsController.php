@@ -161,17 +161,32 @@ class PartsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete($partId = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $part = $this->Parts->get($id);
-        if ($this->Parts->delete($part)) {
-            $this->Flash->success(__('The {0} has been deleted.', 'Part'));
-        } else {
-            $this->Flash->error(__('The {0} could not be deleted. Please, try again.', 'Part'));
+        $part = $this->Parts->get($partId, [
+            'contain' => ['Cars']
+        ]);
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $data = $this->request->getData();
+
+            $part = $this->Parts->patchEntity($part, $data);
+
+            $part->users_id = $this->Auth->user('id');
+            $part->modified_by = $this->Auth->user('name');
+
+            if ($this->Parts->delete($part)) {
+                $this->Flash->success(__('A Peça foi deletada.'));
+                return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+            }
+
+            $this->Flash->error(__('A Peça não pode ser deletada. Por favor, tente novamente.'));
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
 
-        return $this->redirect(['action' => 'index']);
+        $users = $this->Parts->Users->find('list', ['limit' => 200]);
+        $cars = $this->Parts->Cars->find('list', ['limit' => 200]);
+        $this->set(compact('part', 'users', 'cars'));
     }
 
     public function buscarPecas()
@@ -353,5 +368,35 @@ class PartsController extends AppController
         }
 
         return $this->response->withType("application/json")->withStringBody(json_encode($response));
+    }
+
+    public function desativarPeca($partId = null)
+    {
+        $part = $this->Parts->get($partId, [
+            'contain' => ['Cars']
+        ]);
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $data = $this->request->getData();
+
+            $part = $this->Parts->patchEntity($part, $data);
+
+            $part->users_id = $this->Auth->user('id');
+            $part->modified_by = $this->Auth->user('name');
+
+            $part->active = 0;
+
+            if ($this->Parts->save($part)) {
+                $this->Flash->success(__('A Peça foi deletada.'));
+                return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+            }
+
+            $this->Flash->error(__('A Peça não pode ser deletada. Por favor, tente novamente.'));
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
+        }
+
+        $users = $this->Parts->Users->find('list', ['limit' => 200]);
+        $cars = $this->Parts->Cars->find('list', ['limit' => 200]);
+        $this->set(compact('part', 'users', 'cars'));
     }
 }

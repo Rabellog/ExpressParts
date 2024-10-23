@@ -1,6 +1,6 @@
 // home
 
-const exibir = 10;
+const exibir = 15;
 var searchPart = "";
 let paginaAtual = 1;
 
@@ -51,6 +51,8 @@ function gerenciarExibicaoUsuario() {
         $(".logout").show();
         $("#editarCarros").show();
         $("#editarPecas").show();
+        $("#catalogoNav").show();
+        $(".excluir").show();
     } else {
         $("#adicionarCarros").hide();
         $("#adicionarPecas").hide();
@@ -58,6 +60,8 @@ function gerenciarExibicaoUsuario() {
         $(".logout").hide();
         $("#editarCarros").hide();
         $("#editarPecas").hide();
+        $("#catalogoNav").hide();
+        $(".excluir").hide();
     }
 }
 
@@ -141,7 +145,7 @@ const adicionarPecas = (response) => {
 
         for (const peca of pecas) {
 
-            const liElement = $(`<div class="part"><div class="img" id="${peca.id}"><img src="img/parts/${peca.image}" alt="${peca.name}"></div><p>${peca.name}</p><span>R$ ${peca.price}</span><a href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto ${peca.name}, que custa R$ ${peca.price}." target="_blank" class="comprar">Comprar</a></div>`);
+            const liElement = $(`<div class="part"><div class="botao"><button class="excluir"><i class="fa-solid fa-xmark excluirPeca" data-id="${peca.id}"></i></button></div><div class="img" id="${peca.id}"><img src="img/parts/${peca.image}" alt="${peca.name}"></div><p>${peca.name}</p><span>R$ ${peca.price}</span><a href="https://wa.me/48998404930?text=Olá, gostaria de comprar o produto ${peca.name}, que custa R$ ${peca.price}." target="_blank" class="comprar">Comprar</a></div>`);
 
             $('#parts').append(liElement);
         }
@@ -178,10 +182,6 @@ $('#searchParts').on('keyup', async (event) => {
 
         }
     }
-})
-
-$('#catalogoNav').on('click', () => {
-    rolarTela();
 })
 
 $('#buttonCatalogo').on('click', () => {
@@ -365,11 +365,10 @@ $(".anexoEdit").change((event) => {
 });
 
 const dropAreaEdit = document.getElementById('dropAreaEdit');
-const inputFileEdit = document.getElementById('imageEdit'); // Ajuste no ID
+const inputFileEdit = document.getElementById('imageEdit'); 
 const imagePreviewEdit = document.getElementById('imagePreviewEdit');
 const iconEdit = document.getElementById('iconeEdit');
 
-// Função para lidar com o arquivo selecionado ou arrastado
 function handleFile(file) {
     const reader = new FileReader();
 
@@ -382,14 +381,12 @@ function handleFile(file) {
     reader.readAsDataURL(file);
 }
 
-// Evento de mudança no input de arquivo
 inputFileEdit.addEventListener('change', function (event) {
     if (event.target.files && event.target.files[0]) {
         handleFile(event.target.files[0]);
     }
 });
 
-// Prevenir comportamento padrão de arrastar e soltar
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     dropAreaEdit.addEventListener(eventName, preventDefaults, false);
 });
@@ -399,7 +396,6 @@ function preventDefaults(e) {
     e.stopPropagation();
 }
 
-// Adicionar e remover classe CSS ao arrastar
 ['dragenter', 'dragover'].forEach(eventName => {
     dropAreaEdit.addEventListener(eventName, () => dropAreaEdit.classList.add('dragover'), false);
 });
@@ -408,12 +404,11 @@ function preventDefaults(e) {
     dropAreaEdit.addEventListener(eventName, () => dropAreaEdit.classList.remove('dragover'), false);
 });
 
-// Lidar com o arquivo arrastado
 dropAreaEdit.addEventListener('drop', function (e) {
     const files = e.dataTransfer.files;
     if (files.length > 0) {
-        inputFileEdit.files = files; // Definir os arquivos do input
-        handleFile(files[0]); // Lidar com o arquivo
+        inputFileEdit.files = files; 
+        handleFile(files[0]); 
     }
 }, false);
 
@@ -528,4 +523,25 @@ $('#editar').on('click', () => {
     const partId = $("#selectedPartId").val();
     const action = $("#formPartEdit").attr('action');
     $("#formPartEdit").attr('action', `${action}/${partId}`);
+});
+
+//exclusao pecas
+$(document).on('click', '.fa-solid.fa-xmark.excluirPeca', function () {
+    const partId = $(this).data('id'); 
+    console.log(partId);  
+
+    $('#modalConfirmacaoExclusao').find('#excluir').data('part-id', partId);
+    
+    $('#modalConfirmacaoExclusao').modal("toggle");
+});
+
+$('#excluir').on('click', function () {
+    const partId = $(this).data('part-id'); 
+
+    if (partId) {
+        const action = $("#formPartDelete").attr('action');
+        $("#formPartDelete").attr('action', `${action}/${partId}`);
+    } else {
+        console.log("Part ID não encontrado");
+    }
 });

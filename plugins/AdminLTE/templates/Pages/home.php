@@ -1,8 +1,9 @@
 <?php echo $this->element('cars/add') ?>
+<?php echo $this->element('cars/edit') ?>
 <?php echo $this->element('cars/search-car') ?>
 <?php echo $this->element('parts/add') ?>
-<?php echo $this->element('cars/edit') ?>
 <?php echo $this->element('parts/edit') ?>
+<?php echo $this->element('parts/delete') ?>
 <?php echo $this->element('parts/sale') ?>
 
 <main>
@@ -18,15 +19,15 @@
     </div>
 
     <div class="card">
-      <i class="fa-solid fa-list"></i>
-      <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
-      <button class="buttonCard" id="buttonCatalogo">Catálogo</button>
-    </div>
-
-    <div class="card">
       <i class="fa-solid fa-percent"></i>
       <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
       <button class="buttonCard" id="buttonPromocoes">Promoções</button>
+    </div>
+
+    <div class="card">
+      <i class="fa-solid fa-list"></i>
+      <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
+      <button class="buttonCard" id="buttonCatalogo">Catálogo</button>
     </div>
   </div>
 
@@ -73,7 +74,7 @@
   <div class="parts" id="parts"></div>
   <ul class="pagination" id="pagination">
   </ul>
-  
+
 
 </main>
 
