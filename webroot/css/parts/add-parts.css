@@ -206,6 +206,7 @@
 .fechar {
     border: none;
     background-color: var(--color-secundary);
+    padding: 4px 0px 0px 20px;
 }
 
 .modal-body-img label {

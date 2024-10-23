@@ -203,11 +203,6 @@
     align-items: center;
 }
 
-.fechar {
-    border: none;
-    background-color: var(--color-secundary);
-}
-
 .modal-body-img label {
     display: flex;
     align-items: center;

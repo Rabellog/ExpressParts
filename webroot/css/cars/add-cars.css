@@ -92,8 +92,3 @@
 .box-modal-icon i{
     font-size: 17px;
 }
-
-.fechar{
-    border: none;
-    background-color: var(--color-secundary);
-}

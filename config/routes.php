@@ -62,16 +62,17 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
-        $builder->connect('/usuarios',['controller' => 'Users','action' => 'index']);
-        $builder->connect('/usuarios/adicionar',['controller' => 'Users','action' => 'add']);
-        $builder->connect('/usuarios/visualizar/*',['controller' => 'Users','action' => 'view']);
-        $builder->connect('/usuarios/editar/*',['controller' => 'Users','action' => 'edit']);
-        $builder->connect('/login', ['controller' => 'Users', 'action' => 'login']);
+        // $builder->connect('/usuarios',['controller' => 'Users','action' => 'index']);
+        // $builder->connect('/usuarios/adicionar',['controller' => 'Users','action' => 'add']);
+        // $builder->connect('/usuarios/visualizar/*',['controller' => 'Users','action' => 'view']);
+        // $builder->connect('/usuarios/editar/*',['controller' => 'Users','action' => 'edit']);
+        $builder->connect('/entrar', ['controller' => 'Users', 'action' => 'login']);
 
         $builder->connect('/carros',['controller' => 'Cars','action' => 'index']);
         $builder->connect('/carros/adicionar',['controller' => 'Cars','action' => 'add']);
         $builder->connect('/carros/visualizar/*',['controller' => 'Cars','action' => 'view']);
         $builder->connect('/carros/editar/*',['controller' => 'Cars','action' => 'edit']);
+        $builder->connect('/carros/listagem',['controller' => 'Cars','action' => 'carsList']);
 
         $builder->connect('/pecas',['controller' => 'Parts','action' => 'index']);
         $builder->connect('/pecas/adicionar',['controller' => 'Parts','action' => 'add']);
