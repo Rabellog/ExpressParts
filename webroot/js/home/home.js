@@ -51,8 +51,7 @@ function gerenciarExibicaoUsuario() {
         $(".logout").show();
         $("#editarCarros").show();
         $("#editarPecas").show();
-        $("#catalogoNav").show();
-        $(".excluir").show();
+        $(".botao").show();
     } else {
         $("#adicionarCarros").hide();
         $("#adicionarPecas").hide();
@@ -60,8 +59,7 @@ function gerenciarExibicaoUsuario() {
         $(".logout").hide();
         $("#editarCarros").hide();
         $("#editarPecas").hide();
-        $("#catalogoNav").hide();
-        $(".excluir").hide();
+        $(".botao").hide();
     }
 }
 

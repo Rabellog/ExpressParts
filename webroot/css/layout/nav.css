@@ -1,7 +1,13 @@
+nav {
+    gap: 10px;
+}
+
 a:hover{
-    transition: 2s;
     color: var(--color-orange-hover);
-    background-color: var(--color-highlight);
+}
+
+a{
+    transition: 250ms;
 }
 
 .logout{
@@ -28,14 +34,19 @@ a:hover{
     background-color: var(--color-highlight);
     height: 40px;
     width: 190px;
+    transition: 250ms;
 }
 
 .login:hover{
-    transition: 3s;
     background-color: var(--color-highlight-hover);
 }
 
 li img{
     width: 120px;
     height: 120px;
+}
+
+.navUl {
+    gap: 80px !important;
+    font-size: 15px;
 }

@@ -337,6 +337,7 @@ img{
     font-weight: 400;
     font-size: 20px;
     border: none;
+    transition: 250ms;
 }
 
 .pagination.active span {
@@ -347,6 +348,7 @@ img{
     font-family: 'Mulish';
     font-weight: 400;
     font-size: 20px; 
+    transition: 250ms;
 }
 
 .pagination.active span:hover {
@@ -368,7 +370,7 @@ img{
 
 .pagination li span:focus {
     background-color: var(--color-orange-hover); 
-    color: #fff;
+
     cursor: pointer;           
 }
 
@@ -399,4 +401,23 @@ img{
 .fa-solid.fa-xmark.excluirPeca:hover {
     color: var(--color-highlight-hover);
     cursor: pointer;
+}
+
+#logoNav:hover{
+    background-color: transparent;
+}
+
+#logoNav {
+    display: flex;
+    width: 110px;
+    justify-content: center;
+}
+
+.logoImg {
+    width: 110px;
+    height: auto;
+}
+
+.guiasNav {
+    margin: 10px;
 }
