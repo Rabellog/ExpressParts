@@ -44,23 +44,14 @@ $('#aadicionarCarros').on('click', () => {
 
 function gerenciarExibicaoUsuario() {
     if (usuarioExiste) {
-        $("#adicionarCarros").show();
-        $("#adicionarDesconto").show();
-        $("#adicionarPecas").show();
+        $("#adicionarCarros, #adicionarDesconto, #adicionarPecas, #editarCarros, #editarPecas").show();
         $(".login").hide();
-        $(".logout").show();
-        $("#editarCarros").show();
-        $("#editarPecas").show();
-        $(".botao").show();
+        $(".logout, .botao").show();
     } else {
-        $("#adicionarCarros").hide();
-        $("#adicionarPecas").hide();
-        $("#adicionarDesconto").hide();
-        $(".logout").hide();
-        $("#editarCarros").hide();
-        $("#editarPecas").hide();
-        $(".botao").hide();
+        $("#adicionarCarros, #adicionarPecas, #adicionarDesconto, #editarCarros, #editarPecas").hide();
+        $(".logout, .botao").hide();
     }
+    console.log($(".botao").length > 0 ? 'Botão existe no DOM' : 'Botão não existe no DOM');
 }
 
 const buscarPaginas = async (exibir) => {
@@ -147,6 +138,7 @@ const adicionarPecas = (response) => {
 
             $('#parts').append(liElement);
         }
+        gerenciarExibicaoUsuario();
     }
 }
 

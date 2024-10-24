@@ -66,15 +66,16 @@
     min-height: 90px;
     height: 90px;
     width: 176px;
-    top: 190px;
+    top: 168px;
     position: absolute;
     gap: 0px;
-    border-radius: 5px;
+    border-radius: 0px 0px 0px 5px;
 }
 
 #partsResult li{
     padding: 7px;
     border-bottom: 1px solid var(--color-highlight-hover);
+    color: #fff;
 }
 
 #partsResult li:hover{
