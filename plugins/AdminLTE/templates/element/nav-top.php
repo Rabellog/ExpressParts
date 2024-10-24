@@ -2,6 +2,7 @@
 
 <nav>
     <ul>
+    <li><img src="webroot\img\logotipo1.png"></li>
         <li><a href="#" id="catalogoNav" onclick="window.location.href='<?php echo $this->Url->build(['controller' => 'Pages', 'action' => 'display', 'home']); ?>'">Ver Catálogo</a></li>
         <li><a href="#" id="adicionarCarros">Adicionar carro</a></li>
         <li><a href="#" id="adicionarPecas">Adicionar peça</a></li>
