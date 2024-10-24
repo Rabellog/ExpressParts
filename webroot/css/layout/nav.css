@@ -34,3 +34,8 @@ a:hover{
     transition: 3s;
     background-color: var(--color-highlight-hover);
 }
+
+li img{
+    width: 120px;
+    height: 120px;
+}
