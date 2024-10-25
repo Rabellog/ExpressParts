@@ -28,11 +28,6 @@
     margin-top: 0px !important;
 }
 
-#ofertas saveDiscount{
-    width: 100%;
-    height: 45px;
-}
-
 #ofertas strong{
     color: red;
     font-family: 'Mulish';
@@ -92,6 +87,11 @@
     color: #fff;
     font-size: 16px;
     margin-top: 20px !important;
+    transition: 250ms;
+}
+
+.saveDiscount:hover {
+    background-color: var(--color-orange-hover);
 }
 
 #partsResult {

@@ -10,7 +10,7 @@
       <div class="top-modal-cars">
         <h1>Editar carros</h1>
         <button class="fechar" type="button" data-dismiss="modal" aria-label="Close">
-          <i class="fa-solid fa-xmark"></i>
+          <i class="fa-solid fa-xmark fecharModal"></i>
         </button>
       </div>
 

@@ -189,20 +189,6 @@
     height: 35px;
 }
 
-.buttonAnexo {
-    display: flex;
-    background-color: var(--color-orange);
-    color: #fff;
-    border: none;
-    height: 40px;
-    width: 100px;
-    border-radius: 5px;
-    font-weight: 400;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
 .modal-body-img label {
     display: flex;
     align-items: center;

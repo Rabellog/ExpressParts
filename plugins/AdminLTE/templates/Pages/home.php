@@ -12,7 +12,7 @@
   <div class="container">
     <div class="card">
       <i class="fa-solid fa-phone"></i>
-      <p>Nossa equipe especializada está pronta para ajudar você a encontrar a peça ideal. Conte conosco!</p>
+      <p>Conte com nossa equipe especializada para encontrar a peça perfeita para o seu carro. Estamos prontos para ajudar você!</p>
       <a href="https://wa.me/5548996186913?text=Olá%2C%20preciso%20de%20suporte." target="_blank" class="suporte">
         <button class="buttonCardSuporte">Suporte</button>
       </a>
@@ -20,13 +20,13 @@
 
     <div class="card">
       <i class="fa-solid fa-percent"></i>
-      <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
+      <p>Encontre as peças automotivas que você precisa, com descontos especiais e produtos de alta qualidade!</p>
       <button class="buttonCard" id="buttonPromocoes">Promoções</button>
     </div>
 
     <div class="card">
       <i class="fa-solid fa-list"></i>
-      <p>Explore nossa linha completa de peças automotivas com as melhores marcas e produtos. Encontre tudo o que seu carro precisa em um só lugar!</p>
+      <p>Descubra nossa linha completa de peças automotivas. Tudo o que o seu carro precisa, você encontra em um só lugar!</p>
       <button class="buttonCard" id="buttonCatalogo">Catálogo</button>
     </div>
   </div>
@@ -35,7 +35,7 @@
 
   <div class="search">
     <input type="text" class="input-search" id="searchParts" placeholder="Buscar...">
-    <?php echo $this->Form->button(__(''), ['class' => 'fa-solid fa-magnifying-glass teste', 'id' => 'btnSearch']); ?>
+    <?php echo $this->Form->button(__(''), ['class' => 'fa-solid fa-magnifying-glass lupa', 'id' => 'btnSearch']); ?>
   </div>
 
 

@@ -82,7 +82,13 @@
     width: 100px;
     height: 40px;
     background-color: var(--color-orange);
-    color: #fff;
+    color: var(--color-background); 
+    font-weight: 700;
+    transition: 250ms;
+}
+
+.button-adicionar:hover {
+    background-color: var(--color-orange-hover);
 }
 
 .box-modal-icon{

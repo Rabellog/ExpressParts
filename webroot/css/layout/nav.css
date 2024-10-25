@@ -21,6 +21,11 @@ a{
     background-color: var(--color-highlight);
     height: 40px;
     width: 80px;
+    transition: 250ms;
+}
+
+.logout:hover {
+    background-color: var(--color-highlight-hover);
 }
 
 .login{

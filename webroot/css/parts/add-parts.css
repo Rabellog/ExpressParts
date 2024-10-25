@@ -192,15 +192,19 @@
 .buttonAnexo {
     display: flex;
     background-color: var(--color-orange);
-    color: #fff;
+    color: var(--color-background); 
+    font-weight: 700;
     border: none;
     height: 40px;
     width: 100px;
     border-radius: 5px;
-    font-weight: 400;
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.buttonAnexo:hover {
+    background-color: var(--color-orange-hover);
 }
 
 .fechar {
