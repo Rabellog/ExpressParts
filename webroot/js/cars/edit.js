@@ -40,7 +40,7 @@ $('#nameCarsSearch').on('input', async (event) => {
 
 });
 
-$('#nameCarsSearch').on('blur', (event) => {
+$('#nameCarsSearch').on('blur', () => {
     setTimeout(()=>{
       $('#carsResult').hide();
     },300)

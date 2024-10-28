@@ -84,6 +84,8 @@
 <?php $this->start('scriptBottom'); ?>
 <?php echo $this->Html->script('cars/edit.js'); ?>
 <?php echo $this->Html->script('parts/add.js'); ?>
+<?php echo $this->Html->script('parts/edit.js'); ?>
+<?php echo $this->Html->script('parts/delete.js'); ?>
 <?php echo $this->Html->script('parts/sale.js'); ?>
 <?php echo $this->Html->script('home/home.js'); ?>
 <?php $this->end(); ?>
